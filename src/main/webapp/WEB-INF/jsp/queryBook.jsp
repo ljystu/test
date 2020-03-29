@@ -32,17 +32,17 @@
 <div class="row clearfix">
     <div class="col-md-12 column">
         <table class="table table-hover table-striped">
-<%--            <thead>--%>
-<%--            <tr>--%>
-<%--                <th>书籍编号</th>--%>
-<%--                <th>书籍名字</th>--%>
-<%--                <th>书籍数量</th>--%>
-<%--                <th>书籍类型</th>--%>
-<%--                <th>关键字</th>--%>
-<%--                <th>书籍详情</th>--%>
-<%--                <th>操作</th>--%>
-<%--            </tr>--%>
-<%--            </thead>--%>
+            <thead>
+            <tr>
+                <th>书籍编号</th>
+                <th>书籍名字</th>
+                <th>书籍数量</th>
+                <th>书籍类型</th>
+                <th>关键字</th>
+                <th>书籍详情</th>
+                <th>操作</th>
+            </tr>
+            </thead>
 
             <tbody>
             <c:forEach var="book" items="${requestScope.get('list')}">
