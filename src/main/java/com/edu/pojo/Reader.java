@@ -11,15 +11,6 @@ public class Reader implements Serializable {
     private String rentDate;
     private  String readerNote;
 
-    public Books getBooks() {
-        return books;
-    }
-
-    public void setBooks(Books books) {
-        this.books = books;
-    }
-
-    private Books books;
 
     public int getReaderId() {
         return readerId;

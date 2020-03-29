@@ -5,7 +5,7 @@ import com.edu.pojo.Books;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-@Service
+
 public class BookServiceImpl implements BookService {
 
     //调用dao层的操作，设置一个set接口，方便Spring管理
