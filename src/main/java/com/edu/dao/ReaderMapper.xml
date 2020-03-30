@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.edu.dao.ReaderMapper">
+
+    <resultMap id="BaseResultMap" type="com.edu.pojo.Reader" >
+        <id column="readerId" property="readerId" jdbcType="INTEGER" />
+        <result column="readerName" property="readerName" jdbcType="VARCHAR" />
+        <result column="readerPwd" property="readerPwd" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <insert id="addReader" parameterType="Reader">
+        insert into ssmbuild.readers(readerName,readerType,readerSex,readerBooks,rentDate,readerNote)
+        values (#{readerName},#{readerType},#{readerSex},#{readerBooks},#{rentDate},#{readerNote})
+    </insert>
+
+    <delete id="deleteReaderById" parameterType="int">
+        delete from ssmbuild.readers where readerId=#{readerId}
+    </delete>
+
+    <update id="updateReader" parameterType="Reader">
+        update ssmbuild.readers
+        set readerName=#{readerName},readerType=#{readerType},readerSex=#{readerSex},readerBooks=#{readerBooks},rentDate=#{rentDate},readerNote=#{readerNote}
+        where readerId=#{readerId}
+    </update>
+
+    <select id="findReaderById" resultType="Reader">
+        select * from ssmbuild.readers
+        where readerId=#{readerId}
+    </select>
+
+    <select id="findAllReader" resultType="Reader">
+        select * from ssmbuild.readers
+    </select>
+
+    <select id="findReaderByName" resultType="Reader">
+        select * from ssmbuild.readers
+        where readerName like '%${readerName}%'
+    </select>
+
+    <select id="loginReader" resultMap="BaseResultMap" parameterType="Reader">
+        select * from ssmbuild.readers
+        where readerName = #{readerName} and readerPwd = #{readerPwd}
+    </select>
+</mapper>
