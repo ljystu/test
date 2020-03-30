@@ -10,6 +10,7 @@ public class Reader implements Serializable {
     private int readerBooks;
     private String rentDate;
     private  String readerNote;
+    private String readerPwd;
 
 
     public int getReaderId() {
@@ -68,6 +69,14 @@ public class Reader implements Serializable {
         this.readerNote = readerNote;
     }
 
+    public String getReaderPwd() {
+        return readerPwd;
+    }
+
+    public void setReaderPwd(String readerPwd) {
+        this.readerPwd = readerPwd;
+    }
+
     @Override
     public String toString() {
         return "Reader{" +
@@ -78,6 +87,7 @@ public class Reader implements Serializable {
                 ", readerBooks=" + readerBooks +
                 ", rentDate='" + rentDate + '\'' +
                 ", readerNote='" + readerNote + '\'' +
+                ", readerPwd='" + readerPwd + '\'' +
                 '}';
     }
 }
