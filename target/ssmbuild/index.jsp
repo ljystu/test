@@ -1,33 +1,19 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE HTML>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+         pageEncoding="utf-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>首页</title>
-    <style type="text/css">
-        a {
-            text-decoration: none;
-            color: black;
-            font-size: 18px;
-        }
-        h3 {
-            width: 180px;
-            height: 38px;
-            margin: 100px auto;
-            text-align: center;
-            line-height: 38px;
-            background: deepskyblue;
-            border-radius: 4px;
-        }
-    </style>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <%@ page isELIgnored="false" %>
+    <title>登录</title>
 </head>
 <body>
-<h3>
-
-
-
-    <a href="${pageContext.request.contextPath}/book/allBook">点击进入列表页</a>
-
-
-</h3>
+<h1>用户登录</h1>
+<form action="${pageContext.request.contextPath}/Reader/login" method="post">
+    账号:<input id="username" name="readerName" type="text"><br>
+    密码:<input id="password" name="readerPwd" type="password"><br>
+    <input type="submit" value="登录">
+    <a href="register.jsp"><input type="button" value="立即注册"></a>
+</form>
 </body>
 </html>
