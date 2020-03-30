@@ -9,12 +9,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
 @Controller
 @RequestMapping("/book")
 public class BookController {
+
 
     @Autowired
     @Qualifier("BookServiceImpl")
@@ -69,5 +71,14 @@ public class BookController {
         System.out.println(list.toString());
         model.addAttribute("list", list);
         return "allBook";
+    }
+    @RequestMapping("/admin_header.html")
+    public ModelAndView admin_header() {
+        return new ModelAndView("admin_header");
+    }
+
+    @RequestMapping("/reader_header.html")
+    public ModelAndView reader_header() {
+        return new ModelAndView("reader_header");
     }
 }
