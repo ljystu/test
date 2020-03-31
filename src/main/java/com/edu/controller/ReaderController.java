@@ -50,6 +50,9 @@ public class ReaderController {
         }
     }
 
+    @RequestMapping("/reader_register.html")
+    public ModelAndView reader_register() { return new ModelAndView("reader_register"); }
+
     @RequestMapping("/admin_header.html")
     public ModelAndView admin_header() {
         return new ModelAndView("admin_header");
@@ -70,6 +73,12 @@ public class ReaderController {
         System.out.println(reader);
         readerService.addReader(reader);
         return "redirect:/book/allBook";
+    }
+    @RequestMapping("/registerReader")
+    public String registerReader(Reader reader) {
+        System.out.println(reader);
+        readerService.addReader(reader);
+        return "redirect:/login";
     }
 
     @RequestMapping("/toUpdateReader")
