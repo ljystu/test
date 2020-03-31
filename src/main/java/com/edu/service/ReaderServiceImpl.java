@@ -14,7 +14,7 @@ public class ReaderServiceImpl implements ReaderService{
     @Autowired
     private ReaderMapper readerMapper;
 
-    public Reader findReaderByName(String name){
+    public List<Reader> findReaderByName(String name){
         System.out.println("查找读者");
         return readerMapper.findReaderByName(name);
     }
@@ -48,6 +48,8 @@ public class ReaderServiceImpl implements ReaderService{
     public Reader loginReader(Reader reader) {
         return readerMapper.loginReader(reader);
     }
+
+
 
     public ReaderMapper getReaderMapper() {
         return readerMapper;

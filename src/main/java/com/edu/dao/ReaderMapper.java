@@ -20,7 +20,7 @@ public interface ReaderMapper {
 
     Reader findReaderById(@Param("readerId") int id);
 
-    Reader findReaderByName(@Param("readerName")String name);
+    List<Reader> findReaderByName(@Param("readerName")String name);
 
     List<Reader> findAllReader();
 

@@ -6,18 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 引入 Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
     <title>全部图书信息</title>
     <%--    <link rel="stylesheet" href="css/bootstrap.min.css">--%>
     <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.js"></script>
-    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js" ></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+    <link type="text/css" rel="stylesheet"href="${pageContext.request.contextPath}/css/form.css"/>
     <script>
         $(function () {
             $('#header').load('admin_header.html');
         })
     </script>
+
 </head>
 <body>
 <div id="header"></div>
+<br/>
 <br/>
 <div class="container">
 
@@ -31,13 +35,21 @@
         </div>
     </div>
 
-    <form action="${pageContext.request.contextPath}/book/updateBook" method="post">
+    <form action="${pageContext.request.contextPath}/book/updateBook" method="post" class="smart-green">
         <input type="hidden" name="bookID" value="${book.getBookID()}"/>
         书籍名称：<input type="text" name="bookName" value="${book.getBookName()}"/>
+        <div class="error-msg"></div>
         书籍数量：<input type="text" name="bookCounts" value="${book.getBookCounts()}"/>
-        书籍详情：<input type="text" name="detail" value="${book.getDetail() }"/>
-        <input type="submit" value="提交"/>
+        <div class="error-msg"></div>
+        书籍类型：<input type="text" name="bookType" value="${book.getBookType()}"/>
+        <div class="error-msg"></div>
+        关键字：<input type="text" name="bookKeyword" value="${book.getBookKeyword()}"/>
+        <div class="error-msg"></div>
+        书籍详情：<textarea type="text" name="detail" value="${book.getDetail() }"></textarea>
+        <div class="error-msg"></div>
+        <input type="submit" class="button" value="提交"/>
     </form>
+    </table>
 
 </div>
 </body>

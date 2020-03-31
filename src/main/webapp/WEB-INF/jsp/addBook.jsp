@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 引入 Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link type="text/css" rel="stylesheet"href="${pageContext.request.contextPath}/css/form.css"/>
     <title>全部图书信息</title>
     <%--    <link rel="stylesheet" href="css/bootstrap.min.css">--%>
     <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.js"></script>
@@ -31,13 +32,19 @@
             </div>
         </div>
     </div>
-    <form action="${pageContext.request.contextPath}/book/addBook" method="post">
-        书籍名称：<input type="text" name="bookName"><br><br>
-        书籍数量：<input type="text" name="bookCounts"><br><br>
-        书籍种类：<input type="text" name="bookType"><br><br>
-        关键字：<input type="text" name="bookKeyword"><br><br>
-        书籍详情：<input type="text" name="detail"><br><br>
-        <input type="submit" value="添加">
+    <form action="${pageContext.request.contextPath}/book/addBook" method="post"  class="smart-green">
+        书籍名称：<input type="text" name="bookName"/>
+        <div class="error-msg"></div>
+        书籍数量：<input type="text" name="bookCounts"/>
+        <div class="error-msg"></div>
+        书籍种类：<input type="text" name="bookType"/>
+        <div class="error-msg"></div>
+        关键字：<input type="text" name="bookKeyword"/>
+        <div class="error-msg"></div>
+        书籍详情：<textarea type="text" name="detail"></textarea>
+        <div class="success-msg"></div>
+        <span>&nbsp;</span><input type="submit" class="button" value="添加">
+
     </form>
 
 </div>

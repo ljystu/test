@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface ReaderService {
 
-   Reader findReaderByName(String name);
+   List<Reader> findReaderByName(String name);
 
     int addReader(Reader reader);
 
@@ -20,4 +20,6 @@ public interface ReaderService {
     List<Reader> findAllReader();
 
     Reader loginReader(Reader reader);
+
+
 }

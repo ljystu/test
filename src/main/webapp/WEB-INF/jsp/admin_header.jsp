@@ -13,9 +13,9 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="admin_books.html">全部图书</a></li>
+                        <li><a href="${pageContext.request.contextPath}/book/allBook">管理图书</a></li>
                         <li class="divider"></li>
-                        <li><a href="book_add.html">增加图书</a></li>
+                        <li><a href="${pageContext.request.contextPath}/book/toAddBook">增加图书</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -24,9 +24,9 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="allreaders.html">全部读者</a></li>
+                        <li><a href="${pageContext.request.contextPath}/Reader/allReader">管理读者</a></li>
                         <li class="divider"></li>
-                        <li><a href="reader_add.html">增加读者</a></li>
+                        <li><a href="${pageContext.request.contextPath}/Reader/toAddReader">增加读者</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">

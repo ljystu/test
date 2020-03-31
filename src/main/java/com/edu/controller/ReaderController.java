@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -24,8 +25,9 @@ public class ReaderController {
 
     @RequestMapping("/findReaderByName")
     public String findReaderByName(Model model,@RequestParam(name="readerName")String name) {
-        Reader reader = readerService.findReaderByName(name);
-        System.out.println(reader);
+        List<Reader> list = (List<Reader>) readerService.findReaderByName(name);
+        System.out.println(list);
+        model.addAttribute("list", list);
         return "allReader";
     }
 
@@ -56,6 +58,41 @@ public class ReaderController {
     @RequestMapping("/reader_header.html")
     public ModelAndView reader_header() {
         return new ModelAndView("reader_header");
+    }
+
+    @RequestMapping("/toAddReader")
+    public String toAddReader() {
+        return "addReader";
+    }
+
+    @RequestMapping("/addReader")
+    public String addReader(Reader reader) {
+        System.out.println(reader);
+        readerService.addReader(reader);
+        return "redirect:/book/allBook";
+    }
+
+    @RequestMapping("/toUpdateReader")
+    public String toUpdateReader(Model model, int id) {
+        Reader readers = readerService.findReaderById(id);
+        System.out.println(readers);
+        model.addAttribute("reader", readers);
+        return "updateReader";
+    }
+
+    @RequestMapping("/updateReader")
+    public String updateReader(Model model, Reader reader) {
+        System.out.println(reader);
+        readerService.updateReader(reader);
+        Reader readers = readerService.findReaderById(reader.getReaderId());
+        model.addAttribute("readers", readers);
+        return "redirect:/Reader/allReader";
+    }
+
+    @RequestMapping("/del/{readerId}")
+    public String deleteReader(@PathVariable("readerId") int id) {
+        readerService.deleteReaderById(id);
+        return "redirect:/Reader/allReader";
     }
 
 

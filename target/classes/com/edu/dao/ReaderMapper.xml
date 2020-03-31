@@ -12,8 +12,8 @@
     </resultMap>
 
     <insert id="addReader" parameterType="Reader">
-        insert into ssmbuild.readers(readerName,readerType,readerSex,readerBooks,rentDate,readerNote)
-        values (#{readerName},#{readerType},#{readerSex},#{readerBooks},#{rentDate},#{readerNote})
+        insert into ssmbuild.readers(readerName,readerType,readerSex,readerBooks,rentDate,readerNote,readerPwd)
+        values (#{readerName},#{readerType},#{readerSex},#{readerBooks},#{rentDate},#{readerNote},#{readerPwd})
     </insert>
 
     <delete id="deleteReaderById" parameterType="int">

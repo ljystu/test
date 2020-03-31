@@ -39,11 +39,13 @@
         </div>
 
         <div class="colLast">
+            <div class="col-md-4 column">
             <form action="${pageContext.request.contextPath}/book/QueryBookByName" method="post">
                 <input type="text" name="bookName"/>
                 <input type="submit" value="查询"/>
 
             </form>
+            </div>
         </div>
     </div>
 

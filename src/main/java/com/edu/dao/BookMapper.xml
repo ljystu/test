@@ -34,7 +34,6 @@
         SELECT * from ssmbuild.books
     </select>
 
-
     <select id="queryBookByName" resultType="Books">
         SELECT * FROM ssmbuild.books
         WHERE bookName like '%${bookName}%'
