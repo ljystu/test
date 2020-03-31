@@ -49,9 +49,10 @@ public class ReaderController {
             return "login_error";
         }
     }
-
-    @RequestMapping("/reader_register.html")
-    public ModelAndView reader_register() { return new ModelAndView("reader_register"); }
+    @RequestMapping("/register")
+    public String register() {
+        return "reader_register";
+    }
 
     @RequestMapping("/admin_header.html")
     public ModelAndView admin_header() {
@@ -78,7 +79,7 @@ public class ReaderController {
     public String registerReader(Reader reader) {
         System.out.println(reader);
         readerService.addReader(reader);
-        return "redirect:/login";
+        return "redirect:/book/allBook";
     }
 
     @RequestMapping("/toUpdateReader")

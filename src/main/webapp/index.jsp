@@ -66,12 +66,11 @@ background-attachment: fixed;">
 
             <p style="text-align: right;color: red;position: absolute" id="info"></p><br/>
             <button id="loginButton" type="button" class="btn btn-primary  btn-block">登陆</button>
-            <button id="registerButton" type="button" class="btn btn-primary  btn-block">注册</button>
+            <a class="btn btn-primary btn-block" href="${pageContext.request.contextPath}/Reader/register">注册</a>
             <br>
             <div class="text-center">
-                <a href="#" class="r_float">管理员登陆</a>
+                <a href="${pageContext.request.contextPath}/Admin/loginPage" class="r_float">管理员登陆</a>
             </div>
-
         </div>
     </form>
 </div>
@@ -129,7 +128,7 @@ background-attachment: fixed;">
     })
 
     $("#registerButton").click(function () {
-        window.open("reader_register.jsp")
+        window.open("reader_register.html")
         }
 
     )
