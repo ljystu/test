@@ -54,6 +54,11 @@ public class ReaderController {
         return "reader_register";
     }
 
+    @RequestMapping("/backIndex")
+    public String backIndex() {
+        return "redirect:../";
+    }
+
     @RequestMapping("/admin_header.html")
     public ModelAndView admin_header() {
         return new ModelAndView("admin_header");
