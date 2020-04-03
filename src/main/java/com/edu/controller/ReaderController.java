@@ -1,6 +1,5 @@
 package com.edu.controller;
 
-import com.edu.pojo.Books;
 import com.edu.pojo.Reader;
 import com.edu.service.ReaderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +48,10 @@ public class ReaderController {
             return "login_error";
         }
     }
+    @RequestMapping("/register")
+    public String register() {
+        return "reader_register";
+    }
 
     @RequestMapping("/admin_header.html")
     public ModelAndView admin_header() {
@@ -67,6 +70,12 @@ public class ReaderController {
 
     @RequestMapping("/addReader")
     public String addReader(Reader reader) {
+        System.out.println(reader);
+        readerService.addReader(reader);
+        return "redirect:/book/allBook";
+    }
+    @RequestMapping("/registerReader")
+    public String registerReader(Reader reader) {
         System.out.println(reader);
         readerService.addReader(reader);
         return "redirect:/book/allBook";
@@ -94,6 +103,8 @@ public class ReaderController {
         readerService.deleteReaderById(id);
         return "redirect:/Reader/allReader";
     }
+
+
 
 
 }

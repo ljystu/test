@@ -17,7 +17,6 @@ import java.util.List;
 @RequestMapping("/book")
 public class BookController {
 
-
     @Autowired
     @Qualifier("BookServiceImpl")
     private BookService bookService;
@@ -60,6 +59,7 @@ public class BookController {
 
     @RequestMapping("/del/{bookId}")
     public String deleteBook(@PathVariable("bookId") int id) {
+        System.out.println(id);
         bookService.deleteBookById(id);
         return "redirect:/book/allBook";
     }
@@ -72,13 +72,13 @@ public class BookController {
         model.addAttribute("list", list);
         return "allBook";
     }
+
     @RequestMapping("/admin_header.html")
-    public ModelAndView admin_header() {
-        return new ModelAndView("admin_header");
-    }
+    public ModelAndView admin_header() { return new ModelAndView("admin_header");  }
 
     @RequestMapping("/reader_header.html")
     public ModelAndView reader_header() {
-        return new ModelAndView("reader_header");
+        return new ModelAndView("admin_header");
     }
+
 }

@@ -18,6 +18,7 @@
     <mvc:annotation-driven />
     <!-- 2.静态资源默认servlet配置-->
     <mvc:default-servlet-handler/>
+
     <!-- 3.配置jsp 显示ViewResolver视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />

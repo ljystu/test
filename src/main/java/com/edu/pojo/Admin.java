@@ -5,6 +5,7 @@ import java.io.Serializable;
 public class Admin implements Serializable {
     private int adminId;
     private String adminName;
+    private String adminPwd;
 
     public int getAdminId() {
         return adminId;
@@ -22,11 +23,20 @@ public class Admin implements Serializable {
         this.adminName = adminName;
     }
 
+    public String getAdminPwd() {
+        return adminPwd;
+    }
+
+    public void setAdminPwd(String adminPwd) {
+        this.adminPwd = adminPwd;
+    }
+
     @Override
     public String toString() {
         return "Admin{" +
                 "adminId=" + adminId +
                 ", adminName='" + adminName + '\'' +
+                ", adminPwd='" + adminPwd + '\'' +
                 '}';
     }
 }

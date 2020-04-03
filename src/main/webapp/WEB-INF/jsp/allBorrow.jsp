@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>书籍列表</title>
+    <title>借还日志</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 引入 Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -25,7 +25,7 @@
         <div class="col-md-12 column">
             <div class="page-header">
                 <h1>
-                    <small>书籍列表 —— 显示所有书籍</small>
+                    <small>借还日志</small>
                 </h1>
             </div>
         </div>
@@ -33,18 +33,10 @@
 
     <div class="row">
         <div class="col-md-4 column">
-            <a class="btn btn-primary" href="${pageContext.request.contextPath}/book/toAddBook">新增</a>
+
         </div>
 
-        <div class="colLast">
-            <div class="col-md-4 column">
-            <form action="${pageContext.request.contextPath}/book/QueryBookByName" method="post">
-                <input type="text" placeholder="输入图书名" name="bookName"/>
-                <input type="submit" value="查询"/>
 
-            </form>
-            </div>
-        </div>
     </div>
 
     <div class="row clearfix">
@@ -52,28 +44,27 @@
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>
+                    <th>借阅编号</th>
                     <th>书籍编号</th>
-                    <th>书籍名字</th>
-                    <th>书籍数量</th>
-                    <th>书籍类型</th>
-                    <th>关键字</th>
-                    <th>书籍详情</th>
+                    <th>读者编号</th>
+                    <th>借书日期</th>
+                    <th>还书日期</th>
+                    <th>备注</th>
                     <th>操作</th>
                 </tr>
                 </thead>
 
                 <tbody>
-                <c:forEach var="book" items="${requestScope.get('list')}">
+                <c:forEach var="borrow" items="${requestScope.get('list')}">
                     <tr>
-                        <td>${book.getBookID()}</td>
-                        <td>${book.getBookName()}</td>
-                        <td>${book.getBookCounts()}</td>
-                        <td>${book.getBookType()}</td>
-                        <td>${book.getBookKeyword()}</td>
-                        <td>${book.getDetail()}</td>
+                        <td>${borrow.getIdbookBorrow()}</td>
+                        <td>${borrow.getBookId()}</td>
+                        <td>${borrow.getReaderId()}</td>
+                        <td>${borrow.getBorrowDate()}</td>
+                        <td>${borrow.getReturnDate()}</td>
+                        <td>${borrow.getSta()}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/book/toUpdateBook?id=${book.getBookID()}">更改</a> |
-                            <a href="${pageContext.request.contextPath}/book/del/${book.getBookID()}">删除</a>
+                            <a href="${pageContext.request.contextPath}/Borrow/return//${borrow.getIdbookBorrow()}">归还</a>
                         </td>
                     </tr>
                 </c:forEach>

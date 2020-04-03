@@ -2,7 +2,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>图书馆首页</title>
+    <title>管理员登陆页面</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js" ></script>
@@ -30,19 +30,19 @@
 <body background="${pageContext.request.contextPath}/img/p2.JPG" style=" background-repeat:no-repeat ;
 background-size:100% 100%;
 background-attachment: fixed;">
-<c:if test="${!empty error}">
-    <script>
-        alert("${error}");
-        window.location.href="login.html";
-    </script>
-</c:if>
-<h2 style="text-align: center; color: white; font-family: '华文行楷'; font-size: 500%">图 书 管 理 系 统</h2>
+<%--<c:if test="${!empty error}">--%>
+<%--    <script>--%>
+<%--        alert("${error}");--%>
+<%--        window.location.href="login.html";--%>
+<%--    </script>--%>
+<%--</c:if>--%>
+<%--<h2 style="text-align: center; color: white; font-family: '华文行楷'; font-size: 500%">图 书 管 理 系 统</h2>--%>
 
 <div class="panel panel-default" id="login">
     <div class="panel-heading" style="background-color: #fff">
-        <h3 class="panel-title">用户请登录</h3>
+        <h3 class="panel-title">管理员请登录</h3>
     </div>
-    <form action="${pageContext.request.contextPath}/Reader/login" method="post" id="loginForm">
+    <form action="${pageContext.request.contextPath}/Admin/login" method="post" id="loginForm">
         <div class="panel-body">
 
             <div class="form-group">
@@ -66,11 +66,6 @@ background-attachment: fixed;">
 
             <p style="text-align: right;color: red;position: absolute" id="info"></p><br/>
             <button id="loginButton" type="button" class="btn btn-primary  btn-block">登陆</button>
-            <a class="btn btn-primary btn-block" href="${pageContext.request.contextPath}/Reader/register">注册</a>
-            <br>
-            <div class="text-center">
-                <a href="${pageContext.request.contextPath}/Admin/loginPage" class="r_float">管理员登陆</a>
-            </div>
         </div>
     </form>
 </div>
@@ -126,12 +121,6 @@ background-attachment: fixed;">
             $("#loginForm").submit();
         }
     })
-
-    $("#registerButton").click(function () {
-        window.open("reader_register.html")
-        }
-
-    )
 
 </script>
 </div>

@@ -38,11 +38,11 @@
 
         <div class="colLast">
             <div class="col-md-4 column">
-            <form action="${pageContext.request.contextPath}/book/QueryBookByName" method="post">
-                <input type="text" placeholder="输入图书名" name="bookName"/>
-                <input type="submit" value="查询"/>
+                <form action="${pageContext.request.contextPath}/book/QueryBookByName" method="post">
+                    <input type="text" placeholder="输入图书名" name="bookName"/>
+                    <input type="submit" value="查询"/>
 
-            </form>
+                </form>
             </div>
         </div>
     </div>
@@ -72,8 +72,8 @@
                         <td>${book.getBookKeyword()}</td>
                         <td>${book.getDetail()}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/book/toUpdateBook?id=${book.getBookID()}">更改</a> |
-                            <a href="${pageContext.request.contextPath}/book/del/${book.getBookID()}">删除</a>
+                            <a href="${pageContext.request.contextPath}/Borrow/addBorrow?id=${1}&bookId=${book.getBookID()}
+                            &readerId = ${reader.getReaderId()}">借阅</a> |
                         </td>
                     </tr>
                 </c:forEach>
