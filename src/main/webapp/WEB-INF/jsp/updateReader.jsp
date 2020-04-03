@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 引入 Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link type="text/css" rel="stylesheet"href="${pageContext.request.contextPath}/css/form.css"/>
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/form.css"/>
     <title>全部图书信息</title>
     <%--    <link rel="stylesheet" href="css/bootstrap.min.css">--%>
     <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.js"></script>
-    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js" ></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <script>
         $(function () {
             $('#header').load('admin_header.html');
@@ -32,19 +32,42 @@
         </div>
     </div>
 
-    <form action="${pageContext.request.contextPath}/Reader/updateReader" method="post"class="smart-green">
+    <form action="${pageContext.request.contextPath}/Reader/updateReader" method="post" class="smart-green"
+          id="updateReaderForm">
         <input type="hidden" name="readerId" value="${reader.getReaderId()}"/>
-        读者名称：<input type="text" name="readerName" value="${reader.getReaderName()}"/>
+        <div class="form-group">
+            <label for="updateReaderName"></label>
+            读者名称：<input type="text" id="updateReaderName" name="readerName" value="${reader.getReaderName()}"/>
+            <p style="text-align: right;color: red;position: absolute" id="readerNameCheck"></p>
+        </div>
         <div class="error-msg"></div>
         读者类型：<input type="text" name="readerType" value="${reader.getReaderType()}"/>
         <div class="error-msg"></div>
-        读者性别：<input type="text" name="readerSex" value="${reader.getReaderSex() }"/>
+        <div class="form-group">
+            <label for="readerSex"></label>
+            读者性别：<input type="text" name="readerSex" id="readerSex" value="${reader.getReaderSex() }"/>
+            <p style="text-align: right;color: red;position: absolute" id="SexCheck"></p>
+        </div>
         <div class="error-msg"></div>
         读者备注：<textarea type="text" name="readerNote" value="${reader.getReaderNote() }"></textarea>
         <div class="error-msg"></div>
-        <input type="submit" class="button" value="提交"/>
+        <button type="button" class="button" value="提交" id="updateReaderButton">提交</button>
     </form>
+    <script>
+        $("#updateReaderButton").click(function () {
+            var updateReaderName = $("#updateReaderName").val();
+            var readerSex = $("#readerSex").val();
+            if (updateReaderName == '' || (readerSex != '男' && readerSex != '女')) {
+                if (updateReaderName == '')
+                    $("#readerNameCheck").text("提示:读者名称不能为空！");
+                if (readerSex != '男' && readerSex != '女')
+                    $("#SexCheck").text("提示：请输入正确的性别！");
 
+            } else {
+                $("#updateReaderForm").submit();
+            }
+        })
+    </script>
 </div>
 </body>
 </html>
