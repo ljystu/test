@@ -39,7 +39,11 @@
             <p style="text-align: right;color: red;position: absolute" id="info"></p>
         </div>
         <div class="error-msg"></div>
-        书籍数量：<input type="text" name="bookCounts"/>
+        <div class="form-group">
+            <label for="updateBookCount"></label>
+        书籍数量：<input id="updateBookCount" type="text" name="bookCounts"/>
+            <p style="text-align: right;color: red;position: absolute" id="countInfo"></p>
+        </div>
         <div class="error-msg"></div>
         书籍种类：<input type="text" name="bookType"/>
         <div class="error-msg"></div>
@@ -53,10 +57,14 @@
     <script>
         $("#addBookButton").click(function () {
             var bookName = $("#addBook").val();
-            if (bookName == '') {
-                $("#info").text("提示:书籍名称不能为空！");
+            var bookCount = $("#updateBookCount").val();
+            if (bookName == '' || !isNaN(bookCount)) {
+                if (bookName == '')
+                    $("#info").text("提示:书籍名称不能为空！");
+                if (!isNaN(bookCount))
+                    $("#countInfo").text("提示:请输入整数！");
             } else {
-                $("#addBookForm").submit();
+                $("#updateBookForm").submit();
             }
         })
     </script>

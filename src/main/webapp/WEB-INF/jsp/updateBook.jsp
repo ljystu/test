@@ -11,7 +11,7 @@
     <%--    <link rel="stylesheet" href="css/bootstrap.min.css">--%>
     <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-    <link type="text/css" rel="stylesheet"href="${pageContext.request.contextPath}/css/form.css"/>
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/form.css"/>
     <script>
         $(function () {
             $('#header').load('admin_header.html');
@@ -35,15 +35,20 @@
         </div>
     </div>
 
-    <form action="${pageContext.request.contextPath}/book/updateBook" method="post" class="smart-green" id="updateBookForm">
+    <form action="${pageContext.request.contextPath}/book/updateBook" method="post" class="smart-green"
+          id="updateBookForm">
         <input type="hidden" name="bookID" value="${book.getBookID()}"/>
         <div class="form-group">
             <label for="updateBook"></label>
-        书籍名称：<input type="text" id="updateBook" name="bookName" value="${book.getBookName()}"/>
+            书籍名称：<input type="text" id="updateBook" name="bookName" value="${book.getBookName()}"/>
             <p style="text-align: right;color: red;position: absolute" id="info"></p>
         </div>
         <div class="error-msg"></div>
-        书籍数量：<input type="text" name="bookCounts" value="${book.getBookCounts()}"/>
+        <div class="form-group">
+            <label for="updateBookCount"></label>
+            书籍数量：<input type="text" id="updateBookCount" name="bookCounts" value="${book.getBookCounts()}"/>
+            <p style="text-align: right;color: red;position: absolute" id="countInfo"></p>
+        </div>
         <div class="error-msg"></div>
         书籍类型：<input type="text" name="bookType" value="${book.getBookType()}"/>
         <div class="error-msg"></div>
@@ -56,12 +61,17 @@
     <script>
         $("#updateBookButton").click(function () {
             var bookName = $("#updateBook").val();
-            if (bookName == '') {
-                $("#info").text("提示:书籍名称不能为空！");
+            var bookCount = $("#updateBookCount").val();
+            if (bookName == '' || !isNaN(bookCount)) {
+                if (bookName == '')
+                    $("#info").text("提示:书籍名称不能为空！");
+                if (!isNaN(bookCount))
+                    $("#countInfo").text("提示:请输入整数！");
             } else {
                 $("#updateBookForm").submit();
             }
         })
+
     </script>
     </table>
 

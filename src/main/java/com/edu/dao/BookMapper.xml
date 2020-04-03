@@ -39,4 +39,31 @@
         WHERE bookName like '%${bookName}%'
     </select>
 
+    <select id="queryBook" resultType="Books">
+          SELECT * FROM ssmbuild.books
+          <where>
+              <if test='bookID!="all" and bookID!=""'>
+                bookID like '%${bookID}%'
+              </if>
+              <if test='bookName!=""'>
+                  bookName like '%${bookName}%'
+              </if>
+              <if test='bookType!=""'>
+                  bookType like '%${bookType}%'
+              </if>
+              <if test='bookKeyword!=""'>
+                  bookKeyword like '%${bookKeyword}%'
+              </if>
+              <if test='detail!="" and bookID==""'>
+                  detail like '%${detail}%'
+              </if>
+              <if test='bookID=="all" and bookName=="" and bookType=="" and bookKeyword=="" and detail!=""'>
+                  bookID like '%${detail}%' or bookName like '%${detail}%' or bookType like '%${detail}%' or bookKeyword like '%${detail}%'
+                  or detail like '%${detail}%'
+              </if>
+
+          </where>
+
+    </select>
+
 </mapper>

@@ -40,7 +40,11 @@
             <p style="text-align: right;color: red;position: absolute" id="readerNameCheck"></p>
         </div>
         <div class="error-msg"></div>
-        读者性别：<input type="text" name="readerSex">
+        <div class="form-group">
+            <label for="readerSex"></label>
+        读者性别：<input type="text" id="readerSex" name="readerSex">
+            <p style="text-align: right;color: red;position: absolute" id="SexCheck"></p>
+        </div>
         <div class="error-msg"></div>
         读者类型：<input type="text" name="readerType">
         <div class="error-msg"></div>
@@ -57,12 +61,17 @@
         $("#addReaderButton").click(function () {
             var readerName = $("#readerPwd").val();
             var readerPwd = $("#readerName").val();
-            if (readerName == '' || readerPwd == '') {
+            var readerSex= $("#readerSex").val();
+            if (readerName == '' || readerPwd == ''||(readerSex!='男'&&readerSex!='女')) {
                 if (readerName == '')
                     $("#readerNameCheck").text("提示:读者名称不能为空！");
                 if (readerPwd == '')
                     $("#PwdCheck").text("提示:读者密码不能为空！");
-            } else {
+                if(readerSex!='男'&&readerSex!='女'){
+                    $("#SexCheck").text("提示：请输入正确的性别！");
+                }
+            }
+            else {
                 $("#addReaderForm").submit();
             }
         })

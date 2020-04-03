@@ -23,4 +23,8 @@ public interface BookMapper {
     List<Books> queryAllBook();
 
     List<Books> queryBookByName(@Param("bookName") String name);
+
+    List<Books> queryBook(@Param("bookID") String bookID,@Param("bookName") String bookName,
+                          @Param("bookType") String bookType,@Param("bookKeyword")String bookKeyword,
+                          @Param("detail")String detail,String all);
 }

@@ -43,7 +43,11 @@
         <div class="error-msg"></div>
         读者类型：<input type="text" name="readerType" value="${reader.getReaderType()}"/>
         <div class="error-msg"></div>
-        读者性别：<input type="text" name="readerSex" value="${reader.getReaderSex() }"/>
+        <div class="form-group">
+            <label for="readerSex"></label>
+            读者性别：<input type="text" name="readerSex" id="readerSex" value="${reader.getReaderSex() }"/>
+            <p style="text-align: right;color: red;position: absolute" id="SexCheck"></p>
+        </div>
         <div class="error-msg"></div>
         读者备注：<textarea type="text" name="readerNote" value="${reader.getReaderNote() }"></textarea>
         <div class="error-msg"></div>
@@ -52,9 +56,14 @@
     <script>
         $("#updateReaderButton").click(function () {
             var updateReaderName = $("#updateReaderName").val();
-            if (updateReaderName == '')
-                $("#readerNameCheck").text("提示:读者名称不能为空！");
-            else {
+            var readerSex = $("#readerSex").val();
+            if (updateReaderName == '' || (readerSex != '男' && readerSex != '女')) {
+                if (updateReaderName == '')
+                    $("#readerNameCheck").text("提示:读者名称不能为空！");
+                if (readerSex != '男' && readerSex != '女')
+                    $("#SexCheck").text("提示：请输入正确的性别！");
+
+            } else {
                 $("#updateReaderForm").submit();
             }
         })
