@@ -3,15 +3,18 @@
 <html>
 <head>
     <title>管理主页</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/jquery-3.2.1.js"></script>
-    <script src="js/bootstrap.min.js" ></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+    <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.js"></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js" ></script>
     <script>
         $(function () {
             $('#header').load('admin_header.html');
         })
     </script>
 </head>
+<body background="${pageContext.request.contextPath}/img/p2.JPG" style=" background-repeat:no-repeat ;
+background-size:100% 100%;
+background-attachment: fixed;">
 
 <div id="header"></div>
 
@@ -28,7 +31,7 @@
                 </h4>
             </div>
             <div class="modal-body">
-                使用结束后请安全退出。
+                欢迎使用图书管理系统，使用结束后请安全退出。
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">知道了
@@ -37,7 +40,7 @@
         </div>
     </div>
 </div>
-<c:if test="${!empty login}">
+
     <script>
         $(function () {
             $("#myModal").modal({
@@ -45,8 +48,7 @@
             })
         })
     </script>
-</c:if>
+
 
 </body>
 </html>
-

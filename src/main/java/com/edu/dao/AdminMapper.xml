@@ -15,4 +15,17 @@
         select * from ssmbuild.admin
         where adminName = #{adminName} and adminPwd = #{adminPwd}
     </select>
+
+    <select id="getPassword" resultType="String" parameterType="int">
+        select adminPwd from ssmbuild.admin where adminId = #{adminId}
+    </select>
+
+    <update id="resetPassword">
+        update ssmbuild.admin set adminPwd = #{adminPwd}
+        where adminId = #{adminId}
+    </update>
+
+    <select id="findIdByName" resultType="int" parameterType="String">
+        select adminId from ssmbuild.admin where adminName = #{adminName}
+    </select>
 </mapper>
