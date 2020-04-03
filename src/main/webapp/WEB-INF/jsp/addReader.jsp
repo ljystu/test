@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 引入 Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link type="text/css" rel="stylesheet"href="${pageContext.request.contextPath}/css/form.css"/>
+    <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/form.css"/>
     <title>全部读者信息</title>
     <%--    <link rel="stylesheet" href="css/bootstrap.min.css">--%>
     <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.js"></script>
-    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js" ></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <script>
         $(function () {
             $('#header').load('admin_header.html');
@@ -32,18 +32,41 @@
             </div>
         </div>
     </div>
-    <form action="${pageContext.request.contextPath}/Reader/addReader" method="post"class="smart-green">
-        读者姓名：<input type="text" name="readerName">
+    <form action="${pageContext.request.contextPath}/Reader/addReader" method="post" class="smart-green"
+          id="addReaderForm">
+        <div class="form-group">
+            <label for="readerName"></label>
+            读者姓名：<input type="text" class="form-control" name="readerNames" id="readerName">
+            <p style="text-align: right;color: red;position: absolute" id="readerNameCheck"></p>
+        </div>
         <div class="error-msg"></div>
         读者性别：<input type="text" name="readerSex">
         <div class="error-msg"></div>
         读者类型：<input type="text" name="readerType">
         <div class="error-msg"></div>
-        读者密码：<input type="text" name="readerPwd">
+        <div class="form-group">
+            <label for="readerPwd"></label>
+            读者密码：<input type="text" class="form-control" name="readerPwds" id="readerPwd">
+            <p style="text-align: right;color: red;position: absolute" id="PwdCheck"></p>
+        </div>
         <div class="error-msg"></div>
-        <input type="submit" class="button"value="添加">
+        <br/>
+        <button type="button" class="button" id="addReaderButton">添加</button>
     </form>
-
+    <script>
+        $("#addReaderButton").click(function () {
+            var readerName = $("#readerPwd").val();
+            var readerPwd = $("#readerName").val();
+            if (readerName == '' || readerPwd == '') {
+                if (readerName == '')
+                    $("#readerNameCheck").text("提示:读者名称不能为空！");
+                if (readerPwd == '')
+                    $("#PwdCheck").text("提示:读者密码不能为空！");
+            } else {
+                $("#addReaderForm").submit();
+            }
+        })
+    </script>
 </div>
 
 </body>

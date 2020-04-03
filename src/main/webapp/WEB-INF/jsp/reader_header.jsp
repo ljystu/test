@@ -17,8 +17,8 @@
                     </a>
                 </li>
                 <li >
-                    <a href="mylend.html" >
-                        我的借还
+                    <a href="${pageContext.request.contextPath}/Reader/borrowBook" >
+                        借书
                     </a>
                 </li>
                 <li >

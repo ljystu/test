@@ -1,6 +1,5 @@
 package com.edu.controller;
 
-import com.edu.pojo.Books;
 import com.edu.pojo.Reader;
 import com.edu.service.ReaderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -109,6 +108,8 @@ public class ReaderController {
         readerService.deleteReaderById(id);
         return "redirect:/Reader/allReader";
     }
+
+
 
 
 }

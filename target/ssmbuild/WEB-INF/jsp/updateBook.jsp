@@ -35,9 +35,13 @@
         </div>
     </div>
 
-    <form action="${pageContext.request.contextPath}/book/updateBook" method="post" class="smart-green">
+    <form action="${pageContext.request.contextPath}/book/updateBook" method="post" class="smart-green" id="updateBookForm">
         <input type="hidden" name="bookID" value="${book.getBookID()}"/>
-        书籍名称：<input type="text" name="bookName" value="${book.getBookName()}"/>
+        <div class="form-group">
+            <label for="updateBook"></label>
+        书籍名称：<input type="text" id="updateBook" name="bookName" value="${book.getBookName()}"/>
+            <p style="text-align: right;color: red;position: absolute" id="info"></p>
+        </div>
         <div class="error-msg"></div>
         书籍数量：<input type="text" name="bookCounts" value="${book.getBookCounts()}"/>
         <div class="error-msg"></div>
@@ -47,8 +51,18 @@
         <div class="error-msg"></div>
         书籍详情：<textarea type="text" name="detail" value="${book.getDetail() }"></textarea>
         <div class="error-msg"></div>
-        <input type="submit" class="button" value="提交"/>
+        <button type="button" class="button" value="提交" id="updateBookButton">提交</button>
     </form>
+    <script>
+        $("#updateBookButton").click(function () {
+            var bookName = $("#updateBook").val();
+            if (bookName == '') {
+                $("#info").text("提示:书籍名称不能为空！");
+            } else {
+                $("#updateBookForm").submit();
+            }
+        })
+    </script>
     </table>
 
 </div>
