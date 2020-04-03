@@ -25,7 +25,7 @@
     </insert>
 
     <delete id="returnById" parameterType="int">
-        update ssmbuild.bookborrow set sta=#{sta} where idbookBorrow=#{idbookBorrow}
+        update ssmbuild.bookborrow set sta="已归还" where idbookBorrow=#{idbookBorrow}
     </delete>
 
     <update id="updateBorrow" parameterType="Borrow">
