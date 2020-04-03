@@ -35,7 +35,7 @@
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="lendlist.html">借还日志</a></li>
+                        <li><a href="${pageContext.request.contextPath}/Borrow/allBorrow">借还日志</a></li>
                     </ul>
                 </li>
                 <li >
