@@ -40,5 +40,21 @@ public class BookServiceImpl implements BookService {
         return bookMapper.queryBookByName(name);
     }
 
+    @Override
+    public List<Books> queryBook(String name,String Type) {
+        if(Type.equals("书籍编号"))
+            return bookMapper.queryBook(name,"","","","","");
+        else if(Type.equals("全部"))
+            return bookMapper.queryBook("all","","","",name,"");
+        else if(Type.equals("书籍名称"))
+            return bookMapper.queryBook("",name,"","","","");
+        else  if (Type.equals("书籍类型"))
+            return bookMapper.queryBook("","",name,"","","");
+        else  if (Type.equals("书籍关键字"))
+            return bookMapper.queryBook("","","",name,"","");
+        else
+            return bookMapper.queryBook("","","","",name,"");
+    }
+
 
 }

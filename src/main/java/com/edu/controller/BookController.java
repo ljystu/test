@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -72,6 +74,32 @@ public class BookController {
         model.addAttribute("list", list);
         return "allBook";
     }
+    @RequestMapping("QueryBook")
+    public String QueryBook(HttpServletRequest request, HttpSession session,Model model){
+        String keyword=request.getParameter("keyword");
+        String searchType=request.getParameter("searchType");
+        System.out.println(keyword+" "+searchType);
+
+        if(keyword==""){
+            List<Books> list = bookService.queryAllBook();
+            model.addAttribute("list", list);
+            return "allBook";
+        }
+
+        if(searchType.equals("全部")&&keyword.equals("")){
+           List<Books> list=bookService.queryBook(keyword,"");
+            System.out.println(list.toString());
+            model.addAttribute("list", list);
+            return "allBook";
+        }
+        else{
+            List<Books> list=bookService.queryBook(keyword,searchType);
+            System.out.println(list.toString());
+            model.addAttribute("list", list);
+            return "allBook";
+        }
+    }
+
 
     @RequestMapping("/admin_header.html")
     public ModelAndView admin_header() { return new ModelAndView("admin_header");  }
