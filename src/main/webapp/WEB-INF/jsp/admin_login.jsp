@@ -72,7 +72,7 @@ background-attachment: fixed;">
 <script>
     $("#username").keyup(
         function () {
-            if(isNaN($("#username").val())){
+            if(!/^\d+$/.test($("#username").val())){
                 $("#info").text("提示:账号只能为数字");
             }
             else {
@@ -114,7 +114,7 @@ background-attachment: fixed;">
         else if( passwd ==''){
             $("#info").text("提示:密码不能为空");
         }
-        else if(isNaN( id )){
+        else if(!/^\d+$/.test(id)){
             $("#info").text("提示:账号必须为数字");
         }
         else {

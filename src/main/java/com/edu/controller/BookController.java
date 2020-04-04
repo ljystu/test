@@ -29,6 +29,12 @@ public class BookController {
         model.addAttribute("list", list);
         return "allBook";
     }
+    @RequestMapping("/reader_allBook")
+    public String reader_allBook(Model model) {
+        List<Books> list = bookService.queryAllBook();
+        model.addAttribute("list", list);
+        return "reader_allBook";
+    }
 
     @RequestMapping("/toAddBook")
     public String toAddPaper() {
@@ -106,7 +112,7 @@ public class BookController {
 
     @RequestMapping("/reader_header.html")
     public ModelAndView reader_header() {
-        return new ModelAndView("admin_header");
+        return new ModelAndView("reader_header");
     }
 
 }

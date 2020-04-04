@@ -20,10 +20,20 @@ public interface ReaderMapper {
 
     Reader findReaderById(@Param("readerId") int id);
 
-    List<Reader> findReaderByName(@Param("readerName")String name);
+    List<Reader> findReaderByName(@Param("readerName") String name);
 
     List<Reader> findAllReader();
 
     Reader loginReader(Reader reader);
+
+    String getPassword(@Param("readerId") int id);
+
+    int resetPassword(@Param("readerId") int id, @Param("readerPwd") String password);
+
+    int findIdByName(@Param("readerName") String name);
+
+    Reader findReaderInfoByReaderName(@Param("readerName") String readerName);
+
+
 
 }

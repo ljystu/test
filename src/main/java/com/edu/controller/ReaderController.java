@@ -1,5 +1,6 @@
 package com.edu.controller;
 
+import com.edu.pojo.Admin;
 import com.edu.pojo.Reader;
 import com.edu.service.ReaderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +12,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -25,8 +30,20 @@ public class ReaderController {
     @Qualifier("ReaderService")
     private ReaderService readerService;
 
+
+    private Reader getReaderInfo(int readerId, String name, String type, String sex, String note) {
+        Reader reader = new Reader();
+        reader.setReaderName(name);
+        reader.setReaderId(readerId);
+        reader.setReaderType(type);
+        reader.setReaderSex(sex);
+        ;
+        reader.setReaderNote(note);
+        return reader;
+    }
+
     @RequestMapping("/findReaderByName")
-    public String findReaderByName(Model model,@RequestParam(name="readerName")String name) {
+    public String findReaderByName(Model model, @RequestParam(name = "readerName") String name) {
         List<Reader> list = (List<Reader>) readerService.findReaderByName(name);
         System.out.println(list);
         model.addAttribute("list", list);
@@ -34,25 +51,26 @@ public class ReaderController {
     }
 
     @RequestMapping("/allReader")
-    public String getAllUser(HttpServletRequest request, Model model){
-        List<Reader> reader=readerService.findAllReader();
+    public String getAllUser(HttpServletRequest request, Model model) {
+        List<Reader> reader = readerService.findAllReader();
         System.out.println(reader);
-        model.addAttribute("list",reader);
-        request.setAttribute("list",reader);
+        model.addAttribute("list", reader);
+        request.setAttribute("list", reader);
         return "allReader";
     }
 
     @RequestMapping("/login")
-    public String login(Reader reader,Model model){
-        Reader ad=readerService.loginReader(reader);
+    public String login(Reader reader, Model model) {
+        Reader ad = readerService.loginReader(reader);
 
-        if(ad!=null){
-            model.addAttribute("reader",reader);
-            return "redirect:/book/allBook";
-        }else{
+        if (ad != null) {
+            model.addAttribute("reader", reader);
+            return "redirect:/book/reader_allBook";
+        } else {
             return "login_error";
         }
     }
+
     @RequestMapping("/register")
     public String register() {
         return "reader_register";
@@ -73,6 +91,11 @@ public class ReaderController {
         return new ModelAndView("reader_header");
     }
 
+    @RequestMapping("/reader_main")
+    public ModelAndView reader_main() {
+        return new ModelAndView("reader_main");
+    }
+
     @RequestMapping("/toAddReader")
     public String toAddReader() {
         return "addReader";
@@ -84,6 +107,7 @@ public class ReaderController {
         readerService.addReader(reader);
         return "redirect:/book/allBook";
     }
+
     @RequestMapping("/registerReader")
     public String registerReader(Reader reader) {
         System.out.println(reader);
@@ -115,6 +139,68 @@ public class ReaderController {
     }
 
 
+    @RequestMapping("/reader_info.html")
+    public String toReaderInfo(HttpServletRequest request, Model model) {
+        Reader reader = (Reader) request.getSession().getAttribute("reader");
+        Reader readerInfo = readerService.getReaderInfo(reader.getReaderName());
+        model.addAttribute("readerInfo", readerInfo);
+        request.setAttribute("readerInfo", readerInfo);
+        return "reader_info";
+    }
+
+    @RequestMapping("readerPersonal_edit.html")
+    public String readerInfoEdit(HttpServletRequest request, Model model) {
+        Reader reader = (Reader) request.getSession().getAttribute("reader");
+        Reader readerInfo = readerService.getReaderInfo(reader.getReaderName());
+        model.addAttribute("readerInfo", readerInfo);
+        request.setAttribute("readerInfo",readerInfo);
+        return "readerPersonal_edit";
+    }
+
+    @RequestMapping("readerPersonal_edit_do.html")
+    public String readerInfoEditDo(HttpServletRequest request, String name, String type,String sex, String note, RedirectAttributes redirectAttributes) {
+        int readerId =  Integer.parseInt(request.getParameter("readerId"));
+        Reader readerInfo = getReaderInfo(readerId, name,type,sex,note);
+        if (readerService.editReaderInfo(readerInfo)>0) {
+            redirectAttributes.addFlashAttribute("succ", "读者信息修改成功！");
+        } else {
+            redirectAttributes.addFlashAttribute("error", "读者信息修改失败！");
+        }
+        request.setAttribute("readerInfo",readerInfo);
+        return "reader_info";
+    }
 
 
+    @RequestMapping("/reader_repasswd.html")
+    public ModelAndView reader_repasswd() {
+        return new ModelAndView("reader_repasswd");
+    }
+
+
+    @RequestMapping("/reader_repasswd_do")
+    public String readerRepasswdDo(HttpServletRequest request, String oldPasswd, String newPasswd, String reNewPasswd, RedirectAttributes redirectAttributes) {
+        Reader reader = (Reader) request.getSession().getAttribute("reader");
+        String name = reader.getReaderName();
+        int id = readerService.findIdByName(name);
+        System.out.println(id);
+        String password = readerService.getPassword(id);
+        System.out.println(password);
+        if (password.equals(oldPasswd)) {
+            if (readerService.resetPassword(id, newPasswd)) {
+                redirectAttributes.addFlashAttribute("succ", "读者密码修改成功！");
+                return "redirect:/Reader/reader_repasswd.html";
+            } else {
+                redirectAttributes.addFlashAttribute("error", "读者密码修改失败！");
+                return "redirect:/Reader/reader_repasswd.html";
+            }
+        } else {
+            redirectAttributes.addFlashAttribute("error", "读者旧密码错误！");
+            return "redirect:/Reader/reader_repasswd.html";
+        }
+    }
+
+    @RequestMapping("/logout.html")
+    public String logout() {
+        return "redirect:../";
+    }
 }

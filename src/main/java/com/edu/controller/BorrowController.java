@@ -55,7 +55,7 @@ public class BorrowController {
 
     @RequestMapping("/reader_header.html")
     public ModelAndView reader_header() {
-        return new ModelAndView("admin_header");
+        return new ModelAndView("reader_header");
     }
 
 }

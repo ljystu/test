@@ -1,4 +1,5 @@
-<!DOCTYPE html><%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -9,7 +10,7 @@
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.js"></script>
-    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js" ></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <script>
         $(function () {
             $('#header').load('reader_header.html');
@@ -18,7 +19,7 @@
 </head>
 <body>
 <div id="header"></div>
-<br>
+<br/>
 <div class="container">
 
     <div class="row clearfix">
@@ -32,20 +33,32 @@
     </div>
 
     <div class="row">
-        <div class="col-md-4 column">
-            <a class="btn btn-primary" href="${pageContext.request.contextPath}/book/toAddBook">新增</a>
-        </div>
+        <div class="col-md-4 column"></div>
 
-        <div class="colLast">
-            <div class="col-md-4 column">
-                <form action="${pageContext.request.contextPath}/book/QueryBookByName" method="post">
-                    <input type="text" placeholder="输入图书名" name="bookName"/>
-                    <input type="submit" value="查询"/>
+        <form class="form-inline" id="searchForm" action="${pageContext.request.contextPath}/book/QueryBook"
+              method="post">
+            <input type="hidden" name="currentPage" id="currentPage" value="${qo.currentPage}">
+            <input type="hidden" name="pageSize" id="pageSize" value="${qo.pageSize}">
+            <label for="keyword">关键字:</label>
+            <input type="text" class="form-control" id="keyword" name="keyword" placeholder="请输入书籍关键字">
 
-                </form>
-            </div>
-        </div>
+            <label for="searchType">查询条件：</label>
+            <select class="form-control" id="searchType" name="searchType">
+                <option>全部</option>
+                <option>书籍编号</option>
+                <option>书籍名称</option>
+                <option>书籍类型</option>
+                <option>书籍关键字</option>
+                <option>书籍详情</option>
+            </select>
+            <input type="submit" id="query" class="btn btn-default" value="查询"/>
+
+            <button id="cancel" class="btn btn-default"
+                    href="${pageContext.request.contextPath}/book/reader_allBook">重置
+            </button>
+        </form>
     </div>
+
 
     <div class="row clearfix">
         <div class="col-md-12 column">
@@ -71,10 +84,10 @@
                         <td>${book.getBookType()}</td>
                         <td>${book.getBookKeyword()}</td>
                         <td>${book.getDetail()}</td>
+                        <td>
+                            <a href="">借阅</a>
+                        </td>
                     </tr>
-                    <td>
-                        <a href="">借阅</a> |
-                    </td>
                 </c:forEach>
                 </tbody>
             </table>

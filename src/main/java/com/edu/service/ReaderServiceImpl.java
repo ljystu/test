@@ -9,12 +9,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service("ReaderService")
-public class ReaderServiceImpl implements ReaderService{
+public class ReaderServiceImpl implements ReaderService {
 
     @Autowired
     private ReaderMapper readerMapper;
 
-    public List<Reader> findReaderByName(String name){
+    public List<Reader> findReaderByName(String name) {
         System.out.println("查找读者");
         return readerMapper.findReaderByName(name);
     }
@@ -25,7 +25,9 @@ public class ReaderServiceImpl implements ReaderService{
     }
 
     @Override
-    public int updateReader(Reader reader) { return readerMapper.updateReader(reader); }
+    public int updateReader(Reader reader) {
+        return readerMapper.updateReader(reader);
+    }
 
     @Override
     public int deleteReaderById(int id) {
@@ -47,6 +49,29 @@ public class ReaderServiceImpl implements ReaderService{
         return readerMapper.loginReader(reader);
     }
 
+    public String getPassword(int id) {
+        return readerMapper.getPassword(id);
+    }
+
+    @Override
+    public boolean resetPassword(int id, String password) {
+        return readerMapper.resetPassword(id, password) > 0;
+    }
+
+    @Override
+    public int findIdByName(String name) {
+        return readerMapper.findIdByName(name);
+    }
+
+    @Override
+    public Reader getReaderInfo(String readerName) {
+        return readerMapper.findReaderInfoByReaderName(readerName);
+    }
+
+    @Override
+    public int editReaderInfo(Reader readerInfo) {
+        return readerMapper.updateReader(readerInfo);
+    }
 
 
     public ReaderMapper getReaderMapper() {

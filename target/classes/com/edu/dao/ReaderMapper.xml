@@ -44,4 +44,23 @@
         select * from ssmbuild.readers
         where readerName = #{readerName} and readerPwd = #{readerPwd}
     </select>
+    <select id="getPassword" resultType="String" parameterType="int">
+        select readerPwd from ssmbuild.readers where readerId = #{readerId}
+    </select>
+
+    <update id="resetPassword">
+        update ssmbuild.readers set readerPwd = #{readerPwd}
+        where readerId = #{readerId}
+    </update>
+
+    <select id="findIdByName" resultType="int" parameterType="String">
+        select readerId from ssmbuild.readers where readerName = #{readerName}
+    </select>
+
+    <select id="findReaderInfoByReaderName" resultType="Reader" parameterType="String">
+        select * from ssmbuild.readers where readerName=#{readerName}
+    </select>
+
+
+    
 </mapper>

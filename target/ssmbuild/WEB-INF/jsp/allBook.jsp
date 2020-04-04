@@ -38,26 +38,6 @@
         </div>
 
 
-        <%--            <form action="${pageContext.request.contextPath}/book/QueryBookByName" method="post">--%>
-        <%--                <label>--%>
-        <%--                    图书名：  <input type="text" placeholder="输入图书名" name="bookName">--%>
-        <%--            </label>--%>
-
-        <%--                <label>--%>
-        <%--                    图书类型： <input type="text" placeholder="输入图书名" name="bookName">--%>
-        <%--            </label>--%>
-
-        <%--                <label>--%>
-        <%--                    书籍编号：  <input type="text" placeholder="输入图书名" name="bookName">--%>
-        <%--            </label>--%>
-
-        <%--                <label>--%>
-        <%--                    书籍关键字：<input type="text" placeholder="输入图书名" name="bookName">--%>
-        <%--                </label>--%>
-
-        <%--                <input type="submit" value="查询"/>--%>
-
-        <%--            </form>--%>
         <form class="form-inline" id="searchForm" action="${pageContext.request.contextPath}/book/QueryBook"
               method="post">
             <input type="hidden" name="currentPage" id="currentPage" value="${qo.currentPage}">

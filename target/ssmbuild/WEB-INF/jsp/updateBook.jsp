@@ -62,10 +62,10 @@
         $("#updateBookButton").click(function () {
             var bookName = $("#updateBook").val();
             var bookCount = $("#updateBookCount").val();
-            if (bookName == '' || !isNaN(bookCount)) {
+            if (bookName == '' || !/^\d+$/.test(bookCount)) {
                 if (bookName == '')
                     $("#info").text("提示:书籍名称不能为空！");
-                if (!isNaN(bookCount))
+                if (!/^\d+$/.test(bookCount))
                     $("#countInfo").text("提示:请输入整数！");
             } else {
                 $("#updateBookForm").submit();

@@ -119,7 +119,7 @@ background-attachment: fixed;">
         else if( passwd ==''){
             $("#info").text("提示:密码不能为空");
         }
-        else if(isNaN( id )){
+        else if(!/^\d+$/.test( id )){
             $("#info").text("提示:账号必须为数字");
         }
         else {
