@@ -37,8 +37,8 @@
 
         <form class="form-inline" id="searchForm" action="${pageContext.request.contextPath}/book/QueryBook"
               method="post">
-            <input type="hidden" name="currentPage" id="currentPage" value="${qo.currentPage}">
-            <input type="hidden" name="pageSize" id="pageSize" value="${qo.pageSize}">
+            <input type="hidden" name="currentPage" id="currentPage" >
+            <input type="hidden" name="pageSize" id="pageSize" >
             <label for="keyword">关键字:</label>
             <input type="text" class="form-control" id="keyword" name="keyword" placeholder="请输入书籍关键字">
 

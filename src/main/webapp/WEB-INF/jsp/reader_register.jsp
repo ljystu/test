@@ -26,7 +26,7 @@ background-attachment: fixed;">
             <form action="${pageContext.request.contextPath}/Reader/registerReader" method="post" id="readerRegister" >
 
                 <div class="input-group" style="padding-top: 20px;">
-                    <span class="input-group-addon">学号</span>
+                    <span class="input-group-addon">账号</span>
                     <input type="text" class="form-control" name="readerName" id="readerName"  >
                 </div>
                 <div class="input-group" style="padding-top: 20px;">

@@ -36,7 +36,7 @@
           id="addReaderForm">
         <div class="form-group">
             <label for="readerName"></label>
-            读者姓名：<input type="text" class="form-control" name="readerNames" id="readerName">
+            读者账号：<input type="text" class="form-control" name="readerNames" id="readerName">
             <p style="text-align: right;color: red;position: absolute" id="readerNameCheck"></p>
         </div>
         <div class="error-msg"></div>
@@ -64,7 +64,7 @@
             var readerSex= $("#readerSex").val();
             if (readerName == '' || readerPwd == ''||(readerSex!='男'&&readerSex!='女')) {
                 if (readerName == '')
-                    $("#readerNameCheck").text("提示:读者名称不能为空！");
+                    $("#readerNameCheck").text("提示:读者账号不能为空！");
                 if (readerPwd == '')
                     $("#PwdCheck").text("提示:读者密码不能为空！");
                 if(readerSex!='男'&&readerSex!='女'){

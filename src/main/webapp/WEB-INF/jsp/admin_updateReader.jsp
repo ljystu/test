@@ -37,7 +37,7 @@
         <input type="hidden" name="readerId" value="${reader.getReaderId()}"/>
         <div class="form-group">
             <label for="updateReaderName"></label>
-            读者名称：<input type="text" id="updateReaderName" name="readerName" value="${reader.getReaderName()}"/>
+            读者账号：<input type="text" id="updateReaderName" name="readerName" value="${reader.getReaderName()}"/>
             <p style="text-align: right;color: red;position: absolute" id="readerNameCheck"></p>
         </div>
         <div class="error-msg"></div>
@@ -59,7 +59,7 @@
             var readerSex = $("#readerSex").val();
             if (updateReaderName == '' || (readerSex != '男' && readerSex != '女')) {
                 if (updateReaderName == '')
-                    $("#readerNameCheck").text("提示:读者名称不能为空！");
+                    $("#readerNameCheck").text("提示:读者账号不能为空！");
                 if (readerSex != '男' && readerSex != '女')
                     $("#SexCheck").text("提示：请输入正确的性别！");
 

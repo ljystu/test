@@ -56,7 +56,7 @@ background-attachment: fixed;">
             </div>
 
             <br>
-            <a class="btn btn-primary btn-block" href="${pageContext.request.contextPath}/Reader/backIndex">返回登陆界面</a>
+            <a class="btn btn-primary btn-block" href="${pageContext.request.contextPath}/Reader/backIndex">返回登录界面</a>
         </div>
 
 </div>

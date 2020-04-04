@@ -53,7 +53,7 @@ background-attachment: fixed;">
                     <td>${readerInfo.readerId}</td>
                 </tr>
                 <tr>
-                    <th>名称</th>
+                    <th>账号</th>
                     <td>${readerInfo.readerName}</td>
                 </tr>
                 <tr>
@@ -65,7 +65,7 @@ background-attachment: fixed;">
                     <td>${readerInfo.readerType}</td>
                 </tr>
                 <tr>
-                    <th>读者简介</th>
+                    <th>简介</th>
                     <td>${readerInfo.readerNote}</td>
                 </tr>
             </table>
