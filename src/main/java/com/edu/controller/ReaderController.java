@@ -9,13 +9,16 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
 @RequestMapping("/Reader")
+@SessionAttributes("reader")
 public class ReaderController {
 
     @Autowired
@@ -42,7 +45,9 @@ public class ReaderController {
     @RequestMapping("/login")
     public String login(Reader reader,Model model){
         Reader ad=readerService.loginReader(reader);
+
         if(ad!=null){
+            model.addAttribute("reader",reader);
             return "redirect:/book/allBook";
         }else{
             return "login_error";
@@ -51,6 +56,11 @@ public class ReaderController {
     @RequestMapping("/register")
     public String register() {
         return "reader_register";
+    }
+
+    @RequestMapping("/backIndex")
+    public String backIndex() {
+        return "redirect:../";
     }
 
     @RequestMapping("/admin_header.html")

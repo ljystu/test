@@ -12,9 +12,9 @@
         })
     </script>
 </head>
-<%--<body background="img/school.jpg" style=" background-repeat:no-repeat ;--%>
-<%--background-size:100% 100%;--%>
-<%--background-attachment: fixed;">--%>
+<body background="${pageContext.request.contextPath}/img/p2.JPG" style=" background-repeat:no-repeat ;
+background-size:100% 100%;
+background-attachment: fixed;">
 
 <%--<div id="header"></div>--%>
 <div class="col-xs-6 col-md-offset-3" style="padding-top: 100px;position: relative">

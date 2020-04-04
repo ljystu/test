@@ -16,4 +16,21 @@ public class AdminServiceImpl implements AdminService{
     public Admin loginAdmin(Admin admin) {
         return adminMapper.loginAdmin(admin);
     }
+
+    @Override
+    public String getPassword(int id) {
+        return adminMapper.getPassword(id);
+    }
+
+    @Override
+    public boolean resetPassword(int id, String password) {
+        return adminMapper.resetPassword(id, password)>0;
+    }
+
+    @Override
+    public int findIdByName(String name) {
+        return adminMapper.findIdByName(name);
+    }
+
+
 }
