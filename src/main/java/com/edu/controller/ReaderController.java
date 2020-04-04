@@ -1,6 +1,5 @@
 package com.edu.controller;
 
-import com.edu.pojo.Admin;
 import com.edu.pojo.Reader;
 import com.edu.service.ReaderService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -47,7 +42,7 @@ public class ReaderController {
         List<Reader> list = (List<Reader>) readerService.findReaderByName(name);
         System.out.println(list);
         model.addAttribute("list", list);
-        return "allReader";
+        return "admin_allReader";
     }
 
     @RequestMapping("/allReader")
@@ -56,7 +51,7 @@ public class ReaderController {
         System.out.println(reader);
         model.addAttribute("list", reader);
         request.setAttribute("list", reader);
-        return "allReader";
+        return "admin_allReader";
     }
 
     @RequestMapping("/login")
@@ -98,7 +93,7 @@ public class ReaderController {
 
     @RequestMapping("/toAddReader")
     public String toAddReader() {
-        return "addReader";
+        return "admin_addReader";
     }
 
     @RequestMapping("/addReader")
@@ -120,7 +115,7 @@ public class ReaderController {
         Reader readers = readerService.findReaderById(id);
         System.out.println(readers);
         model.addAttribute("reader", readers);
-        return "updateReader";
+        return "admin_updateReader";
     }
 
     @RequestMapping("/updateReader")

@@ -27,7 +27,7 @@ public class BookController {
     public String list(Model model) {
         List<Books> list = bookService.queryAllBook();
         model.addAttribute("list", list);
-        return "allBook";
+        return "admin_allBook";
     }
     @RequestMapping("/reader_allBook")
     public String reader_allBook(Model model) {
@@ -38,7 +38,7 @@ public class BookController {
 
     @RequestMapping("/toAddBook")
     public String toAddPaper() {
-        return "addBook";
+        return "admin_addBook";
     }
 
     @RequestMapping("/addBook")
@@ -53,7 +53,7 @@ public class BookController {
         Books books = bookService.queryBookById(id);
         System.out.println(books);
         model.addAttribute("book", books);
-        return "updateBook";
+        return "admin_updateBook";
     }
 
     @RequestMapping("/updateBook")
@@ -78,7 +78,7 @@ public class BookController {
         List<Books> list = bookService.queryBookByNanme(name);
         System.out.println(list.toString());
         model.addAttribute("list", list);
-        return "allBook";
+        return "admin_allBook";
     }
     @RequestMapping("QueryBook")
     public String QueryBook(HttpServletRequest request, HttpSession session,Model model){
@@ -89,20 +89,20 @@ public class BookController {
         if(keyword==""){
             List<Books> list = bookService.queryAllBook();
             model.addAttribute("list", list);
-            return "allBook";
+            return "admin_allBook";
         }
 
         if(searchType.equals("全部")&&keyword.equals("")){
            List<Books> list=bookService.queryBook(keyword,"");
             System.out.println(list.toString());
             model.addAttribute("list", list);
-            return "allBook";
+            return "admin_allBook";
         }
         else{
             List<Books> list=bookService.queryBook(keyword,searchType);
             System.out.println(list.toString());
             model.addAttribute("list", list);
-            return "allBook";
+            return "admin_allBook";
         }
     }
 
