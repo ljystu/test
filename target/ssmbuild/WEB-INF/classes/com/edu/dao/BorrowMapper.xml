@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.edu.dao.BorrowMapper">
+
+    <resultMap id="BaseResultMap" type="com.edu.pojo.Borrow" >
+        <id column="idbookBorrow" property="idbookBorrow" jdbcType="INTEGER" />
+        <id column="readerId" property="readerId" jdbcType="INTEGER" />
+        <result column="borrowDate" property="borrowDate" jdbcType="DATE" />
+        <result column="returnDate" property="returnDate" jdbcType="DATE" />
+        <result column="Note" property="Note" jdbcType="VARCHAR" />
+        <association column="bookId" property="bookId" jdbcType="INTEGER"
+                     javaType="com.edu.pojo.Books" select="com.edu.dao.BookMapper.queryBookById">
+        </association>
+        <association column="readerId" property="readerId" jdbcType="INTEGER"
+                     javaType="com.edu.pojo.Reader" select="com.edu.dao.ReaderMapper.findReaderById">
+        </association>
+    </resultMap>
+
+    <insert id="addBorrow" parameterType="Borrow">
+        insert into ssmbuild.bookborrow(idbookBorrow,bookId, readerId, borrowDate, returnDate, sta)
+        values (#{idbookBorrow},#{books.bookId},#{readers.readerId},#{borrowDate},#{returnDate},#{sta})
+    </insert>
+
+    <delete id="returnById" parameterType="int">
+        update ssmbuild.bookborrow set sta="已归还" where idbookBorrow=#{idbookBorrow}
+    </delete>
+
+    <update id="updateBorrow" parameterType="Borrow">
+        update ssmbuild.bookborrow
+        set bookId=#{bookId},readerId=#{readerId},borrowDate=#{borrowDate},returnDate=#{returnDate},sta=#{sta}
+        where idbookBorrow=#{idbookBorrow}
+    </update>
+
+    <select id="findBorrowById" resultType="Borrow">
+        select * from ssmbuild.bookborrow
+        where idbookBorrow = #{idbookBorrow}
+    </select>
+
+    <select id="findAllBorrow" resultType="Borrow">
+        select * from ssmbuild.bookborrow
+    </select>
+
+    <select id="findBorrowByReader" resultType="Borrow">
+        select * from ssmbuild.bookborrow
+        where readerId  = #{readerId}
+    </select>
+
+    <select id="findBorrowByBook" resultType="Borrow">
+        select * from ssmbuild.bookborrow
+        where bookId = #{bookId}
+    </select>
+
+</mapper>
