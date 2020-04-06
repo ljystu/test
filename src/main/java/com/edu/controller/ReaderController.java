@@ -153,9 +153,9 @@ public class ReaderController {
     }
 
     @RequestMapping("readerPersonal_edit_do.html")
-    public String readerInfoEditDo(HttpServletRequest request, String name, String type,String sex, String note, RedirectAttributes redirectAttributes) {
+    public String readerInfoEditDo(HttpServletRequest request, String name, String type,String sex, String detail, RedirectAttributes redirectAttributes) {
         int readerId =  Integer.parseInt(request.getParameter("readerId"));
-        Reader readerInfo = getReaderInfo(readerId, name,type,sex,note);
+        Reader readerInfo = getReaderInfo(readerId, name,type,sex,detail);
         if (readerService.editReaderInfo(readerInfo)>0) {
             redirectAttributes.addFlashAttribute("succ", "读者信息修改成功！");
         } else {

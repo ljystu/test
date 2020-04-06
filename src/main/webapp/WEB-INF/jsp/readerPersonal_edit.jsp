@@ -21,9 +21,16 @@
         $(function () {
             $('#header').load('reader_header.html');
         })
+        function checkLength(which) {
+            var maxChars = 200;
+            if (which.value.length > maxChars)
+                which.value = which.value.substring(0, maxChars);
+            var curr = maxChars - which.value.length;
+            document.getElementById("checkRest").innerHTML = curr.toString();
+        }
     </script>
 </head>
-<body  style=" background-repeat:no-repeat ;
+<body style=" background-repeat:no-repeat ;
 background-size:100% 100%;
 background-attachment: fixed;">
 <div id="header" style="padding-bottom: 80px"></div>
@@ -35,36 +42,42 @@ background-attachment: fixed;">
             </h3>
         </div>
         <div class="panel-body">
-            <form action="${pageContext.request.contextPath}/Reader/readerPersonal_edit_do.html" method="post" id="edit" >
+            <form action="${pageContext.request.contextPath}/Reader/readerPersonal_edit_do.html" method="post"
+                  id="edit">
                 <div class="input-group">
-                    <span  class="input-group-addon">读者编号</span>
-                    <input type="text" readonly="readonly" class="form-control" name="readerId" id="readerId" value="${readerInfo.readerId}">
+                    <span class="input-group-addon">读者编号</span>
+                    <input type="text" readonly="readonly" class="form-control" name="readerId" id="readerId"
+                           value="${readerInfo.readerId}">
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">账号</span>
-                    <input type="text"  readonly="readonly" class="form-control" name="name" id="name" value="${readerInfo.readerName}" >
+                    <input type="text" readonly="readonly" class="form-control" name="name" id="name"
+                           value="${readerInfo.readerName}">
                     <p style="text-align: right;color: red;position: absolute" id="nameCheck"></p>
                 </div>
                 <div class="input-group">
-                    <span  class="input-group-addon">性别</span>
-                    <input type="text" class="form-control" name="sex" id="sex"  value="${readerInfo.readerSex}" >
+                    <span class="input-group-addon">性别</span>
+                    <input type="text" class="form-control" name="sex" id="sex" value="${readerInfo.readerSex}">
                     <p style="text-align: right;color: red;position: absolute" id="sexCheck"></p>
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">类型</span>
-                    <input type="text" class="form-control" name="type" id="type"  value="${readerInfo.readerType}" >
-                    <p style="text-align: right;color: red;position: absolute" ></p>
+                    <input type="text" class="form-control" name="type" id="type" value="${readerInfo.readerType}">
+                    <p style="text-align: right;color: red;position: absolute"></p>
                 </div>
                 <div class="input-group">
-                    <span  class="input-group-addon">简介</span>
-                    <input type="text" class="form-control" name="detail" id="detail"  value="${readerInfo.readerNote}" >
-                    <p style="text-align: right;color: red;position: absolute" ></p>
+                    <span class="input-group-addon">简介</span>
+                    <textarea type="text" class="form-control" name="detail" id="detail" onkeyup="checkLength(this)"
+                              maxlength="200">${readerInfo.readerNote}</textarea>
+                    <p style="text-align: right;color: red;position: absolute"></p>
                 </div>
+                <p>剩余字数：<span id="checkRest"></span></p>
                 <br/>
-                <button type="button" value="确定" class="btn btn-success btn-sm" class="text-left"id="editButton" >确定</button>
+                <button type="button" value="确定" class="btn btn-success btn-sm" class="text-left" id="editButton">确定
+                </button>
                 <script>
                     $("#edit").submit(function () {
-                        if($("#name").val()==''||$("#sex").val()==''){
+                        if ($("#name").val() == '' || $("#sex").val() == '') {
                             alert("请填入完整信息！");
                             return false;
                         }
@@ -83,6 +96,8 @@ background-attachment: fixed;">
                             $("#edit").submit();
                         }
                     })
+
+
                 </script>
             </form>
         </div>
