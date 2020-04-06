@@ -38,7 +38,7 @@
         </div>
 
 
-        <form class="form-inline" id="searchForm" action="${pageContext.request.contextPath}/book/QueryBook"
+        <form class="form-inline" id="searchForm" action="${pageContext.request.contextPath}/book/adminQueryBook"
               method="post">
             <input type="hidden" name="currentPage" id="currentPage" value="${qo.currentPage}">
             <input type="hidden" name="pageSize" id="pageSize" value="${qo.pageSize}">

@@ -80,7 +80,7 @@ public class BookController {
         model.addAttribute("list", list);
         return "admin_allBook";
     }
-    @RequestMapping("QueryBook")
+    @RequestMapping("adminQueryBook")
     public String QueryBook(HttpServletRequest request, HttpSession session,Model model){
         String keyword=request.getParameter("keyword");
         String searchType=request.getParameter("searchType");
@@ -103,6 +103,31 @@ public class BookController {
             System.out.println(list.toString());
             model.addAttribute("list", list);
             return "admin_allBook";
+        }
+    }
+    @RequestMapping("readerQueryBook")
+    public String readerQueryBook(HttpServletRequest request, HttpSession session,Model model){
+        String keyword=request.getParameter("keyword");
+        String searchType=request.getParameter("searchType");
+        System.out.println(keyword+" "+searchType);
+
+        if(keyword==""){
+            List<Books> list = bookService.queryAllBook();
+            model.addAttribute("list", list);
+            return "reader_allBook";
+        }
+
+        if(searchType.equals("全部")&&keyword.equals("")){
+            List<Books> list=bookService.queryBook(keyword,"");
+            System.out.println(list.toString());
+            model.addAttribute("list", list);
+            return "reader_allBook";
+        }
+        else{
+            List<Books> list=bookService.queryBook(keyword,searchType);
+            System.out.println(list.toString());
+            model.addAttribute("list", list);
+            return "reader_allBook";
         }
     }
 
