@@ -28,8 +28,8 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="${pageContext.request.contextPath}/Reader/reader_info.html"style="color: white">${sessionScope.reader.readerName}, 已登录</a></li>
-                <li><a href="${pageContext.request.contextPath}/Reader/logout.html"style="color: white">退出</a></li>
+                <li><a href="${pageContext.request.contextPath}/Reader/reader_info.html"style="color: white"><span class="glyphicon glyphicon-user"></span>${sessionScope.reader.readerName} 已登录</a></li>
+                <li><a href="${pageContext.request.contextPath}/Reader/logout.html"style="color: white"><span class="glyphicon glyphicon-off"></span>退出</a></li>
             </ul>
         </div>
     </div>
