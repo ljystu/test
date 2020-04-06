@@ -7,7 +7,7 @@
         <div class="collapse navbar-collapse" id="example-navbar-collapse">
             <ul class="nav navbar-nav navbar-left">
                 <li>
-                    <a href="reader_books.html"style="color: white">
+                    <a href="${pageContext.request.contextPath}/book/reader_allBook"style="color: white">
                         图书查询
                     </a>
                 </li>

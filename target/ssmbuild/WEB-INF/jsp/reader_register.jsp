@@ -26,12 +26,12 @@ background-attachment: fixed;">
             <form action="${pageContext.request.contextPath}/Reader/registerReader" method="post" id="readerRegister" >
 
                 <div class="input-group" style="padding-top: 20px;">
-                    <span class="input-group-addon">账号</span>
-                    <input type="text" class="form-control" name="readerName" id="readerName"  >
+                    <span class="input-group-addon">学号</span>
+                    <input type="text" class="form-control" name="readerName" id="readerName" placeholder="只可填入数字学号" >
                 </div>
                 <div class="input-group" style="padding-top: 20px;">
                     <span  class="input-group-addon">性别</span>
-                    <input type="text" class="form-control" name="readerSex" id="readerSex" >
+                    <input type="text" class="form-control" name="readerSex" id="readerSex" placeholder="男或女">
                 </div>
                 <div class="input-group" style="padding-top: 20px;">
                     <span class="input-group-addon">类型</span>
@@ -43,7 +43,7 @@ background-attachment: fixed;">
                 </div>
                 <br>
                 <input style="align-items: center" type="submit" value="添加" class="btn btn-success btn-sm"
-                       class="text-left">
+                       class="text-left" id="registerButton">
                 <script>
                     function mySubmit(flag){
                         return flag;
@@ -52,6 +52,23 @@ background-attachment: fixed;">
                         if($("#readerPwd").val()==''||$("#readerName").val()==''||$("#readerSex").val()==''||$("#readerType").val()==''){
                             alert("请填入完整读者信息！");
                             return mySubmit(false);
+                        }
+                    })
+
+                    $("#registerButton").click(function () {
+                        var readerName = $("#readerName").val();
+                        var readerSex = $("#readerSex").val();
+                        var readerType = $("readerType").val();
+                        if (readerName == '' || (readerSex != '男' && readerSex != '女' || (readerType != 'teacher' && readerType != 'student'))) {
+                            if (readerName == '')
+                                alert("提示:账号不能为空！");
+                            if (readerSex != '男' && readerSex != '女')
+                                alert("提示：请输入正确的性别！");
+                            if (readerType != 'teacher' && readerType != 'student')
+                                alert("提示：请输入正确的类型！");
+
+                        } else {
+                            $("#edit").submit();
                         }
                     })
                 </script>
