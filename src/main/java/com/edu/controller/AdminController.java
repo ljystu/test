@@ -69,7 +69,6 @@ public class AdminController {
         Admin admin=(Admin) request.getSession().getAttribute("admin");
         String name=admin.getAdminName();
         int id = adminService.findIdByName(name);
-//        int id = admin.getAdminId();
         System.out.println(id);
         String password = adminService.getPassword(id);
         System.out.println(password);

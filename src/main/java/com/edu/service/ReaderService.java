@@ -28,5 +28,6 @@ public interface ReaderService {
     int findIdByName(String name);
 
     Reader getReaderInfo(String readerName);
+
     int editReaderInfo(Reader readerInfo) ;
 }

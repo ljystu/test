@@ -35,7 +35,7 @@
     <div class="row">
         <div class="col-md-4 column"></div>
 
-        <form class="form-inline" id="searchForm" action="${pageContext.request.contextPath}/book/QueryBook"
+        <form class="form-inline" id="searchForm" action="${pageContext.request.contextPath}/book/readerQueryBook"
               method="post">
             <input type="hidden" name="currentPage" id="currentPage" >
             <input type="hidden" name="pageSize" id="pageSize" >

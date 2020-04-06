@@ -46,7 +46,7 @@ background-attachment: fixed;">
             </h3>
         </div>
         <div class="panel-body">
-            <table class="table table-hover">
+            <table class="table table-hover table-striped">
 
                 <tr>
                     <th width="20%">读者编号</th>

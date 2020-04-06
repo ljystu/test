@@ -9,6 +9,5 @@
     </typeAliases>
     <mappers>
         <mapper resource="com/edu/dao/BookMapper.xml"/>
-<!--        <mapper resource="com/edu/dao/ReaderMapper.xml"/>-->
     </mappers>
 </configuration>
