@@ -107,7 +107,7 @@ public class ReaderController {
     public String registerReader(Reader reader) {
         System.out.println(reader);
         readerService.addReader(reader);
-        return "redirect:/book/allBook";
+        return "redirect:../";
     }
 
     @RequestMapping("/toUpdateReader")
