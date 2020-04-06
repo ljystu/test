@@ -1,7 +1,6 @@
 package com.edu.service;
 
 import com.edu.pojo.Admin;
-import org.apache.ibatis.annotations.Param;
 
 public interface AdminService {
 

@@ -2,9 +2,7 @@ package com.edu.pojo;
 
 import java.io.Serializable;
 
-//@Data  //除了有参构造，其他都有
-//@AllArgsConstructor //加入有参构造，但无参没了
-//@NoArgsConstructor  //加入无参
+
 public class Books implements Serializable {
 
     private int bookID;
