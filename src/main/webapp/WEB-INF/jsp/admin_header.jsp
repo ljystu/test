@@ -45,9 +45,9 @@
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a style="color: white">${sessionScope.admin.adminName}, 已登录</a>
+                <li><a style="color: white"><span class="glyphicon glyphicon-user"></span>${sessionScope.admin.adminName} 已登录</a>
                 </li>
-                <li><a href="${pageContext.request.contextPath}/Admin/logout.html" style="color: white">退出</a></li>
+                <li><a href="${pageContext.request.contextPath}/Admin/logout.html" style="color: white"><span class="glyphicon glyphicon-off"></span>退出</a></li>
             </ul>
         </div>
     </div>

@@ -39,10 +39,15 @@
               method="post">
             <input type="hidden" name="currentPage" id="currentPage" >
             <input type="hidden" name="pageSize" id="pageSize" >
-            <label for="keyword">关键字:</label>
+            <div class="input-group">
+                <span class="input-group-addon">关键字</span>
+            <label for="keyword"></label>
             <input type="text" class="form-control" id="keyword" name="keyword" placeholder="请输入书籍关键字">
+            </div>
+            <div class="input-group">
+                <span class="input-group-addon">查询条件</span>
+            <label for="searchType"></label>
 
-            <label for="searchType">查询条件：</label>
             <select class="form-control" id="searchType" name="searchType">
                 <option>全部</option>
                 <option>书籍编号</option>
@@ -51,6 +56,7 @@
                 <option>书籍关键字</option>
                 <option>书籍详情</option>
             </select>
+            </div>
             <input type="submit" id="query" class="btn btn-default" value="查询"/>
 
             <button id="cancel" class="btn btn-default"
