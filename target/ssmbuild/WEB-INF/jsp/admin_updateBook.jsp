@@ -54,8 +54,9 @@
         <div class="error-msg"></div>
         关键字：<input type="text" name="bookKeyword" value="${book.getBookKeyword()}"/>
         <div class="error-msg"></div>
-        书籍详情：<textarea type="text" name="detail" value="${book.getDetail() }"></textarea>
+        书籍详情：<textarea type="text" name="detail" onkeyup="checkLength(this)" maxlength="200">${book.getDetail() }</textarea>
         <div class="error-msg"></div>
+        <p>剩余字数：<span id="checkRest"></span></p>
         <button type="button" class="button" value="提交" id="updateBookButton">提交</button>
     </form>
     <script>
@@ -71,7 +72,13 @@
                 $("#updateBookForm").submit();
             }
         })
-
+        function checkLength(which) {
+            var maxChars = 200;
+            if (which.value.length > maxChars)
+                which.value = which.value.substring(0, maxChars);
+            var curr = maxChars - which.value.length;
+            document.getElementById("checkRest").innerHTML = curr.toString();
+        }
     </script>
     </table>
 
