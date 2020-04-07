@@ -19,45 +19,52 @@
     </script>
 
 </head>
-<body>
-<div id="header"></div>
+<bodystyle=" background-repeat:no-repeat ;
+background-size:100% 100%;
+background-attachment: fixed;">
+<div id="header" style="padding-bottom: 80px"></div>
 <br/>
-<br/>
-<div class="container" style="margin-left: 250px">
-
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <div class="page-header">
-                <h4>
-                    修改信息
-                </h4>
-            </div>
+<div class="col-xs-5 col-md-offset-3">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                修改书籍信息
+            </h3>
         </div>
-    </div>
+        <div class="panel-body">
 
-    <form action="${pageContext.request.contextPath}/book/updateBook" method="post" class="smart-green"
+    <form action="${pageContext.request.contextPath}/book/updateBook" method="post" 
           id="updateBookForm">
-        <input type="hidden" name="bookID" value="${book.getBookID()}"/>
-        <div class="form-group">
-            <label for="updateBook"></label>
-            书籍名称：<input type="text" id="updateBook" name="bookName" value="${book.getBookName()}"/>
+       
+        <div class="input-group">
+            <span class="input-group-addon">书籍名称</span>
+            <input type="text" id="updateBook" name="bookName" class="form-control" value="${book.getBookName()}"/>
             <p style="text-align: right;color: red;position: absolute" id="info"></p>
         </div>
         <div class="error-msg"></div>
-        <div class="form-group">
-            <label for="updateBookCount"></label>
-            书籍数量：<input type="text" id="updateBookCount" name="bookCounts" value="${book.getBookCounts()}"/>
+        <div class="input-group">
+            <span class="input-group-addon">书籍数量</span>
+            <input type="text" id="updateBookCount" class="form-control"name="bookCounts" value="${book.getBookCounts()}"/>
             <p style="text-align: right;color: red;position: absolute" id="countInfo"></p>
         </div>
         <div class="error-msg"></div>
-        书籍类型：<input type="text" name="bookType" value="${book.getBookType()}"/>
+        <div class="input-group">
+            <span class="input-group-addon">书籍类型</span>
+        <input type="text" name="bookType"class="form-control" value="${book.getBookType()}"/>
+        </div>
         <div class="error-msg"></div>
-        关键字：<input type="text" name="bookKeyword" value="${book.getBookKeyword()}"/>
+        <div class="input-group">
+            <span class="input-group-addon">关键字</span>
+        <input type="text" name="bookKeyword" class="form-control"value="${book.getBookKeyword()}"/>
+        </div>
         <div class="error-msg"></div>
-        书籍详情：<textarea type="text" name="detail" onkeyup="checkLength(this)" maxlength="200">${book.getDetail() }</textarea>
+        <div class="input-group">
+            <span class="input-group-addon">书籍详情</span>
+        <textarea type="text" class="form-control"name="detail" onkeyup="checkLength(this)" maxlength="200">${book.getDetail() }</textarea>
+        </div>
         <div class="error-msg"></div>
         <p>剩余字数：<span id="checkRest"></span></p>
-        <button type="button" class="button" value="提交" id="updateBookButton">提交</button>
+        <button type="button" class="btn btn-success btn-sm" cvalue="提交" id="updateBookButton">提交</button>
     </form>
     <script>
         $("#updateBookButton").click(function () {

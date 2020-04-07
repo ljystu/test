@@ -17,57 +17,78 @@
         })
     </script>
 </head>
-<body>
-<div id="header"></div>
-<br/><br/>
-<div class="container" style="margin-left: 250px">
+<bodystyle
+=" background-repeat:no-repeat ;
+background-size:100% 100%;
+background-attachment: fixed;">
+<div id="header" style="padding-bottom: 80px"></div>
+<div class="col-xs-5 col-md-offset-3">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                管理读者信息
+            </h3>
+        </div>
+        <div class="panel-body">
+            <form action="${pageContext.request.contextPath}/Reader/updateReader" method="post"
+                  id="updateReaderForm">
 
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <div class="page-header">
-                <h4>
-                    修改读者信息
-                </h4>
-            </div>
+                <div class="input-group">
+                    <span class="input-group-addon">读者账号</span>
+                    <input type="text" id="updateReaderName" class="form-control" readonly="readonly" name="readerName"
+                                value="${reader.getReaderName()}"/>
+                    <p style="text-align: right;color: red;position: absolute" id="readerNameCheck"></p>
+                </div>
+                <div class="error-msg"></div>
+                <div class="input-group">
+                    <span class="input-group-addon">读者类型</span>
+                    <input type="text" name="readerType" class="form-control" value="${reader.getReaderType()}"/>
+                </div>
+                <div class="error-msg"></div>
+                <div class="input-group">
+                    <span class="input-group-addon">读者性别</span>
+                    <input type="text" name="readerSex" class="form-control" id="readerSex"
+                                value="${reader.getReaderSex() }"/>
+                    <p style="text-align: right;color: red;position: absolute" id="SexCheck"></p>
+                </div>
+                <div class="error-msg"></div>
+                <div class="input-group">
+                    <span class="input-group-addon">读者备注</span>
+                    <textarea type="text" class="form-control" name="readerNote" onkeyup="checkLength(this)"
+                                   maxlength="200">${reader.getReaderNote() }</textarea>
+                </div>
+                <br/>
+                <p>剩余字数：<span id="checkRest"></span></p>
+                <br/>
+                <button type="button" class="btn btn-success btn-sm" value="提交" id="updateReaderButton">
+                    提交
+                </button>
+            </form>
+            <script>
+                $("#updateReaderButton").click(function () {
+                    var updateReaderName = $("#updateReaderName").val();
+                    var readerSex = $("#readerSex").val();
+                    if (updateReaderName == '' || (readerSex != '男' && readerSex != '女')) {
+                        if (updateReaderName == '')
+                            $("#readerNameCheck").text("提示:读者账号不能为空！");
+                        if (readerSex != '男' && readerSex != '女')
+                            $("#SexCheck").text("提示：请输入正确的性别！");
+
+                    } else {
+                        $("#updateReaderForm").submit();
+                    }
+                })
+
+                function checkLength(which) {
+                    var maxChars = 200;
+                    if (which.value.length > maxChars)
+                        which.value = which.value.substring(0, maxChars);
+                    var curr = maxChars - which.value.length;
+                    document.getElementById("checkRest").innerHTML = curr.toString();
+                }
+            </script>
         </div>
     </div>
-
-    <form action="${pageContext.request.contextPath}/Reader/updateReader" method="post" class="smart-green"
-          id="updateReaderForm">
-        <input type="hidden" name="readerId" value="${reader.getReaderId()}"/>
-        <div class="form-group">
-            <label for="updateReaderName"></label>
-            读者账号：<input type="text" id="updateReaderName" name="readerName" value="${reader.getReaderName()}"/>
-            <p style="text-align: right;color: red;position: absolute" id="readerNameCheck"></p>
-        </div>
-        <div class="error-msg"></div>
-        读者类型：<input type="text" name="readerType" value="${reader.getReaderType()}"/>
-        <div class="error-msg"></div>
-        <div class="form-group">
-            <label for="readerSex"></label>
-            读者性别：<input type="text" name="readerSex" id="readerSex" value="${reader.getReaderSex() }"/>
-            <p style="text-align: right;color: red;position: absolute" id="SexCheck"></p>
-        </div>
-        <div class="error-msg"></div>
-        读者备注：<textarea type="text" name="readerNote" value="${reader.getReaderNote() }"></textarea>
-        <div class="error-msg"></div>
-        <button type="button" class="button" value="提交" id="updateReaderButton">提交</button>
-    </form>
-    <script>
-        $("#updateReaderButton").click(function () {
-            var updateReaderName = $("#updateReaderName").val();
-            var readerSex = $("#readerSex").val();
-            if (updateReaderName == '' || (readerSex != '男' && readerSex != '女')) {
-                if (updateReaderName == '')
-                    $("#readerNameCheck").text("提示:读者账号不能为空！");
-                if (readerSex != '男' && readerSex != '女')
-                    $("#SexCheck").text("提示：请输入正确的性别！");
-
-            } else {
-                $("#updateReaderForm").submit();
-            }
-        })
-    </script>
 </div>
 </body>
 </html>

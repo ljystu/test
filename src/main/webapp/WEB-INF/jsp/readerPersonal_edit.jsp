@@ -13,7 +13,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 引入 Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
     <%--    <link rel="stylesheet" href="css/bootstrap.min.css">--%>
     <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
@@ -54,7 +53,6 @@ background-attachment: fixed;">
                     <span class="input-group-addon">账号</span>
                     <input type="text" readonly="readonly" class="form-control" name="name" id="name"
                            value="${readerInfo.readerName}">
-                    <p style="text-align: right;color: red;position: absolute" id="nameCheck"></p>
                 </div>
                 <br>
                 <div class="input-group">
@@ -89,14 +87,9 @@ background-attachment: fixed;">
                     })
 
                     $("#editButton").click(function () {
-                        var name = $("#name").val();
                         var sex = $("#sex").val();
-                        if (name == '' || (sex != '男' && sex != '女')) {
-                            if (name == '')
-                                alert("提示:账号不能为空！");
-                            if (sex != '男' && sex != '女')
+                        if ((sex != '男' && sex != '女')) {
                                 alert("提示：请输入正确的性别！");
-
                         } else {
                             $("#edit").submit();
                         }

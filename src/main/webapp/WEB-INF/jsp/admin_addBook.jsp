@@ -18,62 +18,81 @@
         })
     </script>
 </head>
-<body>
-<div id="header"></div>
+<body style=" background-repeat:no-repeat ;
+background-size:100% 100%;
+background-attachment: fixed;">
+<div id="header"style="padding-bottom: 80px"></div>
 <br/>
-<div class="container" style="margin-left: 250px">
+<div class="col-xs-5 col-md-offset-3">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                新增书籍
+            </h3>
+        </div>
+        <div class="panel-body">
 
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <div class="page-header">
-                <h4>
-                    新增书籍
-                </h4>
-            </div>
+            <form action="${pageContext.request.contextPath}/book/addBook" method="post"
+                  id="addBookForm">
+                <div class="input-group">
+                    <span class="input-group-addon">书籍名称</span>
+                    <input id="addBook" class="form-control" type="text" name="bookName"/>
+                    <p style="text-align: right;color: red;position: absolute" id="info"></p>
+                </div>
+                <br/>
+                <div class="input-group">
+                    <span class="input-group-addon">书籍数量</span>
+                    <input id="updateBookCount"  class="form-control" type="text" name="bookCounts"/>
+                    <p style="text-align: right;color: red;position: absolute" id="countInfo"></p>
+                </div>
+                <br/>
+                <div class="input-group">
+                    <span class="input-group-addon">书籍种类</span>
+                    <input type="text"  class="form-control" name="bookType"/>
+                </div>
+                <br/>
+                <div class="input-group">
+                    <span class="input-group-addon">关键字 </span>
+                    <input type="text"  class="form-control" name="bookKeyword"/>
+                </div>
+                <br/>
+                <div class="input-group">
+                    <span class="input-group-addon">书籍详情</span>
+                    <textarea type="text" class="form-control" name="detail" onkeyup="checkLength(this)" maxlength="200"></textarea>
+                </div>
+                <br/>
+                <p>剩余字数：<span id="checkRest"></span></p>
+                <button type="button" class="btn btn-success btn-sm" value="提交" id="addBookButton">提交</button>
+
+                <script>
+                    $("#addBookButton").click(function () {
+                        var bookName = $("#addBook").val();
+                        var bookCount = $("#updateBookCount").val();
+                        if (bookName == '' || !/^\d+$/.test(bookCount)) {
+                            if (bookName == '')
+                                $("#info").text("提示:书籍名称不能为空！");
+                            if (!/^\d+$/.test(bookCount))
+                                $("#countInfo").text("提示:请输入整数！");
+                        } else {
+                            $("#addBookForm").submit();
+                        }
+                    })
+
+                    function checkLength(which) {
+                        var maxChars = 200;
+                        if (which.value.length > maxChars)
+                            which.value = which.value.substring(0, maxChars);
+                        var curr = maxChars - which.value.length;
+                        document.getElementById("checkRest").innerHTML = curr.toString();
+                    }
+
+                    function isInteger(obj) {
+                        return typeof obj === 'number' && obj % 1 === 0
+                    }
+                </script>
+            </form>
         </div>
     </div>
-    <form action="${pageContext.request.contextPath}/book/addBook" method="post" class="smart-green" id="addBookForm">
-        <div class="form-group">
-            <label for="addBook"></label>
-            书籍名称：<input id="addBook" class="form-control" type="text" name="bookName"/>
-            <p style="text-align: right;color: red;position: absolute" id="info"></p>
-        </div>
-        <div class="error-msg"></div>
-        <div class="form-group">
-            <label for="updateBookCount"></label>
-        书籍数量：<input id="updateBookCount" type="text" name="bookCounts"/>
-            <p style="text-align: right;color: red;position: absolute" id="countInfo"></p>
-        </div>
-        <div class="error-msg"></div>
-        书籍种类：<input type="text" name="bookType"/>
-        <div class="error-msg"></div>
-        关键字：<input type="text" name="bookKeyword"/>
-        <div class="error-msg"></div>
-        书籍详情：<textarea type="text" name="detail"></textarea>
-        <div class="success-msg"></div>
-        <span>&nbsp;</span>
-        <BUTTON type="button" class="button" id="addBookButton">添加</BUTTON>
-    </form>
-    <script>
-        $("#addBookButton").click(function () {
-            var bookName = $("#addBook").val();
-            var bookCount = $("#updateBookCount").val();
-            if (bookName == '' || !/^\d+$/.test(bookCount)) {
-                if (bookName == '')
-                    $("#info").text("提示:书籍名称不能为空！");
-                if (!/^\d+$/.test(bookCount))
-                    $("#countInfo").text("提示:请输入整数！");
-            } else {
-                $("#addBookForm").submit();
-            }
-        })
-
-
-        function isInteger(obj) {
-            return typeof obj === 'number' && obj%1 === 0
-        }
-    </script>
 </div>
-
 </body>
 </html>

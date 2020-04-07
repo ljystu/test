@@ -1,4 +1,3 @@
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -49,8 +48,7 @@
         <div class="col-md-7 column pull-right">
             <form class="form-inline" id="searchForm" action="${pageContext.request.contextPath}/book/adminQueryBook"
                   method="post">
-                <input type="hidden" name="currentPage" id="currentPage" value="${qo.currentPage}">
-                <input type="hidden" name="pageSize" id="pageSize" value="${qo.pageSize}">
+
                 <div class="input-group">
                     <span class="input-group-addon">关键字</span>
                     <label for="keyword"></label>
@@ -105,9 +103,11 @@
                         <td>${book.getBookKeyword()}</td>
                         <td class="product-buyer-name">${book.getDetail()}</td>
                         <td>
-                            <a class="btn btn-info btn-xs" href="${pageContext.request.contextPath}/book/toUpdateBook?id=${book.getBookID()}">
+                            <a class="btn btn-info btn-xs"
+                               href="${pageContext.request.contextPath}/book/toUpdateBook?id=${book.getBookID()}">
                                 <span class="glyphicon glyphicon-pencil"></span>更改</a>
-                            <a class="btn btn-danger btn-xs" href="${pageContext.request.contextPath}/book/del/${book.getBookID()}">
+                            <a class="btn btn-danger btn-xs"
+                               href="${pageContext.request.contextPath}/book/del/${book.getBookID()}">
                                 <span class="glyphicon glyphicon-trash"></span>删除</a>
                         </td>
                     </tr>

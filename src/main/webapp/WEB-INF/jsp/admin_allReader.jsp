@@ -1,4 +1,5 @@
-<!DOCTYPE html><%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -7,20 +8,25 @@
     <!-- 引入 Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <title>全部图书信息</title>
-    <%--    <link rel="stylesheet" href="css/bootstrap.min.css">--%>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.js"></script>
-    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js" ></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <script>
         $(function () {
             $('#header').load('admin_header.html');
         })
     </script>
+    <style>
+        .product-buyer-name {
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }</style>
 </head>
 <body>
 <div id="header"></div>
 <br/>
-
-
 <div class="container" style="margin-left: 250px">
 
     <div class="row clearfix">
@@ -38,10 +44,18 @@
             <a class="btn btn-primary" href="${pageContext.request.contextPath}/Reader/toAddReader">新增</a>
         </div>
 
-        <div class="colLast">
-            <form action="${pageContext.request.contextPath}/Reader/findReaderByName" method="post">
-                <input type="text" name="readerName"/>
-                <input type="submit" value="查询"/>
+        <div class="col-md-6 column pull-right">
+            <form class="form-inline" action="${pageContext.request.contextPath}/Reader/findReaderByName" method="post">
+                <div class="input-group">
+                    <span class="input-group-addon">关键字</span>
+                    <label for="readerName"></label>
+                    <input type="text"  id="readerName"class="form-control" name="readerName" placeholder="请输入读者关键字">
+                </div>
+
+                <input type="submit" id="query" class="btn btn-primary" value="查询"/>
+                <button id="cancel" class="btn btn-success"
+                        href="${pageContext.request.contextPath}/Reader/allReader">重置
+                </button>
 
             </form>
         </div>
@@ -72,11 +86,13 @@
                         <td>${reader.getReaderBooks()}</td>
                         <td>${reader.getRentDate()}</td>
                         <td>${reader.getReaderType()}</td>
-                        <td>${reader.getReaderNote()}</td>
+                        <td class="product-buyer-name">${reader.getReaderNote()}</td>
                         <td>
-                            <a class="btn btn-info btn-xs" href="${pageContext.request.contextPath}/Reader/toUpdateReader?id=${reader.getReaderId()}">
+                            <a class="btn btn-info btn-xs"
+                               href="${pageContext.request.contextPath}/Reader/toUpdateReader?id=${reader.getReaderId()}">
                                 <span class="glyphicon glyphicon-pencil"></span>更改</a>
-                            <a class="btn btn-danger btn-xs" href="${pageContext.request.contextPath}/Reader/del/${reader.getReaderId()}">
+                            <a class="btn btn-danger btn-xs"
+                               href="${pageContext.request.contextPath}/Reader/del/${reader.getReaderId()}">
                                 <span class="glyphicon glyphicon-trash"></span>删除</a>
                         </td>
                     </tr>
