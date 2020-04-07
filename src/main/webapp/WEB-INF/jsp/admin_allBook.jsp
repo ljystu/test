@@ -2,6 +2,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<style>
+    .product-buyer-name {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}</style>
 <head>
     <title>书籍列表</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,6 +23,7 @@
             $('#header').load('admin_header.html');
         })
     </script>
+
 </head>
 <body>
 <div id="header"></div>
@@ -37,37 +45,37 @@
             <a class="btn btn-primary" href="${pageContext.request.contextPath}/book/toAddBook">新增</a>
         </div>
 
+        <div class="col-md-7 column pull-right">
+            <form class="form-inline" id="searchForm" action="${pageContext.request.contextPath}/book/adminQueryBook"
+                  method="post">
+                <input type="hidden" name="currentPage" id="currentPage" value="${qo.currentPage}">
+                <input type="hidden" name="pageSize" id="pageSize" value="${qo.pageSize}">
+                <div class="input-group">
+                    <span class="input-group-addon">关键字</span>
+                    <label for="keyword"></label>
+                    <input type="text" class="form-control" id="keyword" name="keyword" placeholder="请输入书籍关键字">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">查询条件</span>
+                    <label for="searchType"></label>
 
-        <form class="form-inline" id="searchForm" action="${pageContext.request.contextPath}/book/adminQueryBook"
-              method="post">
-            <input type="hidden" name="currentPage" id="currentPage" value="${qo.currentPage}">
-            <input type="hidden" name="pageSize" id="pageSize" value="${qo.pageSize}">
-            <div class="input-group">
-                <span class="input-group-addon">关键字</span>
-                <label for="keyword"></label>
-                <input type="text" class="form-control" id="keyword" name="keyword" placeholder="请输入书籍关键字">
-            </div>
-            <div class="input-group">
-                <span class="input-group-addon">查询条件</span>
-                <label for="searchType"></label>
+                    <select class="form-control" id="searchType" name="searchType">
+                        <option>全部</option>
+                        <option>书籍编号</option>
+                        <option>书籍名称</option>
+                        <option>书籍类型</option>
+                        <option>书籍关键字</option>
+                        <option>书籍详情</option>
+                    </select>
+                </div>
+                <input type="submit" id="query" class="btn btn-primary" value="查询"/>
 
-                <select class="form-control" id="searchType" name="searchType">
-                    <option>全部</option>
-                    <option>书籍编号</option>
-                    <option>书籍名称</option>
-                    <option>书籍类型</option>
-                    <option>书籍关键字</option>
-                    <option>书籍详情</option>
-                </select>
-            </div>
-            <input type="submit" id="query" class="btn btn-default" value="查询"/>
+                <button id="cancel" class="btn btn-success"
+                        href="${pageContext.request.contextPath}/book/allBook">重置
+                </button>
 
-            <button  id="cancel" class="btn btn-default"
-                    href="${pageContext.request.contextPath}/book/allBook">重置
-            </button>
-
-
-        </form>
+            </form>
+        </div>
     </div>
 
 
@@ -94,7 +102,7 @@
                         <td>${book.getBookCounts()}</td>
                         <td>${book.getBookType()}</td>
                         <td>${book.getBookKeyword()}</td>
-                        <td>${book.getDetail()}</td>
+                        <td class="product-buyer-name">${book.getDetail()}</td>
                         <td>
                             <a href="${pageContext.request.contextPath}/book/toUpdateBook?id=${book.getBookID()}">更改</a>
                             |

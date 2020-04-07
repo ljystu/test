@@ -2,6 +2,13 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
+<style>
+    .product-buyer-name {
+        max-width: 200px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }</style>
 <head>
     <title>书籍列表</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +40,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-4 column"></div>
+        <div class="col-md-7 column pull-right">
 
         <form class="form-inline" id="searchForm" action="${pageContext.request.contextPath}/book/readerQueryBook"
               method="post">
@@ -57,17 +64,18 @@
                 <option>书籍详情</option>
             </select>
             </div>
-            <input type="submit" id="query" class="btn btn-default" value="查询"/>
+            <input type="submit" id="query" class="btn btn-primary" value="查询"/>
 
-            <button id="cancel" class="btn btn-default"
+            <button id="cancel" class="btn btn-success"
                     href="${pageContext.request.contextPath}/book/reader_allBook">重置
             </button>
         </form>
+        </div>
     </div>
 
 
     <div class="row clearfix">
-        <div class="col-md-12 column">
+        <div class="col-md-12 column" >
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>
@@ -89,7 +97,7 @@
                         <td>${book.getBookCounts()}</td>
                         <td>${book.getBookType()}</td>
                         <td>${book.getBookKeyword()}</td>
-                        <td>${book.getDetail()}</td>
+                        <td class="product-buyer-name">${book.getDetail()}</td>
                         <td>
                             <a href="">借阅</a>
                         </td>

@@ -11,10 +11,16 @@
                         图书查询
                     </a>
                 </li>
-                <li>
-                    <a href="${pageContext.request.contextPath}/Reader/reader_info.html" style="color: white">
-                        个人信息
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white">
+                        个人信息管理
+                        <b class="caret"></b>
                     </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="${pageContext.request.contextPath}/Reader/reader_info.html">查看个人信息</a></li>
+                        <li class="divider"></li>
+                        <li><a href="${pageContext.request.contextPath}/Reader/readerPersonal_edit.html">管理个人信息</a></li>
+                    </ul>
                 </li>
                 <li >
                     <a href="${pageContext.request.contextPath}/Reader/borrowBook" style="color: white">
