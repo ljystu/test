@@ -15,6 +15,7 @@
 <body>
 <div id="header"></div>
 <br>
+<div class="container">
 <div class="page-header">
     <h1>
         <small>管理员修改密码</small>
@@ -94,5 +95,6 @@
         }
     })
 </script>
+</div>
 </body>
 </html>

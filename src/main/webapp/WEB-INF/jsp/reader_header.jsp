@@ -1,42 +1,97 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<nav style="position:fixed;z-index: 999;width: 100%;background-color: #286090"class="navbar navbar-default" role="navigation" >
+<head>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" media="screen" type="text/css">
+
+</head>
+
+
+<body style="">
+
+<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+
+<nav style="position:fixed;z-index: 1;width: 100%;background-color: #286090" class="navbar navbar-default"
+     role="navigation">
     <div class="container-fluid">
-        <div class="navbar-header" style="margin-left: 8%;margin-right: 1%">
-            <a class="navbar-brand " href="${pageContext.request.contextPath}/Reader/reader_main"><p class="text-primary" style="font-family: 华文行楷; font-size: 200%;color: white ">我的图书馆</p></a>
+        <div class="navbar-header" style="margin-left: 45%;margin-right: 1% ">
+            <a href="${pageContext.request.contextPath}/Admin/admin_main.html"
+               style="width: 100%; display: inline-block; text-align: center; font-family: 华文行楷; font-size: 250%; color: white; ">我的图书馆</a>
         </div>
         <div class="collapse navbar-collapse" id="example-navbar-collapse">
-            <ul class="nav navbar-nav navbar-left">
-                <li>
-                    <a href="${pageContext.request.contextPath}/book/reader_allBook"style="color: white">
-                        图书查询
-                    </a>
-                </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white">
-                        个人信息管理
-                        <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a href="${pageContext.request.contextPath}/Reader/reader_info.html">查看个人信息</a></li>
-                        <li class="divider"></li>
-                        <li><a href="${pageContext.request.contextPath}/Reader/readerPersonal_edit.html">管理个人信息</a></li>
-                    </ul>
-                </li>
-                <li >
-                    <a href="${pageContext.request.contextPath}/Reader/borrowBook" style="color: white">
-                        借书
-                    </a>
-                </li>
-                <li >
-                    <a href="${pageContext.request.contextPath}/Reader/reader_repasswd.html" style="color: white">
-                        密码修改
-                    </a>
-                </li>
-            </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="${pageContext.request.contextPath}/Reader/reader_info.html"style="color: white"><span class="glyphicon glyphicon-user"></span>${sessionScope.reader.readerName} 已登录</a></li>
-                <li><a href="${pageContext.request.contextPath}/Reader/logout.html"style="color: white"><span class="glyphicon glyphicon-off"></span>退出</a></li>
+                <li><a href="${pageContext.request.contextPath}/Reader/reader_info.html" style="color: white"><span
+                        class="glyphicon glyphicon-user"></span>${sessionScope.reader.readerName} 已登录</a></li>
+                <li><a href="${pageContext.request.contextPath}/Reader/logout.html" style="color: white"><span
+                        class="glyphicon glyphicon-off"></span>退出</a></li>
             </ul>
         </div>
     </div>
 </nav>
+<div class="sidebar">
+    <h1><i class="fa fa-bars push"></i>Animated <span class="color">Menu</span></h1>
+    <ul>
+
+        <li><a href="${pageContext.request.contextPath}/book/reader_allBook" style="color: rgb(85, 85, 85);"><i
+                class="fa fa-user push"></i>图书查询<i
+                class="fa fa-angle-right"></i></a><span class="hover" style="width: 0%; opacity: 0;"></span>
+
+        </li>
+        <li><a href="#" style="color: rgb(85, 85, 85);"><i class="fa fa-file push"></i>个人信息管理<i
+                class="fa fa-angle-right"></i></a><span class="hover" style="width: 0%; opacity: 0;"></span>
+            <ul class="sub-menu">
+                <li><a href="${pageContext.request.contextPath}/Reader/reader_info.html"
+                       style="color: rgb(85, 85, 85);">查看个人信息<i class="fa fa-angle-right"></i></a><span
+                        class="hover" style="width: 0%; opacity: 0;"></span>
+                </li>
+                <li><a href="${pageContext.request.contextPath}/Reader/readerPersonal_edit.html"
+                       style="color: rgb(85, 85, 85);">管理个人信息<i
+                        class="fa fa-angle-right"></i></a><span class="hover" style="width: 0%; opacity: 0;"></span>
+                </li>
+            </ul>
+        </li>
+        <li><a href="${pageContext.request.contextPath}/Reader/reader_repasswd.html" style="color: rgb(85, 85, 85);"><i
+                class="fa fa-cog push"></i>密码修改<i
+                class="fa fa-angle-right"></i></a><span class="hover" style="width: 0%; opacity: 0;"></span>
+        </li>
+        <li><a href="#" style="color: rgb(85, 85, 85);"><i class="fa fa-dashboard push"></i>借书还书<i
+                class="fa fa-angle-right"></i></a><span class="hover" style="width: 0%; opacity: 0;"></span>
+            <ul class="sub-menu">
+                <li><a href="#" style="color: rgb(85, 85, 85);"><i class="fa fa-angle-right"></i></a><span
+                        class="hover" style="width: 0%; opacity: 0;"></span>
+                </li>
+
+            </ul>
+        </li>
+    </ul>
+</div>
+<script src="${pageContext.request.contextPath}/js/jquery-3.2.1.js"></script>
+
+<script>
+    $("li").hover(
+        function () {
+            $(this).find("a").css("color", "#FFF");
+            $(this).find("span").stop().animate({
+                width: "100%",
+                opacity: "1",
+
+            }, 600, function () {
+                // Animation complete.
+                // Show Navigation
+            })
+        }, function () {
+            $(this).find("a").css("color", "#FFF");
+            $(this).find("span").stop().animate({
+                width: "0%",
+                opacity: "0",
+            }, 600, function () {
+                // Animation complete.
+                // Show Navigation
+            })
+        }
+    );
+</script>
+
+
+</body>
+
+
