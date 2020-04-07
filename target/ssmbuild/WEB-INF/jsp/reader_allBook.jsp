@@ -7,11 +7,17 @@
         max-width: 200px;
         overflow: hidden;
         text-overflow: ellipsis;
-        white-space: nowrap;
+        white-space: nowrap;}
+
+    .containers {
+        /*padding-right: 15px;*/
+        /*padding-left: 15px;*/
+        margin-right: auto;
+        margin-left: auto
     }</style>
 <head>
     <title>书籍列表</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
     <!-- 引入 Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
@@ -25,9 +31,9 @@
     </script>
 </head>
 <body>
-<div id="header"></div>
+<div  id="header"></div>
 <br/>
-<div class="container">
+<div class="container" style="margin-left: 250px">
 
     <div class="row clearfix">
         <div class="col-md-12 column">

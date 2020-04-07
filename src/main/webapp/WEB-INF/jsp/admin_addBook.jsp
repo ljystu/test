@@ -19,7 +19,7 @@
     </script>
 </head>
 <body>
-<div id="header"></div>
+<div id="header" style="margin-left: 250px"></div>
 <br/>
 <div class="container">
 

@@ -16,7 +16,6 @@ html {
   height: 100%;
   position: fixed;
   background: url("http://themes.mediacreed.com/html/synergy/assets/patterns/menu/menu_pattern_1.png");
-  border-right: 10px solid #286090;
   z-index:999;
 }
 .sidebar ul {
