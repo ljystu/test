@@ -1,11 +1,13 @@
 package com.edu.service;
 
 import com.edu.pojo.Borrow;
-import org.apache.ibatis.annotations.Param;
+import com.edu.pojo.Reader;
 
 import java.util.List;
 
 public interface BorrowService {
+
+   int findReaderIdByName(String name);
 
    int addBorrow(Borrow borrow);
 

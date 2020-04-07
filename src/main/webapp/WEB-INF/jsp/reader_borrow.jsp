@@ -12,7 +12,7 @@
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js" ></script>
     <script>
         $(function () {
-            $('#header').load('admin_header.html');
+            $('#header').load('reader_header.html');
         })
     </script>
 </head>
@@ -64,7 +64,7 @@
                         <td>${borrow.getReturnDate()}</td>
                         <td>${borrow.getSta()}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/Borrow/return//${borrow.getIdbookBorrow()}">归还</a>
+                            <a href="${pageContext.request.contextPath}/Borrow/return//${borrow.getIdbookBorrow()}">申请归还</a>
                         </td>
                     </tr>
                 </c:forEach>

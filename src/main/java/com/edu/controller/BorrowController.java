@@ -1,6 +1,7 @@
 package com.edu.controller;
 
 import com.edu.pojo.Borrow;
+import com.edu.pojo.Reader;
 import com.edu.service.BookService;
 import com.edu.service.BorrowService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,17 @@ public class BorrowController {
     public String list(Model model) {
         List<Borrow> list = borrowService.findAllBorrow();
         model.addAttribute("list", list);
-        return "allBorrow";
+        return "admin_borrow";
+    }
+
+    @RequestMapping("/readerBorrow")
+    public String readerBorrowList(Model model, HttpServletRequest request) {
+        Reader reader = (Reader) request.getSession().getAttribute("reader");
+        String name = reader.getReaderName();
+        int id = borrowService.findReaderIdByName(name);
+        List<Borrow> list = borrowService.findBorrowByReader(id);
+        model.addAttribute("list", list);
+        return "reader_borrow";
     }
 
     @RequestMapping("/toAddBorrow")

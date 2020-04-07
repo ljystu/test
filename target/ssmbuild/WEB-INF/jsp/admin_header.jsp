@@ -62,7 +62,10 @@
         <li><a href="#" style="color: rgb(85, 85, 85);"><i class="fa fa-dashboard push"></i>借还管理<i
                 class="fa fa-angle-right"></i></a><span class="hover" style="width: 0%; opacity: 0;"></span>
             <ul class="sub-menu">
-                <li><a href="#" style="color: rgb(85, 85, 85);">借还日志<i class="fa fa-angle-right"></i></a><span
+                <li><a href="#" style="color: rgb(85, 85, 85);">还书申请<i class="fa fa-angle-right"></i></a><span
+                        class="hover" style="width: 0%; opacity: 0;"></span>
+                </li>
+                <li><a href="${pageContext.request.contextPath}/Borrow/allBorrow" style="color: rgb(85, 85, 85);">借还日志<i class="fa fa-angle-right"></i></a><span
                         class="hover" style="width: 0%; opacity: 0;"></span>
                 </li>
 

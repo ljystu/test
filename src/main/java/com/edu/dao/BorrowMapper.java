@@ -19,6 +19,8 @@ public interface BorrowMapper {
 
     Borrow findBorrowById(@Param("idbookBorrow") int id);
 
+    int findReaderIdByName(@Param("readerName") String name);
+
     List<Borrow> findBorrowByReader(@Param("readerId") int readerId);
 
     List<Borrow> findBorrowByBook(@Param("bookId") int bookId);

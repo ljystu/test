@@ -3,6 +3,7 @@ package com.edu.service;
 
 import com.edu.dao.BorrowMapper;
 import com.edu.pojo.Borrow;
+import com.edu.pojo.Reader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -52,4 +53,7 @@ public class BorrowServiceImpl implements BorrowService{
     public void setBorrowMapper(BorrowMapper borrowMapper) {
         this.borrowMapper = borrowMapper;
     }
+
+    @Override
+    public int findReaderIdByName(String name){ return this.borrowMapper.findReaderIdByName(name); };
 }

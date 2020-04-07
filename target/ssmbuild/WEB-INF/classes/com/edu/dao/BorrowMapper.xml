@@ -25,7 +25,7 @@
     </insert>
 
     <delete id="returnById" parameterType="int">
-        update ssmbuild.bookborrow set sta="已归还" where idbookBorrow=#{idbookBorrow}
+        update ssmbuild.bookborrow set sta="待确认" where idbookBorrow=#{idbookBorrow}
     </delete>
 
     <update id="updateBorrow" parameterType="Borrow">
@@ -51,6 +51,10 @@
     <select id="findBorrowByBook" resultType="Borrow">
         select * from ssmbuild.bookborrow
         where bookId = #{bookId}
+    </select>
+
+    <select id="findReaderIdByName" resultType="int" parameterType="String">
+        select readerId from ssmbuild.readers where readerName = #{readerName}
     </select>
 
 </mapper>
