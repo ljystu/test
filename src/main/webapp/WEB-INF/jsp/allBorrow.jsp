@@ -24,9 +24,9 @@
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="page-header">
-                <h1>
-                    <small>借还日志</small>
-                </h1>
+                <h4>
+                    借还日志
+                </h4>
             </div>
         </div>
     </div>

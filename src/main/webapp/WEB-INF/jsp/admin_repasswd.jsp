@@ -17,9 +17,9 @@
 <br>
 <div class="container" style="margin-left: 250px">
 <div class="page-header">
-    <h1>
-        <small>管理员修改密码</small>
-    </h1>
+    <h4>
+        管理员修改密码
+    </h4>
 </div>
 <div style="position: relative">
     <div class="alert alert-danger alert-dismissable">

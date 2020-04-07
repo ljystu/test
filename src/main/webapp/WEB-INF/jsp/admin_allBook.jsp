@@ -27,16 +27,16 @@
 
 </head>
 <body>
-<div id="header" style="margin-left: 250px"></div>
+<div id="header"></div>
 <br>
-<div class="container">
+<div class="container" style="margin-left: 250px">
 
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="page-header">
-                <h1>
-                    <small>书籍列表 —— 显示所有书籍</small>
-                </h1>
+                <h4>
+                    书籍列表 —— 显示所有书籍
+                </h4>
             </div>
         </div>
     </div>
@@ -105,9 +105,10 @@
                         <td>${book.getBookKeyword()}</td>
                         <td class="product-buyer-name">${book.getDetail()}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/book/toUpdateBook?id=${book.getBookID()}">更改</a>
-                            |
-                            <a href="${pageContext.request.contextPath}/book/del/${book.getBookID()}">删除</a>
+                            <a class="btn btn-info btn-xs" href="${pageContext.request.contextPath}/book/toUpdateBook?id=${book.getBookID()}">
+                                <span class="glyphicon glyphicon-pencil"></span>更改</a>
+                            <a class="btn btn-danger btn-xs" href="${pageContext.request.contextPath}/book/del/${book.getBookID()}">
+                                <span class="glyphicon glyphicon-trash"></span>删除</a>
                         </td>
                     </tr>
                 </c:forEach>

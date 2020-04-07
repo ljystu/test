@@ -25,9 +25,9 @@
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="page-header">
-                <h1>
-                    <small>修改读者信息</small>
-                </h1>
+                <h4>
+                    修改读者信息
+                </h4>
             </div>
         </div>
     </div>

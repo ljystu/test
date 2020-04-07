@@ -26,9 +26,9 @@
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="page-header">
-                <h1>
-                    <small>读者列表 —— 所有读者</small>
-                </h1>
+                <h4>
+                    读者列表 —— 所有读者
+                </h4>
             </div>
         </div>
     </div>
@@ -74,8 +74,10 @@
                         <td>${reader.getReaderType()}</td>
                         <td>${reader.getReaderNote()}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/Reader/toUpdateReader?id=${reader.getReaderId()}">更改</a> |
-                            <a href="${pageContext.request.contextPath}/Reader/del/${reader.getReaderId()}">删除</a>
+                            <a class="btn btn-info btn-xs" href="${pageContext.request.contextPath}/Reader/toUpdateReader?id=${reader.getReaderId()}">
+                                <span class="glyphicon glyphicon-pencil"></span>更改</a>
+                            <a class="btn btn-danger btn-xs" href="${pageContext.request.contextPath}/Reader/del/${reader.getReaderId()}">
+                                <span class="glyphicon glyphicon-trash"></span>删除</a>
                         </td>
                     </tr>
                 </c:forEach>

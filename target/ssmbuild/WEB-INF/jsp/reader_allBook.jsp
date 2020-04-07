@@ -38,9 +38,9 @@
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="page-header">
-                <h1>
-                    <small>书籍列表 —— 显示所有书籍</small>
-                </h1>
+                <h4>
+                    书籍列表 —— 显示所有书籍
+                </h4>
             </div>
         </div>
     </div>

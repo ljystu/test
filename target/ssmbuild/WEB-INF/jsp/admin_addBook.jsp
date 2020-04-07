@@ -19,16 +19,16 @@
     </script>
 </head>
 <body>
-<div id="header" style="margin-left: 250px"></div>
+<div id="header"></div>
 <br/>
-<div class="container">
+<div class="container" style="margin-left: 250px">
 
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="page-header">
-                <h1>
-                    <small>新增书籍</small>
-                </h1>
+                <h4>
+                    新增书籍
+                </h4>
             </div>
         </div>
     </div>
