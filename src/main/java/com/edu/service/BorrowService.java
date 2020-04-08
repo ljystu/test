@@ -16,7 +16,7 @@ public interface BorrowService {
 
    Borrow findBorrowById(int id);
 
-   List<Borrow> findBorrowByReader(int readerId);
+   List<Borrow> findBorrowByReader(String nosta, int readerId);
 
    List<Borrow> findBorrowByBook(int bookId);
 

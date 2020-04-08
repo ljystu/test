@@ -49,8 +49,7 @@
                     <th>读者编号</th>
                     <th>借书日期</th>
                     <th>还书日期</th>
-                    <th>备注</th>
-                    <th>操作</th>
+                    <th>借阅状态</th>
                 </tr>
                 </thead>
 
@@ -63,9 +62,7 @@
                         <td>${borrow.getBorrowDate()}</td>
                         <td>${borrow.getReturnDate()}</td>
                         <td>${borrow.getSta()}</td>
-                        <td>
-                            <a href="${pageContext.request.contextPath}/Borrow/return//${borrow.getIdbookBorrow()}">归还</a>
-                        </td>
+
                     </tr>
                 </c:forEach>
                 </tbody>

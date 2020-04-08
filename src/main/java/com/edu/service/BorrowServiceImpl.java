@@ -31,8 +31,8 @@ public class BorrowServiceImpl implements BorrowService{
     }
 
     @Override
-    public List<Borrow> findBorrowByReader(int readerId) {
-        return borrowMapper.findBorrowByReader(readerId);
+    public List<Borrow> findBorrowByReader(String nosta, int readerId) {
+        return borrowMapper.findBorrowByReader(nosta, readerId);
     }
 
     @Override

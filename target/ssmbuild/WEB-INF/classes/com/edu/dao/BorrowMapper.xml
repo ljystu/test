@@ -36,12 +36,12 @@
     </select>
 
     <select id="findAllBorrow" resultType="Borrow">
-        select * from ssmbuild.bookborrow
+        select * from ssmbuild.bookborrow order by sta desc
     </select>
 
     <select id="findBorrowByReader" resultType="Borrow">
         select * from ssmbuild.bookborrow
-        where readerId  = #{readerId}
+        where readerId  = #{readerId} and sta!=#{nosta}
     </select>
 
     <select id="findBorrowByBook" resultType="Borrow">

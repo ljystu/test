@@ -17,11 +17,11 @@ public interface BorrowMapper {
 
     int returnById(@Param("sta") String sta, @Param("idbookBorrow") int id);
 
-    Borrow findBorrowById(@Param("idbookBorrow") int id);
+    Borrow findBorrowById( @Param("idbookBorrow") int id);
 
     int findReaderIdByName(@Param("readerName") String name);
 
-    List<Borrow> findBorrowByReader(@Param("readerId") int readerId);
+    List<Borrow> findBorrowByReader(@Param("nosta") String nosta, @Param("readerId") int readerId);
 
     List<Borrow> findBorrowByBook(@Param("bookId") int bookId);
 

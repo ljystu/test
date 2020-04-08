@@ -52,8 +52,9 @@ public class BorrowController {
     public String readerBorrowList(Model model, HttpServletRequest request) {
         Reader reader = (Reader) request.getSession().getAttribute("reader");
         String name = reader.getReaderName();
+        String nosta = "已归还";
         int id = borrowService.findReaderIdByName(name);
-        List<Borrow> list = borrowService.findBorrowByReader(id);
+        List<Borrow> list = borrowService.findBorrowByReader(nosta,id);
         model.addAttribute("list", list);
         return "reader_borrow";
     }
@@ -93,12 +94,20 @@ public class BorrowController {
     }
 
 
-    @RequestMapping("/return")
-    public String return1(int id) {
+    @RequestMapping("/request")
+    public String request(int id) {
         String sta= "待确认";
-        System.out.println(id);
+        //System.out.println(id);
         borrowService.returnById(sta, id);
         return "redirect:readerBorrow";
+    }
+
+    @RequestMapping("/return")
+    public String returnBook(int id) {
+        String sta= "已归还";
+        //System.out.println(id);
+        borrowService.returnById(sta, id);
+        return "redirect:allBorrow";
     }
 
 
