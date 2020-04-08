@@ -3,7 +3,6 @@ package com.edu.service;
 
 import com.edu.dao.BorrowMapper;
 import com.edu.pojo.Borrow;
-import com.edu.pojo.Reader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +15,7 @@ public class BorrowServiceImpl implements BorrowService{
     private BorrowMapper borrowMapper;
 
     @Override
-    public int addBorrow(Borrow borrow) { return borrowMapper.addBorrow(borrow); }
+    public boolean addBorrow(Borrow borrow) { return borrowMapper.addBorrow(borrow); }
 
     @Override
     public int updateBorrow(Borrow borrow) {
@@ -24,7 +23,7 @@ public class BorrowServiceImpl implements BorrowService{
     }
 
     @Override
-    public int returnById(int id) { return borrowMapper.returnById(id); }
+    public int returnById(String sta, int id) { return borrowMapper.returnById(sta, id); }
 
     @Override
     public Borrow findBorrowById(int id) {
@@ -45,6 +44,9 @@ public class BorrowServiceImpl implements BorrowService{
     public List<Borrow> findAllBorrow() {
         return borrowMapper.findAllBorrow();
     }
+
+    @Override
+    public List<Borrow> findRequest(String sta) { return borrowMapper.findRequest(sta); }
 
     public BorrowMapper getBorrowMapper() {
         return borrowMapper;

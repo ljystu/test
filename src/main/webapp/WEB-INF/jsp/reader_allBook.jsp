@@ -105,7 +105,7 @@
                         <td>${book.getBookKeyword()}</td>
                         <td class="product-buyer-name">${book.getDetail()}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/Borrow/toAddBorrow}">借阅</a>
+                            <a href="${pageContext.request.contextPath}/Borrow/addBorrow?bookId=${book.getBookID()}">借阅</a>
                         </td>
                     </tr>
                 </c:forEach>

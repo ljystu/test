@@ -11,11 +11,11 @@ import java.util.List;
 @Repository
 public interface BorrowMapper {
 
-    int addBorrow(Borrow borrow);
+    boolean addBorrow(Borrow borrow);
 
     int updateBorrow(Borrow borrow);
 
-    int returnById(@Param("idbookBorrow") int id);
+    int returnById(@Param("sta") String sta, @Param("idbookBorrow") int id);
 
     Borrow findBorrowById(@Param("idbookBorrow") int id);
 
@@ -26,5 +26,8 @@ public interface BorrowMapper {
     List<Borrow> findBorrowByBook(@Param("bookId") int bookId);
 
     List<Borrow> findAllBorrow();
+
+    //寻找状态外待确认的借阅记录
+    List<Borrow> findRequest(@Param("sta") String sta);
 
 }

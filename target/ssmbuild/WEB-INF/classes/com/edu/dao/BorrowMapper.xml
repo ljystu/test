@@ -7,26 +7,22 @@
 
     <resultMap id="BaseResultMap" type="com.edu.pojo.Borrow" >
         <id column="idbookBorrow" property="idbookBorrow" jdbcType="INTEGER" />
+        <id column="bookId" property="bookId" jdbcType="INTEGER" />
+        <id column="readerId" property="readerId" jdbcType="INTEGER" />
         <id column="readerId" property="readerId" jdbcType="INTEGER" />
         <result column="borrowDate" property="borrowDate" jdbcType="DATE" />
         <result column="returnDate" property="returnDate" jdbcType="DATE" />
         <result column="Note" property="Note" jdbcType="VARCHAR" />
-        <association column="bookId" property="bookId" jdbcType="INTEGER"
-                     javaType="com.edu.pojo.Books" select="com.edu.dao.BookMapper.queryBookById">
-        </association>
-        <association column="readerId" property="readerId" jdbcType="INTEGER"
-                     javaType="com.edu.pojo.Reader" select="com.edu.dao.ReaderMapper.findReaderById">
-        </association>
     </resultMap>
 
     <insert id="addBorrow" parameterType="Borrow">
-        insert into ssmbuild.bookborrow(idbookBorrow,bookId, readerId, borrowDate, returnDate, sta)
-        values (#{idbookBorrow},#{books.bookId},#{readers.readerId},#{borrowDate},#{returnDate},#{sta})
+        insert into ssmbuild.bookborrow(bookId, readerId, borrowDate, returnDate, sta)
+        values (#{bookId},#{readerId},#{borrowDate},#{returnDate},#{sta})
     </insert>
 
-    <delete id="returnById" parameterType="int">
-        update ssmbuild.bookborrow set sta="待确认" where idbookBorrow=#{idbookBorrow}
-    </delete>
+    <update id="returnById">
+        update ssmbuild.bookborrow set sta=#{sta} where idbookBorrow=#{idbookBorrow}
+    </update>
 
     <update id="updateBorrow" parameterType="Borrow">
         update ssmbuild.bookborrow
@@ -55,6 +51,10 @@
 
     <select id="findReaderIdByName" resultType="int" parameterType="String">
         select readerId from ssmbuild.readers where readerName = #{readerName}
+    </select>
+
+    <select id="findRequest" resultType="Borrow">
+        select * from ssmbuild.bookborrow where sta = #{sta}
     </select>
 
 </mapper>

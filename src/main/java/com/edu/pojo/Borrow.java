@@ -1,6 +1,7 @@
 package com.edu.pojo;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Borrow implements Serializable {
 
@@ -10,6 +11,9 @@ public class Borrow implements Serializable {
 
     private String borrowDate;
     private String returnDate;
+
+    private Books books;
+    private Reader reader;
 
     private String sta;
     @Override
@@ -62,9 +66,7 @@ public class Borrow implements Serializable {
         return borrowDate;
     }
 
-    public void setBorrowDate(String borrowDate) {
-        this.borrowDate = borrowDate;
-    }
+    public void setBorrowDate(String borrowDate) { this.borrowDate = borrowDate; }
 
     public String getReturnDate() {
         return returnDate;
@@ -81,4 +83,19 @@ public class Borrow implements Serializable {
     public void setSta(String sta) {
         this.sta = sta;
     }
+
+    public Books getBooks() {
+        return books;
+    }
+
+    public void setBooks(Books books) {
+        this.books = books;
+    }
+
+    public Reader getReader() {
+        return reader;
+    }
+
+    public void setReader(Reader reader) { this.reader = reader; }
+
 }

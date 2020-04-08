@@ -2,19 +2,20 @@ package com.edu.controller;
 
 import com.edu.pojo.Borrow;
 import com.edu.pojo.Reader;
-import com.edu.service.BookService;
 import com.edu.service.BorrowService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
+import java.util.Date;
 
 @Controller
 @RequestMapping("/Borrow")
@@ -31,6 +32,22 @@ public class BorrowController {
         return "admin_borrow";
     }
 
+    @RequestMapping("/findRequest")
+    public String requestList(Model model) {
+        String sta = "待确认";
+        List<Borrow> list = borrowService.findRequest(sta);
+        model.addAttribute("list", list);
+        return "admin_returnRequest";
+    }
+
+    @RequestMapping("/confirmRequest")
+    public String confirmRequest(int id) {
+        String sta= "已归还";
+        //System.out.println(id);
+        borrowService.returnById(sta, id);
+        return "redirect:findRequest";
+    }
+
     @RequestMapping("/readerBorrow")
     public String readerBorrowList(Model model, HttpServletRequest request) {
         Reader reader = (Reader) request.getSession().getAttribute("reader");
@@ -41,22 +58,47 @@ public class BorrowController {
         return "reader_borrow";
     }
 
-    @RequestMapping("/toAddBorrow")
-    public String toAddPaper() { return "addBorrow"; }
 
     @RequestMapping("/addBorrow")
-    public String addPaper(Borrow borrow) {
+    public String addBorrow(Borrow borrow, HttpServletRequest request, int bookId, RedirectAttributes redirectAttributes) {
+        Reader reader = (Reader) request.getSession().getAttribute("reader");
+        String name = reader.getReaderName();
+        int readerId = borrowService.findReaderIdByName(name);
+        borrow.setBookId(bookId);
+        borrow.setReaderId(readerId);
+        Date borrowDate = new Date();
+        Date returnDate = getreturnDate(borrowDate);
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+        String borrowDateString = formatter.format(borrowDate);
+        String returnDateString = formatter.format(returnDate);
+        borrow.setBorrowDate(borrowDateString);
+        borrow.setReturnDate(returnDateString);
+        borrow.setSta("未归还");
         System.out.println(borrow);
-        borrowService.addBorrow(borrow);
-        return "redirect:/book/allBook";
+        if (borrowService.addBorrow(borrow)){
+            return "redirect:readerBorrow";
+        }
+        else {
+            redirectAttributes.addFlashAttribute("error", "借书失败，请重试");
+            return "redirect:readerBorrow";
+        }
+
+    }
+    public static Date getreturnDate(Date date) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.DAY_OF_MONTH, +30);
+        date = calendar.getTime();
+        return date;
     }
 
 
-    @RequestMapping("/return/{borrowId}")
-    public String return1(@PathVariable("borrowId") int id) {
+    @RequestMapping("/return")
+    public String return1(int id) {
+        String sta= "待确认";
         System.out.println(id);
-        borrowService.returnById(id);
-        return "redirect:/Borrow/allBorrow";
+        borrowService.returnById(sta, id);
+        return "redirect:readerBorrow";
     }
 
 
