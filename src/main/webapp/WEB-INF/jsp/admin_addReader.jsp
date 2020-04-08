@@ -18,65 +18,67 @@
         })
     </script>
 </head>
-<body>
-<div id="header"></div>
+<body style=" background-repeat:no-repeat ;
+background-size:100% 100%;
+background-attachment: fixed;">
+<div id="header" style="padding-bottom: 80px"></div>
 <br/>
-<div class="container" style="margin-left: 250px">
+<div class="col-xs-5 col-md-offset-3">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">
+                新增读者
+            </h3>
+        </div>
+        <div class="panel-body">
+            <form action="${pageContext.request.contextPath}/Reader/addReader" method="post"
+                  id="addReaderForm">
+                <div class="input-group">
+                    <span class="input-group-addon">读者账号</span>
+                    <input type="text" class="form-control" name="readerNames" id="readerName">
+                    <p style="text-align: right;color: red;position: absolute" id="readerNameCheck"></p>
+                </div>
+                <br/>
+                <div class="input-group">
+                    <span class="input-group-addon">读者性别</span>
+                    <input type="text" id="readerSex" name="readerSex" class="form-control">
+                    <p style="text-align: right;color: red;position: absolute" id="SexCheck"></p>
+                </div>
+                <br/>
+                <div class="input-group">
+                    <span class="input-group-addon">读者类型</span>
+                    <input type="text" name="readerType" class="form-control">
+                </div>
+                <br/>
+                <div class="input-group">
+                    <span class="input-group-addon">读者密码</span>
+                    <input type="text" class="form-control" name="readerPwds" id="readerPwd">
+                    <p style="text-align: right;color: red;position: absolute" id="PwdCheck"></p>
+                </div>
+                <br/>
+                <button type="button" class="btn btn-success btn-sm" id="addReaderButton">添加</button>
 
-    <div class="row clearfix">
-        <div class="col-md-12 column">
-            <div class="page-header">
-                <h4>
-                    新增读者
-                </h4>
-            </div>
+                <script>
+                    $("#addReaderButton").click(function () {
+                        var readerName = $("#readerPwd").val();
+                        var readerPwd = $("#readerName").val();
+                        var readerSex = $("#readerSex").val();
+                        if (readerName == '' || readerPwd == '' || (readerSex != '男' && readerSex != '女')) {
+                            if (readerName == '')
+                                $("#readerNameCheck").text("提示:读者账号不能为空！");
+                            if (readerPwd == '')
+                                $("#PwdCheck").text("提示:读者密码不能为空！");
+                            if (readerSex != '男' && readerSex != '女') {
+                                $("#SexCheck").text("提示：请输入正确的性别！");
+                            }
+                        } else {
+                            $("#addReaderForm").submit();
+                        }
+                    })
+                </script>
+            </form>
         </div>
     </div>
-    <form action="${pageContext.request.contextPath}/Reader/addReader" method="post" class="smart-green"
-          id="addReaderForm">
-        <div class="form-group">
-            <label for="readerName"></label>
-            读者账号：<input type="text" class="form-control" name="readerNames" id="readerName">
-            <p style="text-align: right;color: red;position: absolute" id="readerNameCheck"></p>
-        </div>
-        <div class="error-msg"></div>
-        <div class="form-group">
-            <label for="readerSex"></label>
-        读者性别：<input type="text" id="readerSex" name="readerSex">
-            <p style="text-align: right;color: red;position: absolute" id="SexCheck"></p>
-        </div>
-        <div class="error-msg"></div>
-        读者类型：<input type="text" name="readerType">
-        <div class="error-msg"></div>
-        <div class="form-group">
-            <label for="readerPwd"></label>
-            读者密码：<input type="text" class="form-control" name="readerPwds" id="readerPwd">
-            <p style="text-align: right;color: red;position: absolute" id="PwdCheck"></p>
-        </div>
-        <div class="error-msg"></div>
-        <br/>
-        <button type="button" class="button" id="addReaderButton">添加</button>
-    </form>
-    <script>
-        $("#addReaderButton").click(function () {
-            var readerName = $("#readerPwd").val();
-            var readerPwd = $("#readerName").val();
-            var readerSex= $("#readerSex").val();
-            if (readerName == '' || readerPwd == ''||(readerSex!='男'&&readerSex!='女')) {
-                if (readerName == '')
-                    $("#readerNameCheck").text("提示:读者账号不能为空！");
-                if (readerPwd == '')
-                    $("#PwdCheck").text("提示:读者密码不能为空！");
-                if(readerSex!='男'&&readerSex!='女'){
-                    $("#SexCheck").text("提示：请输入正确的性别！");
-                }
-            }
-            else {
-                $("#addReaderForm").submit();
-            }
-        })
-    </script>
 </div>
-
 </body>
 </html>
