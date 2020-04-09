@@ -36,24 +36,27 @@ background-attachment: fixed;">
                   id="addBookForm">
                 <div class="input-group">
                     <span class="input-group-addon">书籍名称</span>
-                    <input id="addBook" class="form-control" type="text" name="bookName"/>
-                    <p style="text-align: right;color: red;position: absolute" id="info"></p>
+                    <label for="addBook"></label>
+                    <input id="addBook" class="form-control" type="text"  maxlength="20" name="bookName"/>
                 </div>
+                <p style="text-align: right;color: red;position: absolute" id="info"></p>
                 <br/>
                 <div class="input-group">
                     <span class="input-group-addon">书籍数量</span>
-                    <input id="updateBookCount"  class="form-control" type="text" name="bookCounts"/>
-                    <p style="text-align: right;color: red;position: absolute" id="countInfo"></p>
+                    <label for="updateBookCount"></label>
+                    <input id="updateBookCount"  class="form-control" type="text"  maxlength="6" name="bookCounts"/>
                 </div>
+                <p style="text-align: right;color: red;position: absolute" id="countInfo"></p>
                 <br/>
                 <div class="input-group">
                     <span class="input-group-addon">书籍种类</span>
-                    <input type="text"  class="form-control" name="bookType"/>
+                    <label for="updateBookCount"></label>
+                    <input type="text"  class="form-control" name="bookType" maxlength="20"/>
                 </div>
                 <br/>
                 <div class="input-group">
                     <span class="input-group-addon">关键字 </span>
-                    <input type="text"  class="form-control" name="bookKeyword"/>
+                    <input type="text"  class="form-control" name="bookKeyword" maxlength="20"/>
                 </div>
                 <br/>
                 <div class="input-group">
@@ -61,7 +64,7 @@ background-attachment: fixed;">
                     <textarea type="text" class="form-control" name="detail" onkeyup="checkLength(this)" maxlength="200"></textarea>
                 </div>
                 <br/>
-                <p>剩余字数：<span id="checkRest"></span></p>
+                <p>剩余字数：<span id="checkRest">200</span></p>
                 <button type="button" class="btn btn-success btn-sm" value="提交" id="addBookButton">提交</button>
 
                 <script>
@@ -73,6 +76,8 @@ background-attachment: fixed;">
                                 $("#info").text("提示:书籍名称不能为空！");
                             if (!/^\d+$/.test(bookCount))
                                 $("#countInfo").text("提示:请输入整数！");
+                            else if(bookCount==0)
+                                $("#countInfo").text("提示:书籍数量不可为0！");
                         } else {
                             $("#addBookForm").submit();
                         }

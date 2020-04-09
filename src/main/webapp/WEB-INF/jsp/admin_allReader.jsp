@@ -49,7 +49,7 @@
                 <div class="input-group">
                     <span class="input-group-addon">关键字</span>
                     <label for="readerName"></label>
-                    <input type="text"  id="readerName"class="form-control" name="readerName" placeholder="请输入读者关键字">
+                    <input type="text"  id="readerName"class="form-control" maxlength="20" name="readerName" placeholder="请输入读者关键字">
                 </div>
 
                 <input type="submit" id="query" class="btn btn-primary" value="查询"/>
@@ -84,8 +84,8 @@
                         <td>${reader.getReaderName()}</td>
                         <td>${reader.getReaderSex()}</td>
                         <td>${reader.getReaderBooks()}</td>
-                        <td>${reader.getRentDate()}</td>
-                        <td>${reader.getReaderType()}</td>
+                        <td >${reader.getRentDate()}</td>
+                        <td class="product-buyer-name">${reader.getReaderType()}</td>
                         <td class="product-buyer-name">${reader.getReaderNote()}</td>
                         <td>
                             <a class="btn btn-info btn-xs"

@@ -35,26 +35,28 @@ background-attachment: fixed;">
                   id="addReaderForm">
                 <div class="input-group">
                     <span class="input-group-addon">读者账号</span>
-                    <input type="text" class="form-control" name="readerNames" id="readerName">
-                    <p style="text-align: right;color: red;position: absolute" id="readerNameCheck"></p>
+                    <input type="text" class="form-control" name="readerNames" id="readerName" maxlength="20">
+
                 </div>
+                <p style="text-align: right;color: red;position: absolute" id="readerNameCheck"></p>
                 <br/>
                 <div class="input-group">
                     <span class="input-group-addon">读者性别</span>
-                    <input type="text" id="readerSex" name="readerSex" class="form-control">
-                    <p style="text-align: right;color: red;position: absolute" id="SexCheck"></p>
+                    <input type="text" id="readerSex" name="readerSex" maxlength="1" class="form-control">
+
                 </div>
+                <p style="text-align: right;color: red;position: absolute" id="SexCheck"></p>
                 <br/>
                 <div class="input-group">
                     <span class="input-group-addon">读者类型</span>
-                    <input type="text" name="readerType" class="form-control">
+                    <input type="text" name="readerType" class="form-control" maxlength="20">
                 </div>
                 <br/>
                 <div class="input-group">
                     <span class="input-group-addon">读者密码</span>
-                    <input type="text" class="form-control" name="readerPwds" id="readerPwd">
-                    <p style="text-align: right;color: red;position: absolute" id="PwdCheck"></p>
+                    <input type="text" class="form-control" name="readerPwds" id="readerPwd" maxlength="20" placeholder="密码最长为20位">
                 </div>
+                <p style="text-align: right;color: red;position: absolute" id="PwdCheck"></p>
                 <br/>
                 <button type="button" class="btn btn-success btn-sm" id="addReaderButton">添加</button>
 

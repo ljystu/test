@@ -17,8 +17,7 @@
         })
     </script>
 </head>
-<bodystyle
-=" background-repeat:no-repeat ;
+<body style=" background-repeat:no-repeat ;
 background-size:100% 100%;
 background-attachment: fixed;">
 <div id="header" style="padding-bottom: 80px"></div>
@@ -35,26 +34,26 @@ background-attachment: fixed;">
 
                 <div class="input-group">
                     <span class="input-group-addon">读者账号</span>
-                    <input type="text" id="updateReaderName" class="form-control" readonly="readonly" name="readerName"
+                    <input type="text" id="updateReaderName" class="form-control" readonly="readonly"maxlength="20" name="readerName"
                                 value="${reader.getReaderName()}"/>
                     <p style="text-align: right;color: red;position: absolute" id="readerNameCheck"></p>
                 </div>
                 <div class="error-msg"></div>
                 <div class="input-group">
                     <span class="input-group-addon">读者类型</span>
-                    <input type="text" name="readerType" class="form-control" value="${reader.getReaderType()}"/>
+                    <input type="text" name="readerType" class="form-control" maxlength="20"value="${reader.getReaderType()}"/>
                 </div>
                 <div class="error-msg"></div>
                 <div class="input-group">
                     <span class="input-group-addon">读者性别</span>
-                    <input type="text" name="readerSex" class="form-control" id="readerSex"
+                    <input type="text" name="readerSex" class="form-control" maxlength="1"id="readerSex"
                                 value="${reader.getReaderSex() }"/>
                     <p style="text-align: right;color: red;position: absolute" id="SexCheck"></p>
                 </div>
                 <div class="error-msg"></div>
                 <div class="input-group">
                     <span class="input-group-addon">读者备注</span>
-                    <textarea type="text" class="form-control" name="readerNote" onkeyup="checkLength(this)"
+                    <textarea type="text" class="form-control" name="readerNote" maxlength="200" onkeyup="checkLength(this)"
                                    maxlength="200">${reader.getReaderNote() }</textarea>
                 </div>
                 <br/>

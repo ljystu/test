@@ -60,13 +60,13 @@
                 <form method="post" action="${pageContext.request.contextPath}/Reader/reader_repasswd_do" id="repasswd">
                     <div class="form-group">
                         <label>输入旧密码:</label>
-                        <input type="password" id="oldPasswd" name="oldPasswd" placeholder="输入旧密码" class="form-control">
+                        <input type="password" id="oldPasswd" name="oldPasswd" placeholder="输入旧密码" class="form-control" maxlength="20">
                         <br>
                         <label>输入新密码:</label>
-                        <input type="password" id="newPasswd" name="newPasswd" placeholder="输入新密码" class="form-control">
+                        <input type="password" id="newPasswd" name="newPasswd" placeholder="输入新密码" class="form-control"maxlength="20">
                         <br>
                         <label>再次输入新密码:</label>
-                        <input type="password" id="reNewPasswd" name="reNewPasswd" placeholder="再次输入新密码"
+                        <input type="password" id="reNewPasswd" name="reNewPasswd" placeholder="再次输入新密码 最长20位" maxlength="20"
                                class="form-control">
                         <br>
                         <em id="tishi" style="color: red"></em>
