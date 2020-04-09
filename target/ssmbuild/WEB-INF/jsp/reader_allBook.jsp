@@ -55,7 +55,7 @@
             <div class="input-group">
                 <span class="input-group-addon">关键字</span>
             <label for="keyword"></label>
-            <input type="text" class="form-control" id="keyword" name="keyword" placeholder="请输入书籍关键字">
+            <input type="text" class="form-control" id="keyword" maxlength="20" name="keyword" placeholder="请输入书籍关键字">
             </div>
             <div class="input-group">
                 <span class="input-group-addon">查询条件</span>
@@ -101,8 +101,8 @@
                         <td>${book.getBookID()}</td>
                         <td>${book.getBookName()}</td>
                         <td>${book.getBookCounts()}</td>
-                        <td>${book.getBookType()}</td>
-                        <td>${book.getBookKeyword()}</td>
+                        <td class="product-buyer-name">${book.getBookType()}</td>
+                        <td class="product-buyer-name">${book.getBookKeyword()}</td>
                         <td class="product-buyer-name">${book.getDetail()}</td>
                         <td>
                             <a href="${pageContext.request.contextPath}/Borrow/addBorrow?bookId=${book.getBookID()}">借阅</a>

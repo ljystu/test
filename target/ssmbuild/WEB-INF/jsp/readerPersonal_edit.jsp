@@ -57,13 +57,13 @@ background-attachment: fixed;">
                 <br>
                 <div class="input-group">
                     <span class="input-group-addon">性别</span>
-                    <input type="text" class="form-control" name="sex" id="sex" value="${readerInfo.readerSex}">
+                    <input type="text" class="form-control" name="sex" maxlength="1" id="sex" value="${readerInfo.readerSex}">
                     <p style="text-align: right;color: red;position: absolute" id="sexCheck"></p>
                 </div>
                 <br>
                 <div class="input-group">
                     <span class="input-group-addon">类型</span>
-                    <input type="text" class="form-control" name="type" id="type" value="${readerInfo.readerType}">
+                    <input type="text" class="form-control" name="type" id="type"  maxlength="20" value="${readerInfo.readerType}">
                     <p style="text-align: right;color: red;position: absolute"></p>
                 </div>
                 <br>
@@ -74,7 +74,7 @@ background-attachment: fixed;">
                     <p style="text-align: right;color: red;position: absolute"></p>
                 </div>
                 <br>
-                <p>剩余字数：<span id="checkRest"></span></p>
+                <p>剩余字数：<span id="checkRest" >200</span></p>
                 <br/>
                 <button type="button" value="确定" class="btn btn-success btn-sm" class="text-left" id="editButton">确定
                 </button>

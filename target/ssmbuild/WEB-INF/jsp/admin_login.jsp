@@ -65,7 +65,7 @@ background-attachment: fixed;">
             </div>
 
             <p style="text-align: right;color: red;position: absolute" id="info"></p><br/>
-            <button id="loginButton" type="button" class="btn btn-primary  btn-block">登陆</button>
+            <button id="loginButton" type="button" class="btn btn-primary  btn-block">登录</button>
         </div>
     </form>
 </div>

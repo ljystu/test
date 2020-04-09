@@ -29,7 +29,7 @@
     </div>
 </nav>
 <div class="sidebar">
-    <h1><i class="fa fa-bars push"></i>Animated <span class="color">Menu</span></h1>
+    <h1><i class="fa fa-bars push"></i>Library <span class="color">Manager</span></h1>
     <ul>
 
         <li><a href="#" style="color: rgb(85, 85, 85);"><i class="fa fa-user push"></i>读者管理<i
@@ -62,10 +62,12 @@
         <li><a href="#" style="color: rgb(85, 85, 85);"><i class="fa fa-dashboard push"></i>借还管理<i
                 class="fa fa-angle-right"></i></a><span class="hover" style="width: 0%; opacity: 0;"></span>
             <ul class="sub-menu">
-                <li><a href="${pageContext.request.contextPath}/Borrow/findRequest" style="color: rgb(85, 85, 85);">还书申请<i class="fa fa-angle-right"></i></a><span
+                <li><a href="${pageContext.request.contextPath}/Borrow/findRequest" style="color: rgb(85, 85, 85);">还书申请<i
+                        class="fa fa-angle-right"></i></a><span
                         class="hover" style="width: 0%; opacity: 0;"></span>
                 </li>
-                <li><a href="${pageContext.request.contextPath}/Borrow/allBorrow" style="color: rgb(85, 85, 85);">借还日志<i class="fa fa-angle-right"></i></a><span
+                <li><a href="${pageContext.request.contextPath}/Borrow/allBorrow" style="color: rgb(85, 85, 85);">借还日志<i
+                        class="fa fa-angle-right"></i></a><span
                         class="hover" style="width: 0%; opacity: 0;"></span>
                 </li>
 
