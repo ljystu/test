@@ -79,12 +79,12 @@ background-attachment: fixed;">
                 $("#updateBookButton").click(function () {
                     var bookName = $("#updateBook").val();
                     var bookCount = $("#updateBookCount").val();
-                    if (bookName == '' || !/^\d+$/.test(bookCount)||bookCount==0) {
+                    if (bookName == '' || !/^\d+$/.test(bookCount) || bookCount == 0) {
                         if (bookName == '')
                             $("#info").text("提示:书籍名称不能为空！");
                         if (!/^\d+$/.test(bookCount))
                             $("#countInfo").text("提示:请输入整数！");
-                        else if(bookCount==0)
+                        else if (bookCount == 0)
                             $("#countInfo").text("提示:书籍数量不可为0！");
                     } else {
                         $("#updateBookForm").submit();
@@ -103,5 +103,6 @@ background-attachment: fixed;">
 
         </div>
     </div>
-        </body>
+</div>
+</body>
 </html>
