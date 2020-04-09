@@ -38,7 +38,7 @@ background-attachment: fixed;">
 </c:if>
 <h2 style="text-align: center; color: white; font-family: '华文行楷'; font-size: 500%">图 书 管 理 系 统</h2>
 
-<div class="panel panel-default" id="login">
+<div class="panel panel-default" id="login" style="height: 53%">
     <div class="panel-heading" style="background-color: #fff">
         <h3 class="panel-title">用户请登录</h3>
     </div>
@@ -48,11 +48,11 @@ background-attachment: fixed;">
             <div class="form-group">
 
                 <label for="username">账号</label>
-                <input type="text" class="form-control" id="username" name="readerName" placeholder="请输入账号">
+                <input type="text" class="form-control" id="username" name="readerName" placeholder="请输入账号" maxlength="20">
             </div>
             <div class="form-group">
                 <label for="password">密码</label>
-                <input type="password" class="form-control" id="password" name="readerPwd" placeholder="请输入密码">
+                <input type="password" class="form-control" id="password" name="readerPwd" placeholder="请输入密码" maxlength="20">
             </div>
 
             <div class="checkbox text-left">

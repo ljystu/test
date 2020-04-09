@@ -48,11 +48,11 @@ background-attachment: fixed;">
             <div class="form-group">
 
                 <label for="username">账号</label>
-                <input type="text" class="form-control" id="username" name="adminName" placeholder="请输入账号">
+                <input type="text" class="form-control" id="username" name="adminName" placeholder="请输入账号" maxlength="20">
             </div>
             <div class="form-group">
                 <label for="password">密码</label>
-                <input type="password" class="form-control" id="password" name="adminPwd" placeholder="请输入密码">
+                <input type="password" class="form-control" id="password" name="adminPwd" placeholder="请输入密码" maxlength="20">
             </div>
 
             <div class="checkbox text-left">
@@ -66,6 +66,10 @@ background-attachment: fixed;">
 
             <p style="text-align: right;color: red;position: absolute" id="info"></p><br/>
             <button id="loginButton" type="button" class="btn btn-primary  btn-block">登录</button>
+            <br>
+            <div class="text-center">
+                <a href="${pageContext.request.contextPath}/Reader/backIndex" class="r_float">返回读者用户登录</a>
+            </div>
         </div>
     </form>
 </div>
