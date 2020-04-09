@@ -27,24 +27,66 @@ background-attachment: fixed;">
 
                 <div class="input-group" style="padding-top: 20px;">
                     <span class="input-group-addon">学号</span>
-                    <input type="text" class="form-control" name="readerName" id="readerName" placeholder="只可填入数字学号" >
+                    <input type="text" class="form-control" name="readerName" id="readerName" placeholder="只可填入数字学号" maxlength="20">
                 </div>
                 <div class="input-group" style="padding-top: 20px;">
                     <span  class="input-group-addon">性别</span>
-                    <input type="text" class="form-control" name="readerSex" id="readerSex" placeholder="男或女">
+                    <input type="text" class="form-control" name="readerSex" id="readerSex" placeholder="男或女" maxlength="1">
                 </div>
                 <div class="input-group" style="padding-top: 20px;">
                     <span class="input-group-addon">类型</span>
-                    <input type="text" class="form-control" name="readerType" id="readerType" placeholder="teacher or student" >
+                    <input type="text" class="form-control" name="readerType" id="readerType" placeholder="teacher or student" maxlength="20" >
                 </div>
                 <div class="input-group" style="padding-top: 20px;">
                     <span  class="input-group-addon">密码</span>
-                    <input  type="password" class="form-control" name="readerPwd" id="readerPwd" >
+                    <input  type="password" class="form-control" name="readerPwd" id="readerPwd" maxlength="20" placeholder="密码最长为20位">
                 </div>
                 <br>
+                <p style="text-align: right;color: red;position: absolute" id="info"></p><br/>
                 <input style="align-items: center" type="submit" value="添加" class="btn btn-success btn-sm"
                        class="text-left" id="registerButton">
                 <script>
+                    $("#readerName").keyup(
+                        function () {
+                            if(isNaN($("#readerName").val())){
+                                $("#info").text("提示:账号只能为数字学号");
+                            }
+                            else {
+                                $("#info").text("");
+                            }
+                        }
+                    )
+                    $("#readerPwd").keyup(
+                        function () {
+                            if(isNaN($("#readerPwd").val())){
+                                $("#info").text("提示:密码只能为数字");
+                            }
+                            else {
+                                $("#info").text("");
+                            }
+                        }
+                    )
+                    $("#readerSex").keyup(
+                        function () {
+                            if($("#readerSex").val() != '男' && $("#readerSex").val() != '女'){
+                                $("#info").text("提示:性别必须为男或女");
+                            }
+                            else {
+                                $("#info").text("");
+                            }
+                        }
+                    )
+                    $("#readerType").keyup(
+                        function () {
+                            if($("#readerType").val() != 'teacher' && $("#readerType").val() != 'student'){
+                                $("#info").text("提示:类型必须为student或teacher");
+                            }
+                            else {
+                                $("#info").text("");
+                            }
+                        }
+                    )
+
                     function mySubmit(flag){
                         return flag;
                     }
@@ -53,21 +95,57 @@ background-attachment: fixed;">
                             alert("请填入完整读者信息！");
                             return mySubmit(false);
                         }
+                        if(readerName == ''){
+                            alert("提示：账号不能为空");
+                            return mySubmit(false);
+                        }
+                        else if(readerPwd == ''){
+                            alert("提示：密码不能为空");
+                            return mySubmit(false);
+                        }
+                        else if(!/^\d+$/.test( readerName )){
+                            alert("提示：账号必须为数字学号");
+                            return mySubmit(false);
+                        }
+                        else if(!/^\d+$/.test( readerPwd )){
+                            alert("提示：密码必须为数字");
+                            return mySubmit(false);
+                        }
+                        else if(readerSex != '男' && readerSex != '女'){
+                            alert("提示：性别必须为男或女");
+                            return mySubmit(false);
+                        }
+                        else if(readerType != 'teacher' && readerType != 'student'){
+                            alert("提示：类型必须为student或teacher");
+                            return mySubmit(false);
+                        }
                     })
 
                     $("#registerButton").click(function () {
                         var readerName = $("#readerName").val();
                         var readerSex = $("#readerSex").val();
-                        var readerType = $("readerType").val();
-                        if (readerName == '' || (readerSex != '男' && readerSex != '女' || (readerType != 'teacher' && readerType != 'student'))) {
-                            if (readerName == '')
-                                alert("提示:账号不能为空！");
-                            if (readerSex != '男' && readerSex != '女')
-                                alert("提示：请输入正确的性别！");
-                            if (readerType != 'teacher' && readerType != 'student')
-                                alert("提示：请输入正确的类型！");
+                        var readerType = $("#readerType").val();
+                        var readerPwd = $("#readerPwd").val();
 
-                        } else {
+                        if(readerName == ''){
+                            alert("提示：账号不能为空");
+                        }
+                        else if(readerPwd == ''){
+                            alert("提示：密码不能为空");
+                        }
+                        else if(!/^\d+$/.test( readerName )){
+                            alert("提示：账号必须为数字学号");
+                        }
+                        else if(!/^\d+$/.test( readerPwd )){
+                            alert("提示：密码必须为数字");
+                        }
+                        else if(readerSex != '男' && readerSex != '女'){
+                            alert("提示：性别必须为男或女");
+                        }
+                        else if(readerType != 'teacher' && readerType != 'student'){
+                            alert("提示：类型必须为student或teacher");
+                        }
+                        else {
                             $("#edit").submit();
                         }
                     })

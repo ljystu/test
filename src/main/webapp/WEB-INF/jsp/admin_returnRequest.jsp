@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>待确认的还书记录</title>
+    <title>借还日志</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 引入 Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -24,9 +24,9 @@
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="page-header">
-                <h4 >
-                   还书申请
-                </h4>
+                <h1>
+                    <small>借还日志</small>
+                </h1>
             </div>
         </div>
     </div>
@@ -64,7 +64,7 @@
                         <td>${borrow.getReturnDate()}</td>
                         <td>${borrow.getSta()}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/Borrow/confirmRequest?id=${borrow.getIdbookBorrow()}">确认归还</a>
+                            <a href="${pageContext.request.contextPath}/Borrow/return//${borrow.getIdbookBorrow()}">归还</a>
                         </td>
                     </tr>
                 </c:forEach>
