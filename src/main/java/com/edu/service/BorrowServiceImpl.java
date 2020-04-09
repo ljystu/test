@@ -18,8 +18,11 @@ public class BorrowServiceImpl implements BorrowService{
     public boolean addBorrow(Borrow borrow) { return borrowMapper.addBorrow(borrow); }
 
     @Override
-    public int updateBorrow(Borrow borrow) {
-        return borrowMapper.updateBorrow(borrow);
+    public int updateBorrow(String sta, String now) { return borrowMapper.updateBorrow(sta,now); }
+
+    @Override
+    public int renewBorrow(String newReturnDate, int id) {
+        return borrowMapper.renewBorrow(newReturnDate, id);
     }
 
     @Override
@@ -34,6 +37,12 @@ public class BorrowServiceImpl implements BorrowService{
     public List<Borrow> findBorrowByReader(String nosta, int readerId) {
         return borrowMapper.findBorrowByReader(nosta, readerId);
     }
+
+    @Override
+    public String findBookNameByBookId(int id) { return borrowMapper.findBookNameByBookId(id); }
+
+    @Override
+    public String findReturnDateById(int id) { return borrowMapper.findReturnDateById(id); }
 
     @Override
     public List<Borrow> findBorrowByBook(int bookId) {

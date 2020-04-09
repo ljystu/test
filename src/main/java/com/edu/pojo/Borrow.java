@@ -11,6 +11,7 @@ public class Borrow implements Serializable {
 
     private String borrowDate;
     private String returnDate;
+    private String bookName;
 
     private Books books;
     private Reader reader;
@@ -21,6 +22,7 @@ public class Borrow implements Serializable {
         return "Borrow{" +
                 "idbookBorrow=" + idbookBorrow +
                 ", bookId='" + bookId + '\'' +
+                ", bookName='" + bookName + '\'' +
                 ", readerId=" + readerId + '\'' +
                 ", borrowDate='" + borrowDate + '\'' +
                 ", returnDate='" + returnDate + '\'' +
@@ -30,9 +32,10 @@ public class Borrow implements Serializable {
     public Borrow() {
     }
 
-    public Borrow(int idbookBorrow, int bookID, int readerId, String borrowDate, String returnDate, String sta) {
+    public Borrow(int idbookBorrow, int bookID, String bookName, int readerId, String borrowDate, String returnDate, String sta) {
         this.idbookBorrow = idbookBorrow;
         this.bookId = bookID;
+        this.bookName = bookName;
         this.readerId = readerId;
         this.borrowDate = borrowDate;
         this.returnDate = returnDate;
@@ -55,6 +58,12 @@ public class Borrow implements Serializable {
     public void setBookId(int bookId) {
         this.bookId = bookId;
     }
+
+    public String getBookName() {
+        return bookName;
+    }
+
+    public void setBookName(String bookName) { this.bookName = bookName; }
 
     public int getReaderId() { return readerId; }
 

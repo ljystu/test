@@ -16,18 +16,24 @@
     </resultMap>
 
     <insert id="addBorrow" parameterType="Borrow">
-        insert into ssmbuild.bookborrow(bookId, readerId, borrowDate, returnDate, sta)
-        values (#{bookId},#{readerId},#{borrowDate},#{returnDate},#{sta})
+        insert into ssmbuild.bookborrow(bookId,bookName, readerId, borrowDate, returnDate, sta)
+        values (#{bookId},#{bookName},#{readerId},#{borrowDate},#{returnDate},#{sta})
     </insert>
 
     <update id="returnById">
         update ssmbuild.bookborrow set sta=#{sta} where idbookBorrow=#{idbookBorrow}
     </update>
 
-    <update id="updateBorrow" parameterType="Borrow">
+    <update id="updateBorrow">
         update ssmbuild.bookborrow
-        set bookId=#{bookId},readerId=#{readerId},borrowDate=#{borrowDate},returnDate=#{returnDate},sta=#{sta}
-        where idbookBorrow=#{idbookBorrow}
+        set sta=#{sta}
+        where returnDate &lt; #{now}
+    </update>
+
+    <update id="renewBorrow">
+        update ssmbuild.bookborrow
+        set returnDate = #{newReturnDate}
+        where idbookBorrow = #{idbookBorrow}
     </update>
 
     <select id="findBorrowById" resultType="Borrow">
@@ -41,7 +47,7 @@
 
     <select id="findBorrowByReader" resultType="Borrow">
         select * from ssmbuild.bookborrow
-        where readerId  = #{readerId} and sta!=#{nosta}
+        where readerId  = #{readerId} and sta != #{nosta} order by sta desc
     </select>
 
     <select id="findBorrowByBook" resultType="Borrow">
@@ -53,8 +59,16 @@
         select readerId from ssmbuild.readers where readerName = #{readerName}
     </select>
 
+    <select id="findBookNameByBookId" resultType="String" parameterType="int">
+        select bookName from ssmbuild.books where bookId = #{bookId}
+    </select>
+
     <select id="findRequest" resultType="Borrow">
         select * from ssmbuild.bookborrow where sta = #{sta}
+    </select>
+
+    <select id="findReturnDateById" resultType="String">
+        select returnDate from ssmbuild.bookborrow where idbookBorrow = #{idbookBorrow};
     </select>
 
 </mapper>

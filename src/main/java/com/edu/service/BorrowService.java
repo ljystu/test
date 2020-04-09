@@ -10,9 +10,15 @@ public interface BorrowService {
 
    boolean addBorrow(Borrow borrow);
 
-   int updateBorrow(Borrow borrow);
+   int updateBorrow(String sta, String now);
+
+   int renewBorrow(String newReturnDate, int id);
 
    int returnById(String sta, int id);
+
+   String findBookNameByBookId(int id);
+
+   String findReturnDateById (int id);
 
    Borrow findBorrowById(int id);
 

@@ -44,7 +44,7 @@
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>
-                    <th>书籍编号</th>
+                    <th>书籍名称</th>
                     <th>读者编号</th>
                     <th>借书日期</th>
                     <th>还书日期</th>
@@ -56,13 +56,15 @@
                 <tbody>
                 <c:forEach var="borrow" items="${requestScope.get('list')}">
                     <tr>
-                        <td>${borrow.getBookId()}</td>
+                        <td>${borrow.getBookName()}</td>
                         <td>${borrow.getReaderId()}</td>
                         <td>${borrow.getBorrowDate()}</td>
                         <td>${borrow.getReturnDate()}</td>
                         <td>${borrow.getSta()}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/Borrow/request?id=${borrow.getIdbookBorrow()}">申请归还</a>
+                            <a href="${pageContext.request.contextPath}/Borrow/request?id=${borrow.getIdbookBorrow()}">申请归还</a> |
+                            <a href="${pageContext.request.contextPath}/Borrow/renewBorrow?id=${borrow.getIdbookBorrow()}">续借</a> |
+                            <a href="${pageContext.request.contextPath}/Borrow/reparation?id=${borrow.getIdbookBorrow()}">损坏赔偿</a>
                         </td>
                     </tr>
                 </c:forEach>

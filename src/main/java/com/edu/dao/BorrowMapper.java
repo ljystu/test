@@ -13,7 +13,9 @@ public interface BorrowMapper {
 
     boolean addBorrow(Borrow borrow);
 
-    int updateBorrow(Borrow borrow);
+    int updateBorrow(@Param("sta") String sta, @Param("now") String now);
+
+    int renewBorrow(@Param("newReturnDate") String newReturnDate, @Param("idbookBorrow") int id);
 
     int returnById(@Param("sta") String sta, @Param("idbookBorrow") int id);
 
@@ -22,6 +24,10 @@ public interface BorrowMapper {
     int findReaderIdByName(@Param("readerName") String name);
 
     List<Borrow> findBorrowByReader(@Param("nosta") String nosta, @Param("readerId") int readerId);
+
+    String findBookNameByBookId(@Param("bookId") int bookId);
+
+    String findReturnDateById(@Param("idbookBorrow") int id);
 
     List<Borrow> findBorrowByBook(@Param("bookId") int bookId);
 

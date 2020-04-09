@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>待确认的还书记录</title>
+    <title>损坏图书</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 引入 Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -25,7 +25,7 @@
         <div class="col-md-12 column">
             <div class="page-header">
                 <h4 >
-                   还书申请
+                   损坏赔偿
                 </h4>
             </div>
         </div>
@@ -49,7 +49,6 @@
                     <th>书籍名称</th>
                     <th>读者编号</th>
                     <th>借书日期</th>
-                    <th>还书日期</th>
                     <th>备注</th>
                     <th>操作</th>
                 </tr>
@@ -63,10 +62,9 @@
                         <td>${borrow.getBookName()}</td>
                         <td>${borrow.getReaderId()}</td>
                         <td>${borrow.getBorrowDate()}</td>
-                        <td>${borrow.getReturnDate()}</td>
                         <td>${borrow.getSta()}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/Borrow/confirmRequest?id=${borrow.getIdbookBorrow()}">确认归还</a>
+                            <a href="${pageContext.request.contextPath}/Borrow/overReparation?id=${borrow.getIdbookBorrow()}">已赔偿</a>
                         </td>
                     </tr>
                 </c:forEach>
