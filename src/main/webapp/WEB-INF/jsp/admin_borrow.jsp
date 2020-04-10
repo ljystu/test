@@ -46,6 +46,7 @@
                 <tr>
                     <th>借阅编号</th>
                     <th>书籍编号</th>
+                    <th>书籍名称</th>
                     <th>读者编号</th>
                     <th>借书日期</th>
                     <th>还书日期</th>
@@ -58,6 +59,7 @@
                     <tr>
                         <td>${borrow.getIdbookBorrow()}</td>
                         <td>${borrow.getBookId()}</td>
+                        <td>${borrow.getBookName()}</td>
                         <td>${borrow.getReaderId()}</td>
                         <td>${borrow.getBorrowDate()}</td>
                         <td>${borrow.getReturnDate()}</td>
