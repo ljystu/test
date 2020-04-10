@@ -29,6 +29,13 @@
             $('#header').load('reader_header.html');
         })
     </script>
+    <style>
+        .product-buyer-name {
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }</style>
 </head>
 <body>
 <div  id="header"></div>

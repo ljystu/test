@@ -11,7 +11,7 @@
      role="navigation">
     <div class="container-fluid">
         <div class="navbar-header" style="margin-left: 45%;margin-right: 1% ">
-            <a href="${pageContext.request.contextPath}/Admin/admin_main.html"
+            <a href="${pageContext.request.contextPath}/Reader/reader_main"
                style="width: 100%; display: inline-block; text-align: center; font-family: 华文行楷; font-size: 250%; color: white; ">我的图书馆</a>
         </div>
         <div class="collapse navbar-collapse" id="example-navbar-collapse">

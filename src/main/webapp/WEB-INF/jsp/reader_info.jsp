@@ -14,6 +14,13 @@
             $('#header').load('reader_header.html');
         })
     </script>
+    <style>
+        .product-buyer-name {
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }</style>
 </head>
 <body style=" background-repeat:no-repeat ;
 background-size:100% 100%;
@@ -61,11 +68,11 @@ background-attachment: fixed;">
                 </tr>
                 <tr>
                     <th>类型</th>
-                    <td>${readerInfo.readerType}</td>
+                    <td class="product-buyer-name">${readerInfo.readerType}</td>
                 </tr>
                 <tr>
                     <th>简介</th>
-                    <td>${readerInfo.readerNote}</td>
+                    <td class="product-buyer-name">${readerInfo.readerNote}</td>
                 </tr>
             </table>
         </div>
