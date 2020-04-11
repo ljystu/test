@@ -22,11 +22,12 @@
 <body style="
 background-repeat:no-repeat ;
 background-size:100% 100%;
-background-attachment: fixed;">
+background-attachment: fixed;" onload="checkLength()">
 <div id="header" style="padding-bottom: 80px"></div>
 <br/>
-<div class="col-xs-5 col-md-offset-3">
-    <div class="panel panel-default">
+<div class="container" style="margin-left: 250px">
+<div class="col-xs-6 col-md-offset-3" style="position: relative">
+    <div class="panel panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title">
                 修改书籍信息
@@ -68,12 +69,15 @@ background-attachment: fixed;">
                 <br/>
                 <div class="input-group">
                     <span class="input-group-addon">书籍详情</span>
-                    <textarea type="text" class="form-control" name="detail" onkeyup="checkLength(this)"
+                    <textarea type="text" class="form-control" name="detail" id="detail" onkeyup="checkLength()"
                               maxlength="200">${book.getDetail() }</textarea>
                 </div>
                 <br/>
-                <p>剩余字数：<span id="checkRest"></span></p>
-                <button type="button" class="btn btn-success btn-sm" value="提交" id="updateBookButton">提交</button>
+                <p>剩余字数：<span id="checkRest" ></span></p>
+                <button type="button" class="btn btn-success btn-sm " value="提交" id="updateBookButton">提交</button>
+                <a href="${pageContext.request.contextPath}/book/allBook">
+                    <button type="button" class="btn btn-default btn-sm " value="取消" id="returnButton">取消</button>
+                </a>
             </form>
             <script>
                 $("#updateBookButton").click(function () {
@@ -95,11 +99,12 @@ background-attachment: fixed;">
                     }
                 })
 
-                function checkLength(which) {
+                function checkLength() {
                     var maxChars = 200;
-                    if (which.value.length > maxChars)
-                        which.value = which.value.substring(0, maxChars);
-                    var curr = maxChars - which.value.length;
+                    var x=document.getElementById("detail");
+                    if (x.value.length > maxChars)
+                        x.value = x.value.substring(0, maxChars);
+                    var curr = maxChars - x.value.length;
                     document.getElementById("checkRest").innerHTML = curr.toString();
                 }
             </script>
@@ -107,6 +112,7 @@ background-attachment: fixed;">
 
         </div>
     </div>
+</div>
 </div>
 </body>
 </html>

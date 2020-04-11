@@ -44,39 +44,45 @@ background-attachment: fixed;">
             ${error}
     </div>
 </c:if>
-<div class="col-xs-5 col-md-offset-3">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">
-                我的信息
-            </h3>
-        </div>
-        <div class="panel-body">
-            <table class="table table-hover table-striped">
+<div class="container" style="margin-left: 250px">
+    <div class="col-xs-6 col-md-offset-3" style="position: relative">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    我的信息
+                </h3>
+            </div>
+            <div class="panel-body">
+                <table class="table table-hover table-striped">
 
-                <tr>
-                    <th width="20%">读者编号</th>
-                    <td>${readerInfo.readerId}</td>
-                </tr>
-                <tr>
-                    <th>账号</th>
-                    <td>${readerInfo.readerName}</td>
-                </tr>
-                <tr>
-                    <th>性别</th>
-                    <td>${readerInfo.readerSex}</td>
-                </tr>
-                <tr>
-                    <th>类型</th>
-                    <td class="product-buyer-name">${readerInfo.readerType}</td>
-                </tr>
-                <tr>
-                    <th>简介</th>
-                    <td class="product-buyer-name">${readerInfo.readerNote}</td>
-                </tr>
-            </table>
+                    <tr>
+                        <th width="20%">读者编号</th>
+                        <td>${readerInfo.readerId}</td>
+                    </tr>
+                    <tr>
+                        <th>账号</th>
+                        <td>${readerInfo.readerName}</td>
+                    </tr>
+                    <tr>
+                        <th>性别</th>
+                        <td>${readerInfo.readerSex}</td>
+                    </tr>
+                    <tr>
+                        <th>类型</th>
+                        <td class="product-buyer-name">${readerInfo.readerType}</td>
+                    </tr>
+                    <tr>
+                        <th>简介</th>
+                        <td class="product-buyer-name">${readerInfo.readerNote}</td>
+                    </tr>
+                </table>
+
+
+                <a href="${pageContext.request.contextPath}/Reader/readerPersonal_edit.html">
+                    <button type="button" value="确定" class="btn btn-success btn-sm " id="editButton">修改</button>
+                </a>
+            </div>
         </div>
-        <a class="btn btn-success btn-sm" href="${pageContext.request.contextPath}/Reader/readerPersonal_edit.html" role="button">修改</a>
     </div>
 </div>
 

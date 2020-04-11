@@ -12,7 +12,7 @@
         })
     </script>
 </head>
-<body>
+<body >
 <div id="header"></div>
 <br>
 <div class="container" style="margin-left: 250px">
@@ -21,7 +21,7 @@
         管理员修改密码
     </h4>
 </div>
-<div style="position: relative">
+<div style="position: relative; ">
     <div class="alert alert-danger alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">
             &times;
@@ -58,18 +58,21 @@
             <form method="post" action="${pageContext.request.contextPath}/Admin/admin_repasswd_do" id="repasswd">
                 <div class="form-group">
                     <label>输入旧密码:</label>
-                    <input type="password" id="oldPasswd" name="oldPasswd" placeholder="输入旧密码" class="form-control">
+                    <input type="password" id="oldPasswd" name="oldPasswd" placeholder="输入旧密码" class="form-control" >
                     <br>
                     <label>输入新密码:</label>
                     <input type="password" id="newPasswd" name="newPasswd" placeholder="输入新密码" class="form-control">
                     <br>
                     <label>再次输入新密码:</label>
-                    <input type="password" id="reNewPasswd" name="reNewPasswd" placeholder="再次输入新密码" class="form-control">
+                    <input type="password" id="reNewPasswd" name="reNewPasswd" placeholder="再次输入新密码" class="form-control" >
                     <br>
                     <em id="tishi" style="color: red"></em>
                     <br>
                     <span>
-                            <input type="submit" value="确认修改" class="btn btn-default">
+                            <input type="submit" value="确认修改" class="btn btn-success btn-sm ">
+                        <a href="${pageContext.request.contextPath}/book/allBook">
+                        <button type="button" class="btn btn-default btn-sm " value="取消" id="returnButton">取消</button>
+                         </a>
                     </span>
                 </div>
             </form>

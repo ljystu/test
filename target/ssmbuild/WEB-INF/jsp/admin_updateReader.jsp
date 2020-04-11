@@ -19,10 +19,11 @@
 </head>
 <body style=" background-repeat:no-repeat ;
 background-size:100% 100%;
-background-attachment: fixed;">
+background-attachment: fixed;" onload="checkLength()">
 <div id="header" style="padding-bottom: 80px"></div>
-<div class="col-xs-5 col-md-offset-3">
-    <div class="panel panel-default">
+<div class="container" style="margin-left: 250px">
+<div class="col-xs-6 col-md-offset-3" style="position: relative">
+    <div class="panel panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title">
                 管理读者信息
@@ -34,34 +35,41 @@ background-attachment: fixed;">
 
                 <div class="input-group">
                     <span class="input-group-addon">读者账号</span>
-                    <input type="text" id="updateReaderName" class="form-control" readonly="readonly"maxlength="20" name="readerName"
-                                value="${reader.getReaderName()}"/>
+                    <input type="text" id="updateReaderName" class="form-control" readonly="readonly" maxlength="20"
+                           name="readerName"
+                           value="${reader.getReaderName()}"/>
                     <p style="text-align: right;color: red;position: absolute" id="readerNameCheck"></p>
                 </div>
                 <div class="error-msg"></div>
                 <div class="input-group">
                     <span class="input-group-addon">读者类型</span>
-                    <input type="text" name="readerType" class="form-control" maxlength="20"value="${reader.getReaderType()}"/>
+                    <input type="text" name="readerType" class="form-control" maxlength="20"
+                           value="${reader.getReaderType()}"/>
                 </div>
                 <div class="error-msg"></div>
                 <div class="input-group">
                     <span class="input-group-addon">读者性别</span>
-                    <input type="text" name="readerSex" class="form-control" maxlength="1"id="readerSex"
-                                value="${reader.getReaderSex() }"/>
+                    <input type="text" name="readerSex" class="form-control" maxlength="1" id="readerSex"
+                           value="${reader.getReaderSex() }"/>
                     <p style="text-align: right;color: red;position: absolute" id="SexCheck"></p>
                 </div>
                 <div class="error-msg"></div>
                 <div class="input-group">
                     <span class="input-group-addon">读者备注</span>
-                    <textarea type="text" class="form-control" name="readerNote" maxlength="200" onkeyup="checkLength(this)"
-                                   maxlength="200">${reader.getReaderNote() }</textarea>
+                    <textarea type="text" class="form-control" name="readerNote" id="readerNote" maxlength="200"
+                              onkeyup="checkLength()"
+                              maxlength="200">${reader.getReaderNote()}</textarea>
                 </div>
                 <br/>
                 <p>剩余字数：<span id="checkRest"></span></p>
                 <br/>
-                <button type="button" class="btn btn-success btn-sm" value="提交" id="updateReaderButton">
-                    提交
+                <button type="button" class="btn btn-success btn-sm " value="提交" id="updateReaderButton">提交
                 </button>
+                <a href="${pageContext.request.contextPath}/Reader/allReader">
+                    <button type="button" class="btn btn-default btn-sm " value="取消" id="returnButton">取消</button>
+                </a>
+
+
             </form>
             <script>
                 $("#updateReaderButton").click(function () {
@@ -82,16 +90,18 @@ background-attachment: fixed;">
                     }
                 })
 
-                function checkLength(which) {
+                function checkLength() {
                     var maxChars = 200;
-                    if (which.value.length > maxChars)
-                        which.value = which.value.substring(0, maxChars);
-                    var curr = maxChars - which.value.length;
+                    var x=document.getElementById("readerNote");
+                    if (x.value.length > maxChars)
+                        x.value = x.value.substring(0, maxChars);
+                    var curr = maxChars - x.value.length;
                     document.getElementById("checkRest").innerHTML = curr.toString();
                 }
             </script>
         </div>
     </div>
+</div>
 </div>
 </body>
 </html>
