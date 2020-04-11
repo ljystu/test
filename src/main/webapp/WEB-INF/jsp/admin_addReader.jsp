@@ -54,7 +54,8 @@ background-attachment: fixed;">
                 <br/>
                 <div class="input-group">
                     <span class="input-group-addon">读者密码</span>
-                    <input type="text" class="form-control" name="readerPwds" id="readerPwd" maxlength="20" placeholder="密码最长为20位">
+                    <input type="text" class="form-control" name="readerPwds" id="readerPwd" maxlength="20"
+                           placeholder="密码最长为20位">
                 </div>
                 <p style="text-align: right;color: red;position: absolute" id="PwdCheck"></p>
                 <br/>
@@ -68,11 +69,17 @@ background-attachment: fixed;">
                         if (readerName == '' || readerPwd == '' || (readerSex != '男' && readerSex != '女')) {
                             if (readerName == '')
                                 $("#readerNameCheck").text("提示:读者账号不能为空！");
+                            else
+                                $("#readerNameCheck").text("");
                             if (readerPwd == '')
                                 $("#PwdCheck").text("提示:读者密码不能为空！");
+                            else
+                                $("#PwdCheck").text("");
                             if (readerSex != '男' && readerSex != '女') {
                                 $("#SexCheck").text("提示：请输入正确的性别！");
                             }
+                            else
+                                $("#SexCheck").text("");
                         } else {
                             $("#addReaderForm").submit();
                         }

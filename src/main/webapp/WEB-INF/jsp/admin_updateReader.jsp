@@ -2,12 +2,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>修改信息</title>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 引入 Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/form.css"/>
-    <title>全部图书信息</title>
+    <title>修改读者信息</title>
     <%--    <link rel="stylesheet" href="css/bootstrap.min.css">--%>
     <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
@@ -70,8 +70,12 @@ background-attachment: fixed;">
                     if (updateReaderName == '' || (readerSex != '男' && readerSex != '女')) {
                         if (updateReaderName == '')
                             $("#readerNameCheck").text("提示:读者账号不能为空！");
+                        else
+                            $("#readerNameCheck").text("");
                         if (readerSex != '男' && readerSex != '女')
                             $("#SexCheck").text("提示：请输入正确的性别！");
+                        else
+                            $("#SexCheck").text("");
 
                     } else {
                         $("#updateReaderForm").submit();

@@ -79,12 +79,6 @@ background-attachment: fixed;">
                 <button type="button" value="确定" class="btn btn-success btn-sm" class="text-left" id="editButton">确定
                 </button>
                 <script>
-                    $("#edit").submit(function () {
-                        if ($("#name").val() == '' || $("#sex").val() == '') {
-                            alert("请填入完整信息！");
-                            return false;
-                        }
-                    })
 
                     $("#editButton").click(function () {
                         var sex = $("#sex").val();
