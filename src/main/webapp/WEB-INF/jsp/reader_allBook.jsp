@@ -30,12 +30,16 @@
         })
     </script>
 </head>
-<body>
+
+<body background="${pageContext.request.contextPath}/img/bg1.jpg" style=" background-repeat:no-repeat ;
+background-size:100% 100%;
+background-attachment: fixed; height: 751px">
+
 <div  id="header"></div>
 <br/>
 <div class="container" style="margin-left: 250px">
 
-    <div class="row clearfix">
+    <div class="row clearfix" style="background-color: #fff">
         <div class="col-md-12 column">
             <div class="page-header">
                 <h4>
@@ -45,7 +49,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row" style="background-color: #fff">
         <div class="col-md-7 column pull-right">
 
         <form class="form-inline" id="searchForm" action="${pageContext.request.contextPath}/book/readerQueryBook"
@@ -80,7 +84,7 @@
     </div>
 
 
-    <div class="row clearfix">
+    <div class="row clearfix" style="background-color: #fff">
         <div class="col-md-12 column" >
             <table class="table table-hover table-striped">
                 <thead>
