@@ -8,13 +8,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;}
-
-    .containers {
-        /*padding-right: 15px;*/
-        /*padding-left: 15px;*/
-        margin-right: auto;
-        margin-left: auto
-    }</style>
+</style>
 <head>
     <title>书籍列表</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />

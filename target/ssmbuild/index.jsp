@@ -1,14 +1,14 @@
-<%@ page contentType="text/html;charset=UTF-8"  language="java"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>图书馆首页</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.js"></script>
-    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js" ></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/js.cookie.js"></script>
     <style>
-        #login{
+        #login {
             height: 50%;
             width: 28%;
             margin-left: auto;
@@ -21,9 +21,10 @@
         .form-group {
             margin-bottom: 0;
         }
+
         * {
-            padding:0;
-            margin:0;
+            padding: 0;
+            margin: 0;
         }
     </style>
 </head>
@@ -33,7 +34,7 @@ background-attachment: fixed;">
 <c:if test="${!empty error}">
     <script>
         alert("${error}");
-        window.location.href="login.html";
+        window.location.href = "login.html";
     </script>
 </c:if>
 <h2 style="text-align: center; color: white; font-family: '华文行楷'; font-size: 500%">图 书 管 理 系 统</h2>
@@ -48,11 +49,13 @@ background-attachment: fixed;">
             <div class="form-group">
 
                 <label for="username">账号</label>
-                <input type="text" class="form-control" id="username" name="readerName" placeholder="请输入账号" maxlength="20">
+                <input type="text" class="form-control" id="username" name="readerName" placeholder="请输入账号"
+                       maxlength="20">
             </div>
             <div class="form-group">
                 <label for="password">密码</label>
-                <input type="password" class="form-control" id="password" name="readerPwd" placeholder="请输入密码" maxlength="20">
+                <input type="password" class="form-control" id="password" name="readerPwd" placeholder="请输入密码"
+                       maxlength="20">
             </div>
 
             <div class="checkbox text-left">
@@ -77,14 +80,14 @@ background-attachment: fixed;">
 <script>
     $("#username").keyup(
         function () {
-            if(isNaN($("#username").val())){
+            if (isNaN($("#username").val())) {
                 $("#info").text("提示:账号只能为数字");
-            }
-            else {
+            } else {
                 $("#info").text("");
             }
         }
     )
+
     // 记住登录信息
     function rememberLogin(username, password, checked) {
         Cookies.set('loginStatus', {
@@ -93,6 +96,7 @@ background-attachment: fixed;">
             remember: checked
         }, {expires: 30, path: ''})
     }
+
     // 若选择记住登录信息，则进入页面时设置登录信息
     function setLoginStatus() {
         var loginStatusText = Cookies.get('loginStatus')
@@ -102,35 +106,32 @@ background-attachment: fixed;">
                 loginStatus = JSON.parse(loginStatusText);
                 $('#username').val(loginStatus.username);
                 $('#password').val(loginStatus.password);
-                $("#remember").prop('checked',true);
-            } catch (__) {}
+                $("#remember").prop('checked', true);
+            } catch (__) {
+            }
         }
     }
 
     // 设置登录信息
     setLoginStatus();
     $("#loginButton").click(function () {
-        var id =$("#username").val();
-        var passwd=$("#password").val();
-        var remember=$("#remember").prop('checked');
+        var id = $("#username").val();
+        var passwd = $("#password").val();
+        var remember = $("#remember").prop('checked');
         if (id == '') {
             $("#info").text("提示:账号不能为空");
-        }
-        else if( passwd ==''){
+        } else if (passwd == '') {
             $("#info").text("提示:密码不能为空");
-        }
-        else if(!/^\d+$/.test( id )){
+        } else if (!/^\d+$/.test(id)) {
             $("#info").text("提示:账号必须为数字");
-        }
-        else {
+        } else {
             $("#loginForm").submit();
         }
     })
 
     $("#registerButton").click(function () {
-        window.open("reader_register.html")
+            window.open("reader_register.html")
         }
-
     )
 
 </script>

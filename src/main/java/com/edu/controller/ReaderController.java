@@ -32,7 +32,6 @@ public class ReaderController {
         reader.setReaderId(readerId);
         reader.setReaderType(type);
         reader.setReaderSex(sex);
-        ;
         reader.setReaderNote(note);
         return reader;
     }
