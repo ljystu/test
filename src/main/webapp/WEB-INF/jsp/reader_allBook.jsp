@@ -117,4 +117,21 @@
     </div>
 </div>
 </body>
+<%--<script>--%>
+<%--    $("#edit").submit(function () {--%>
+<%--        if ($("#name").val() == '' || $("#sex").val() == '') {--%>
+<%--            alert("无馆藏图书");--%>
+<%--            return false;--%>
+<%--        }--%>
+<%--    })--%>
+
+<%--    $("#editButton").click(function () {--%>
+<%--        var sex = $("#sex").val();--%>
+<%--        if ((sex != '男' && sex != '女')) {--%>
+<%--            alert("提示：请输入正确的性别！");--%>
+<%--        } else {--%>
+<%--            $("#edit").submit();--%>
+<%--        }--%>
+<%--    })--%>
+<%--</script>--%>
 </html>

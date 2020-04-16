@@ -57,7 +57,7 @@
                 <tbody>
                 <c:forEach var="borrow" items="${requestScope.get('list')}">
                     <tr>
-                        <td>${borrow.getIdbookBorrow()}</td>
+                        <td>${borrow.getbookBorrowId()}</td>
                         <td>${borrow.getBookId()}</td>
                         <td>${borrow.getBookName()}</td>
                         <td>${borrow.getReaderId()}</td>

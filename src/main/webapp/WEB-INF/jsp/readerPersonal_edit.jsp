@@ -80,7 +80,7 @@ background-attachment: fixed;">
                 </button>
                 <script>
                     $("#edit").submit(function () {
-                        if ($("#name").val() == '' || $("#sex").val() == '') {
+                        if ($("#name").val() === '' || $("#sex").val() === '') {
                             alert("请填入完整信息！");
                             return false;
                         }
@@ -88,7 +88,7 @@ background-attachment: fixed;">
 
                     $("#editButton").click(function () {
                         var sex = $("#sex").val();
-                        if ((sex != '男' && sex != '女')) {
+                        if ((sex !== '男' && sex !== '女')) {
                                 alert("提示：请输入正确的性别！");
                         } else {
                             $("#edit").submit();

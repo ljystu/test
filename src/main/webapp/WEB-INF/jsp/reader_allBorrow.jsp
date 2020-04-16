@@ -62,9 +62,9 @@
                         <td>${borrow.getReturnDate()}</td>
                         <td>${borrow.getSta()}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/Borrow/request?id=${borrow.getIdbookBorrow()}">申请归还</a> |
-                            <a href="${pageContext.request.contextPath}/Borrow/renewBorrow?id=${borrow.getIdbookBorrow()}">续借</a> |
-                            <a href="${pageContext.request.contextPath}/Borrow/reparation?id=${borrow.getIdbookBorrow()}">损坏赔偿</a>
+                            <a href="${pageContext.request.contextPath}/Borrow/request?id=${borrow.getbookBorrowId()}">申请归还</a> |
+                            <a href="${pageContext.request.contextPath}/Borrow/renewBorrow?id=${borrow.getbookBorrowId()}">续借</a> |
+                            <a href="${pageContext.request.contextPath}/Borrow/reparation?id=${borrow.getbookBorrowId()}">损坏赔偿</a>
                         </td>
                     </tr>
                 </c:forEach>

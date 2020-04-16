@@ -4,8 +4,6 @@ import com.edu.pojo.Borrow;
 import com.edu.pojo.Reader;
 import com.edu.pojo.Books;
 import com.edu.service.BorrowService;
-import com.edu.service.BookService;
-import com.edu.service.ReaderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -15,6 +13,9 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -87,26 +88,38 @@ public class BorrowController {
     @RequestMapping("/readerBorrow")
     public String readerBorrowList(Model model, HttpServletRequest request) {
         Reader reader = (Reader) request.getSession().getAttribute("reader");
-        String name = reader.getReaderName();
+        String readerName = reader.getReaderName();
+        int readerId = borrowService.findReaderIdByName(readerName);
         String nosta = "已归还";
         String overtime = "逾期";
         Date dateNow = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
         String now = formatter.format(dateNow);
-        int readerId = borrowService.findReaderIdByName(name);
         borrowService.updateBorrow(overtime,now);
         List<Borrow> list = borrowService.findBorrowByReader(nosta,readerId);
         model.addAttribute("list", list);
-        return "reader_borrow";
+        return "reader_allBorrow";
     }
 
 
     @RequestMapping("/addBorrow")
-    public String addBorrow(Borrow borrow, HttpServletRequest request, int bookId, RedirectAttributes redirectAttributes) {
+    public String addBorrow(Borrow borrow, int bookId,
+                            HttpServletRequest request,
+                            RedirectAttributes redirectAttributes,
+                            HttpServletResponse response) throws IOException {
+        response.setContentType("text/html;charset=gb2312");
+        PrintWriter out = response.getWriter();
         Reader reader = (Reader) request.getSession().getAttribute("reader");
         String readerName = reader.getReaderName();
-        String bookName = borrowService.findBookNameByBookId(bookId);
         int readerId = borrowService.findReaderIdByName(readerName);
+        Books book = borrowService.queryBookById(bookId);
+        String bookName = book.getBookName();
+        //如果图书数量小于1则报错
+        if (book.getBookCounts()<1){
+            out.print("<script language=\"javascript\">alert('借书失败！');</script>");
+            return "";
+        }
+        borrowService.updateBookCounts(bookId, book.getBookCounts()-1);
         borrow.setBookId(bookId);
         borrow.setBookName(bookName);
         borrow.setReaderId(readerId);

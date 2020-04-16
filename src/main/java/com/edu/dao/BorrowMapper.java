@@ -15,19 +15,17 @@ public interface BorrowMapper {
 
     int updateBorrow(@Param("sta") String sta, @Param("now") String now);
 
-    int renewBorrow(@Param("newReturnDate") String newReturnDate, @Param("idbookBorrow") int id);
+    int renewBorrow(@Param("newReturnDate") String newReturnDate, @Param("bookBorrowId") int id);
 
-    int returnById(@Param("sta") String sta, @Param("idbookBorrow") int id);
+    int returnById(@Param("sta") String sta, @Param("bookBorrowId") int id);
 
-    Borrow findBorrowById( @Param("idbookBorrow") int id);
+    Borrow findBorrowById( @Param("bookBorrowId") int id);
 
     int findReaderIdByName(@Param("readerName") String name);
 
     List<Borrow> findBorrowByReader(@Param("nosta") String nosta, @Param("readerId") int readerId);
 
-    String findBookNameByBookId(@Param("bookId") int bookId);
-
-    String findReturnDateById(@Param("idbookBorrow") int id);
+    String findReturnDateById(@Param("bookBorrowId") int id);
 
     List<Borrow> findBorrowByBook(@Param("bookId") int bookId);
 

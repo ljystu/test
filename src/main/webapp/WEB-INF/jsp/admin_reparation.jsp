@@ -57,14 +57,14 @@
                 <tbody>
                 <c:forEach var="borrow" items="${requestScope.get('list')}">
                     <tr>
-                        <td>${borrow.getIdbookBorrow()}</td>
+                        <td>${borrow.getbookBorrowId()}</td>
                         <td>${borrow.getBookId()}</td>
                         <td>${borrow.getBookName()}</td>
                         <td>${borrow.getReaderId()}</td>
                         <td>${borrow.getBorrowDate()}</td>
                         <td>${borrow.getSta()}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/Borrow/overReparation?id=${borrow.getIdbookBorrow()}">已赔偿</a>
+                            <a href="${pageContext.request.contextPath}/Borrow/overReparation?id=${borrow.getbookBorrowId()}">已赔偿</a>
                         </td>
                     </tr>
                 </c:forEach>

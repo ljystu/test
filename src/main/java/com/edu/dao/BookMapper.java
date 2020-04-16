@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface BookMapper {
 
+    boolean updateBookCounts( @Param("bookId") int id, @Param("bookCounts") int counts);
+
     //增加一个Book
     int addBook(Books book);
 
