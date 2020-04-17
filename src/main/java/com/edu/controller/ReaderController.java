@@ -59,7 +59,7 @@ public class ReaderController {
 
         if (ad != null) {
             model.addAttribute("reader", reader);
-            return "redirect:/book/reader_allBook";
+            return "reader_main";
         } else {
             return "login_error";
         }
