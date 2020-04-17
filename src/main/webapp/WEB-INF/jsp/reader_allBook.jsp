@@ -8,13 +8,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;}
-
-    .containers {
-        /*padding-right: 15px;*/
-        /*padding-left: 15px;*/
-        margin-right: auto;
-        margin-left: auto
-    }</style>
+</style>
 <head>
     <title>书籍列表</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
@@ -119,4 +113,21 @@
     </div>
 </div>
 </body>
+<%--<script>--%>
+<%--    $("#edit").submit(function () {--%>
+<%--        if ($("#name").val() == '' || $("#sex").val() == '') {--%>
+<%--            alert("无馆藏图书");--%>
+<%--            return false;--%>
+<%--        }--%>
+<%--    })--%>
+
+<%--    $("#editButton").click(function () {--%>
+<%--        var sex = $("#sex").val();--%>
+<%--        if ((sex != '男' && sex != '女')) {--%>
+<%--            alert("提示：请输入正确的性别！");--%>
+<%--        } else {--%>
+<%--            $("#edit").submit();--%>
+<%--        }--%>
+<%--    })--%>
+<%--</script>--%>
 </html>

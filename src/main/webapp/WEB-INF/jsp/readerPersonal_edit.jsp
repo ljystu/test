@@ -20,86 +20,90 @@
         $(function () {
             $('#header').load('reader_header.html');
         })
-        function checkLength(which) {
+
+        function checkLength() {
             var maxChars = 200;
-            if (which.value.length > maxChars)
-                which.value = which.value.substring(0, maxChars);
-            var curr = maxChars - which.value.length;
+            var x = document.getElementById("detail");
+            if (x.value.length > maxChars)
+                x.value = x.value.substring(0, maxChars);
+            var curr = maxChars - x.value.length;
             document.getElementById("checkRest").innerHTML = curr.toString();
         }
     </script>
 </head>
 <body style=" background-repeat:no-repeat ;
 background-size:100% 100%;
-background-attachment: fixed;">
+background-attachment: fixed;" onload="checkLength()">
 <div id="header" style="padding-bottom: 80px"></div>
-<div class="col-xs-5 col-md-offset-3">
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title">
-                信息修改
-            </h3>
-        </div>
-        <div class="panel-body">
-            <form action="${pageContext.request.contextPath}/Reader/readerPersonal_edit_do.html" method="post"
-                  id="edit">
-                <div class="input-group">
-                    <span class="input-group-addon">编号</span>
-                    <input type="text" readonly="readonly" class="form-control" name="readerId" id="readerId"
-                           value="${readerInfo.readerId}">
-                </div>
-                <br>
-                <div class="input-group">
-                    <span class="input-group-addon">账号</span>
-                    <input type="text" readonly="readonly" class="form-control" name="name" id="name"
-                           value="${readerInfo.readerName}">
-                </div>
-                <br>
-                <div class="input-group">
-                    <span class="input-group-addon">性别</span>
-                    <input type="text" class="form-control" name="sex" maxlength="1" id="sex" value="${readerInfo.readerSex}">
-                    <p style="text-align: right;color: red;position: absolute" id="sexCheck"></p>
-                </div>
-                <br>
-                <div class="input-group">
-                    <span class="input-group-addon">类型</span>
-                    <input type="text" class="form-control" name="type" id="type"  maxlength="20" value="${readerInfo.readerType}">
-                    <p style="text-align: right;color: red;position: absolute"></p>
-                </div>
-                <br>
-                <div class="input-group">
-                    <span class="input-group-addon">简介</span>
-                    <textarea type="text" class="form-control" name="detail" id="detail" onkeyup="checkLength(this)"
-                              maxlength="200">${readerInfo.readerNote}</textarea>
-                    <p style="text-align: right;color: red;position: absolute"></p>
-                </div>
-                <br>
-                <p>剩余字数：<span id="checkRest" >200</span></p>
-                <br/>
-                <button type="button" value="确定" class="btn btn-success btn-sm" class="text-left" id="editButton">确定
-                </button>
-                <script>
-                    $("#edit").submit(function () {
-                        if ($("#name").val() == '' || $("#sex").val() == '') {
-                            alert("请填入完整信息！");
-                            return false;
-                        }
-                    })
-
-                    $("#editButton").click(function () {
-                        var sex = $("#sex").val();
-                        if ((sex != '男' && sex != '女')) {
+<div class="container" style="margin-left: 250px">
+    <div class="col-xs-6 col-md-offset-3" style="position: relative">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    信息修改
+                </h3>
+            </div>
+            <div class="panel-body">
+                <form action="${pageContext.request.contextPath}/Reader/readerPersonal_edit_do.html" method="post"
+                      id="edit">
+                    <div class="input-group">
+                        <span class="input-group-addon">编号</span>
+                        <input type="text" readonly="readonly" class="form-control" name="readerId" id="readerId"
+                               value="${readerInfo.readerId}">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-addon">账号</span>
+                        <input type="text" readonly="readonly" class="form-control" name="name" id="name"
+                               value="${readerInfo.readerName}">
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-addon">性别</span>
+                        <input type="text" class="form-control" name="sex" maxlength="1" id="sex"
+                               value="${readerInfo.readerSex}">
+                        <p style="text-align: right;color: red;position: absolute" id="sexCheck"></p>
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-addon">类型</span>
+                        <input type="text" class="form-control" name="type" id="type" maxlength="20"
+                               value="${readerInfo.readerType}">
+                        <p style="text-align: right;color: red;position: absolute"></p>
+                    </div>
+                    <br>
+                    <div class="input-group">
+                        <span class="input-group-addon">简介</span>
+                        <textarea type="text" class="form-control" name="detail" id="detail" onkeyup="checkLength()"
+                                  maxlength="200">${readerInfo.readerNote}</textarea>
+                        <p style="text-align: right;color: red;position: absolute"></p>
+                    </div>
+                    <br>
+                    <p>剩余字数：<span id="checkRest">200</span></p>
+                    <br/>
+                    <button type="button" value="确定" class="btn btn-success btn-sm "
+                            id="editButton">确定
+                    </button>
+                    <a href="${pageContext.request.contextPath}/Reader/reader_info.html">
+                        <button type="button" class="btn btn-default btn-sm " value="取消" id="returnButton">取消</button>
+                    </a>
+                    <script>
+                        $("#editButton").click(function () {
+                            var sex = $("#sex").val();
+                            if ((sex != '男' && sex != '女')) {
                                 alert("提示：请输入正确的性别！");
-                        } else {
-                            $("#edit").submit();
-                        }
-                    })
+                            } else {
+                                $("#edit").submit();
+                            }
+                        })
 
 
-                </script>
-            </form>
+                    </script>
+                </form>
+            </div>
         </div>
     </div>
+</div>
 </div>
 </body>
 </html>

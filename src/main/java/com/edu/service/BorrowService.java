@@ -1,6 +1,8 @@
 package com.edu.service;
 
 import com.edu.pojo.Borrow;
+import com.edu.pojo.Reader;
+import com.edu.pojo.Books;
 
 import java.util.List;
 
@@ -10,13 +12,15 @@ public interface BorrowService {
 
    boolean addBorrow(Borrow borrow);
 
+   boolean updateBookCounts(int id, int counts);
+
    int updateBorrow(String sta, String now);
 
    int renewBorrow(String newReturnDate, int id);
 
    int returnById(String sta, int id);
 
-   String findBookNameByBookId(int id);
+   Books queryBookById(int id);
 
    String findReturnDateById (int id);
 

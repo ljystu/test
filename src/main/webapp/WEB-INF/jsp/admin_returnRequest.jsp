@@ -58,7 +58,7 @@
                 <tbody>
                 <c:forEach var="borrow" items="${requestScope.get('list')}">
                     <tr>
-                        <td>${borrow.getIdbookBorrow()}</td>
+                        <td>${borrow.getbookBorrowId()}</td>
                         <td>${borrow.getBookId()}</td>
                         <td>${borrow.getBookName()}</td>
                         <td>${borrow.getReaderId()}</td>
@@ -66,7 +66,7 @@
                         <td>${borrow.getReturnDate()}</td>
                         <td>${borrow.getSta()}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/Borrow/confirmRequest?id=${borrow.getIdbookBorrow()}">确认归还</a>
+                            <a href="${pageContext.request.contextPath}/Borrow/confirmRequest?id=${borrow.getbookBorrowId()}">确认归还</a>
                         </td>
                     </tr>
                 </c:forEach>

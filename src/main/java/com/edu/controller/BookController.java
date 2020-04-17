@@ -29,6 +29,7 @@ public class BookController {
         model.addAttribute("list", list);
         return "admin_allBook";
     }
+
     @RequestMapping("/reader_allBook")
     public String reader_allBook(Model model) {
         List<Books> list = bookService.queryAllBook();

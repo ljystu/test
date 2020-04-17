@@ -6,7 +6,7 @@
 <mapper namespace="com.edu.dao.BorrowMapper">
 
     <resultMap id="BaseResultMap" type="com.edu.pojo.Borrow" >
-        <id column="idbookBorrow" property="idbookBorrow" jdbcType="INTEGER" />
+        <id column="bookBorrowId" property="bookBorrowId" jdbcType="INTEGER" />
         <id column="bookId" property="bookId" jdbcType="INTEGER" />
         <id column="readerId" property="readerId" jdbcType="INTEGER" />
         <id column="readerId" property="readerId" jdbcType="INTEGER" />
@@ -21,7 +21,7 @@
     </insert>
 
     <update id="returnById">
-        update ssmbuild.bookborrow set sta=#{sta} where idbookBorrow=#{idbookBorrow}
+        update ssmbuild.bookborrow set sta=#{sta} where bookBorrowId=#{bookBorrowId}
     </update>
 
     <update id="updateBorrow">
@@ -33,12 +33,12 @@
     <update id="renewBorrow">
         update ssmbuild.bookborrow
         set returnDate = #{newReturnDate}
-        where idbookBorrow = #{idbookBorrow}
+        where bookBorrowId = #{bookBorrowId}
     </update>
 
     <select id="findBorrowById" resultType="Borrow">
         select * from ssmbuild.bookborrow
-        where idbookBorrow = #{idbookBorrow}
+        where bookBorrowId = #{bookBorrowId}
     </select>
 
     <select id="findAllBorrow" resultType="Borrow">
@@ -59,16 +59,12 @@
         select readerId from ssmbuild.readers where readerName = #{readerName}
     </select>
 
-    <select id="findBookNameByBookId" resultType="String" parameterType="int">
-        select bookName from ssmbuild.books where bookId = #{bookId}
-    </select>
-
     <select id="findRequest" resultType="Borrow">
         select * from ssmbuild.bookborrow where sta = #{sta}
     </select>
 
     <select id="findReturnDateById" resultType="String">
-        select returnDate from ssmbuild.bookborrow where idbookBorrow = #{idbookBorrow};
+        select returnDate from ssmbuild.bookborrow where bookBorrowId = #{bookBorrowId};
     </select>
 
 </mapper>

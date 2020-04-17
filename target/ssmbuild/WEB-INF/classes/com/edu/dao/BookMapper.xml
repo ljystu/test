@@ -23,6 +23,13 @@
         where bookID = #{bookID}
     </update>
 
+    <!--更新BookCounts-->
+    <update id="updateBookCounts" parameterType="int">
+        update ssmbuild.books
+        set bookCounts = #{bookCounts}
+        where bookID = #{bookId}
+    </update>
+
     <!--根据id查询,返回一个Book-->
     <select id="queryBookById" resultType="Books">
         select * from ssmbuild.books

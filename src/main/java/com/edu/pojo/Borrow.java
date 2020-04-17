@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Borrow implements Serializable {
 
-    private int idbookBorrow;
+    private int bookBorrowId;
     private int bookId;
     private int readerId;
 
@@ -20,7 +20,7 @@ public class Borrow implements Serializable {
     @Override
     public String toString() {
         return "Borrow{" +
-                "idbookBorrow=" + idbookBorrow +
+                "bookBorrowId=" + bookBorrowId +
                 ", bookId='" + bookId + '\'' +
                 ", bookName='" + bookName + '\'' +
                 ", readerId=" + readerId + '\'' +
@@ -32,8 +32,8 @@ public class Borrow implements Serializable {
     public Borrow() {
     }
 
-    public Borrow(int idbookBorrow, int bookID, String bookName, int readerId, String borrowDate, String returnDate, String sta) {
-        this.idbookBorrow = idbookBorrow;
+    public Borrow(int bookBorrowId, int bookID, String bookName, int readerId, String borrowDate, String returnDate, String sta) {
+        this.bookBorrowId = bookBorrowId;
         this.bookId = bookID;
         this.bookName = bookName;
         this.readerId = readerId;
@@ -43,12 +43,12 @@ public class Borrow implements Serializable {
     }
 
 
-    public int getIdbookBorrow() {
-        return idbookBorrow;
+    public int getbookBorrowId() {
+        return bookBorrowId;
     }
 
-    public void setIdbookBorrow(int idbookBorrow) {
-        this.idbookBorrow = idbookBorrow;
+    public void setbookBorrowId(int bookBorrowId) {
+        this.bookBorrowId = bookBorrowId;
     }
 
     public int getBookId() {

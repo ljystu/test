@@ -2,7 +2,13 @@ package com.edu.service;
 
 
 import com.edu.dao.BorrowMapper;
+import com.edu.dao.BookMapper;
+import com.edu.dao.ReaderMapper;
+
 import com.edu.pojo.Borrow;
+import com.edu.pojo.Books;
+
+import com.edu.pojo.Reader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +19,13 @@ public class BorrowServiceImpl implements BorrowService{
 
     @Autowired
     private BorrowMapper borrowMapper;
+
+    @Autowired
+    private BookMapper bookMapper;
+
+    @Autowired
+    private ReaderMapper readerMapper;
+
 
     @Override
     public boolean addBorrow(Borrow borrow) { return borrowMapper.addBorrow(borrow); }
@@ -39,7 +52,10 @@ public class BorrowServiceImpl implements BorrowService{
     }
 
     @Override
-    public String findBookNameByBookId(int id) { return borrowMapper.findBookNameByBookId(id); }
+    public Books queryBookById(int id) { return bookMapper.queryBookById(id); }
+
+    @Override
+    public boolean updateBookCounts(int id, int counts) { return bookMapper.updateBookCounts(id,counts); }
 
     @Override
     public String findReturnDateById(int id) { return borrowMapper.findReturnDateById(id); }
@@ -66,5 +82,5 @@ public class BorrowServiceImpl implements BorrowService{
     }
 
     @Override
-    public int findReaderIdByName(String name){ return this.borrowMapper.findReaderIdByName(name); };
+    public int findReaderIdByName(String name){ return readerMapper.findIdByName(name); };
 }
