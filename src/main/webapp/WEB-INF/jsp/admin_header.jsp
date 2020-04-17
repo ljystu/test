@@ -29,7 +29,7 @@
     </div>
 </nav>
 <div class="sidebar">
-    <h1><i class="fa fa-bars push"></i>Animated <span class="color">Menu</span></h1>
+    <h1><i class="fa fa-bars push"></i>Library <span class="color">Menu</span></h1>
     <ul>
 
         <li><a href="#" style="color: rgb(85, 85, 85);"><i class="fa fa-user push"></i>读者管理<i

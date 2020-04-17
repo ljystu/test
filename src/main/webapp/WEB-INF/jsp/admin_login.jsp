@@ -49,12 +49,12 @@ background-attachment: fixed;">
 
             <div class="checkbox text-left">
                 <label>
-                    <input type="checkbox" id="remember">记住密码
+                    <input type="checkbox" id="adminremember">记住密码
                 </label>
             </div>
-            <div class="text-right">
-                <a href="#" class="r_float">忘记密码？</a>
-            </div>
+<%--            <div class="text-right">--%>
+<%--                <a href="#" class="r_float">忘记密码？</a>--%>
+<%--            </div>--%>
 
             <p style="text-align: right;color: red;position: absolute" id="info"></p><br/>
             <button id="loginButton" type="button" class="btn btn-primary  btn-block">登录</button>
@@ -78,7 +78,7 @@ background-attachment: fixed;">
     )
     // 记住登录信息
     function rememberLogin(username, password, checked) {
-        Cookies.set('loginStatus', {
+        Cookies.set('adminloginStatus', {
             username: username,
             password: password,
             remember: checked
@@ -86,7 +86,7 @@ background-attachment: fixed;">
     }
     // 若选择记住登录信息，则进入页面时设置登录信息
     function setLoginStatus() {
-        var loginStatusText = Cookies.get('loginStatus')
+        var loginStatusText = Cookies.get('adminloginStatus')
         if (loginStatusText) {
             var loginStatus
             try {
@@ -103,7 +103,7 @@ background-attachment: fixed;">
     $("#loginButton").click(function () {
         var id =$("#username").val();
         var passwd=$("#password").val();
-        var remember=$("#remember").prop('checked');
+        var remember=$("#adminremember").prop('checked');
         if (id == '') {
             $("#info").text("提示:账号不能为空");
         }
@@ -115,6 +115,12 @@ background-attachment: fixed;">
         }
         else {
             $("#loginForm").submit();
+            if(remember){
+                rememberLogin(id,passwd,remember);
+            }else {
+                Cookies.remove('adminloginStatus');
+            }
+            $("#info").text("提示:提交成功，验证中...");
         }
     })
 

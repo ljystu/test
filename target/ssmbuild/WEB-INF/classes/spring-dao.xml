@@ -7,16 +7,12 @@ http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/context
 https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- 配置整合mybatis -->
+    <!-- 配置mybatis -->
     <!-- 1.关联数据库文件 -->
     <context:property-placeholder location="classpath:database.properties"/>
 
     <!-- 2.数据库连接池 -->
-    <!--数据库连接池
-dbcp  半自动化操作  不能自动连接
-c3p0  自动化操作（自动的加载配置文件 并且设置到对象里面）
-druid
-    -->
+
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <!-- 配置连接池属性 -->
         <property name="driverClass" value="${jdbc.driver}"/>
@@ -44,7 +40,6 @@ druid
     </bean>
 
     <!-- 4.配置扫描Dao接口包，动态实现Dao接口注入到spring容器中 -->
-    <!--解释 ： https://www.cnblogs.com/jpfss/p/7799806.html-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- 注入sqlSessionFactory -->
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
