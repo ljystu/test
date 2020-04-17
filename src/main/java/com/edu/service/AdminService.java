@@ -11,5 +11,4 @@ public interface AdminService {
     boolean resetPassword(int id,String password);
 
     int findIdByName(String name);
-
 }

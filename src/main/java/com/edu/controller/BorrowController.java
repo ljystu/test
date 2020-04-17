@@ -101,7 +101,6 @@ public class BorrowController {
         return "reader_allBorrow";
     }
 
-
     @RequestMapping("/addBorrow")
     public String addBorrow(Borrow borrow, int bookId,
                             HttpServletRequest request,
@@ -134,8 +133,8 @@ public class BorrowController {
         System.out.println(borrow);
         borrowService.addBorrow(borrow);
         return "redirect:readerBorrow";
-
     }
+
     public static Date getNewDate(Date date, int i) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
@@ -143,7 +142,6 @@ public class BorrowController {
         date = calendar.getTime();
         return date;
     }
-
 
     @RequestMapping("/request")
     public String request(int id) {
@@ -169,8 +167,6 @@ public class BorrowController {
         return "redirect:allBorrow";
     }
 
-
-
     @RequestMapping("/admin_header.html")
     public ModelAndView admin_header() { return new ModelAndView("admin_header");  }
 
@@ -178,5 +174,4 @@ public class BorrowController {
     public ModelAndView reader_header() {
         return new ModelAndView("reader_header");
     }
-
 }

@@ -35,7 +35,6 @@ public class BookServiceImpl implements BookService {
         return bookMapper.queryAllBook();
     }
 
-
     public List<Books> queryBookByNanme(String name) {
         return bookMapper.queryBookByName(name);
     }
@@ -55,6 +54,4 @@ public class BookServiceImpl implements BookService {
         else
             return bookMapper.queryBook("","","","",name,"");
     }
-
-
 }

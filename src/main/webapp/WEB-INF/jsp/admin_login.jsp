@@ -30,14 +30,6 @@
 <body background="${pageContext.request.contextPath}/img/p2.JPG" style=" background-repeat:no-repeat ;
 background-size:100% 100%;
 background-attachment: fixed;">
-<%--<c:if test="${!empty error}">--%>
-<%--    <script>--%>
-<%--        alert("${error}");--%>
-<%--        window.location.href="login.html";--%>
-<%--    </script>--%>
-<%--</c:if>--%>
-<%--<h2 style="text-align: center; color: white; font-family: '华文行楷'; font-size: 500%">图 书 管 理 系 统</h2>--%>
-
 <div class="panel panel-default" id="login">
     <div class="panel-heading" style="background-color: #fff">
         <h3 class="panel-title">管理员请登录</h3>

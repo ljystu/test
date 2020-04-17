@@ -1,7 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" media="screen" type="text/css">
-
 </head>
 
 <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">

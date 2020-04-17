@@ -1,11 +1,11 @@
-<%@ page contentType="text/html;charset=UTF-8"  %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>管理主页</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.js"></script>
-    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js" ></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <script>
         $(function () {
             $('#header').load('admin_header.html');
@@ -40,15 +40,12 @@ background-attachment: fixed;">
         </div>
     </div>
 </div>
-
-    <script>
-        $(function () {
-            $("#myModal").modal({
-                show: true
-            })
+<script>
+    $(function () {
+        $("#myModal").modal({
+            show: true
         })
-    </script>
-
-
+    })
+</script>
 </body>
 </html>

@@ -34,6 +34,4 @@ public interface BorrowService {
 
    //寻找所有状态为“待确认”的借阅记录
    List<Borrow> findRequest(String sta);
-
-
 }

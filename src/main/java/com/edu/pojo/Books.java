@@ -8,10 +8,10 @@ public class Books implements Serializable {
     private int bookID;
     private String bookName;
     private int bookCounts;
-
     private String detail;
     private String bookType;
     private String bookKeyword;
+
     @Override
     public String toString() {
         return "Books{" +
@@ -21,6 +21,7 @@ public class Books implements Serializable {
                 ", detail='" + detail + '\'' +
                 '}';
     }
+
     public Books() {
     }
 
@@ -30,7 +31,6 @@ public class Books implements Serializable {
         this.bookCounts = bookCounts;
         this.detail = detail;
     }
-
 
     public int getBookID() {
         return bookID;

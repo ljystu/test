@@ -33,7 +33,4 @@ public interface ReaderMapper {
     int findIdByName(@Param("readerName") String name);
 
     Reader findReaderInfoByReaderName(@Param("readerName") String readerName);
-
-
-
 }
