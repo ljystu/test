@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>借还日志</title>
+    <title>我的借书</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 引入 Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -25,7 +25,7 @@
         <div class="col-md-12 column">
             <div class="page-header">
                 <h4 style="size: 10pt">
-                    借还日志
+                    我的借书
                 </h4>
             </div>
         </div>
@@ -62,9 +62,15 @@
                         <td>${borrow.getReturnDate()}</td>
                         <td>${borrow.getSta()}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/Borrow/request?id=${borrow.getbookBorrowId()}">申请归还</a> |
-                            <a href="${pageContext.request.contextPath}/Borrow/renewBorrow?id=${borrow.getbookBorrowId()}">续借</a> |
-                            <a href="${pageContext.request.contextPath}/Borrow/reparation?id=${borrow.getbookBorrowId()}">损坏赔偿</a>
+                            <a class="btn btn-info btn-xs"
+                               href="${pageContext.request.contextPath}/Borrow/request?id=${borrow.getbookBorrowId()}">
+                               <span class="glyphicon glyphicon-pencil"></span>申请归还</a> |
+                            <a class="btn btn-success btn-xs"
+                               href="${pageContext.request.contextPath}/Borrow/renewBorrow?id=${borrow.getbookBorrowId()}">
+                                <span class="glyphicon glyphicon-time"></span>续借</a> |
+                            <a class="btn btn-danger btn-xs"
+                               href="${pageContext.request.contextPath}/Borrow/reparation?id=${borrow.getbookBorrowId()}">
+                                <span class="glyphicon glyphicon-remove-sign"></span>损坏赔偿</a>
                         </td>
                     </tr>
                 </c:forEach>

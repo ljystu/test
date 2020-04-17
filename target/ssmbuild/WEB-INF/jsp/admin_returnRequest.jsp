@@ -66,7 +66,9 @@
                         <td>${borrow.getReturnDate()}</td>
                         <td>${borrow.getSta()}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/Borrow/confirmRequest?id=${borrow.getbookBorrowId()}">确认归还</a>
+                            <a class="btn btn-success btn-xs"
+                               href="${pageContext.request.contextPath}/Borrow/confirmRequest?id=${borrow.getbookBorrowId()}">
+                               <span class="glyphicon glyphicon-ok-circle"></span>确认归还</a>
                         </td>
                     </tr>
                 </c:forEach>
