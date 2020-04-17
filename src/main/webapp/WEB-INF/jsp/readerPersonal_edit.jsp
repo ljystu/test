@@ -78,7 +78,7 @@ background-attachment: fixed;" onload="checkLength()">
                         <p style="text-align: right;color: red;position: absolute"></p>
                     </div>
                     <br>
-                    <p>剩余字数：<span id="checkRest">200</span></p>
+                    <p>剩余字数：<span id="checkRest"></span></p>
                     <br/>
                     <button type="button" value="确定" class="btn btn-success btn-sm "
                             id="editButton">确定
@@ -95,8 +95,6 @@ background-attachment: fixed;" onload="checkLength()">
                                 $("#edit").submit();
                             }
                         })
-
-
                     </script>
                 </form>
             </div>

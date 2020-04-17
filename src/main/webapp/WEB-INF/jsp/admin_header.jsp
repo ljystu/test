@@ -1,11 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <head>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css" media="screen" type="text/css">
-
 </head>
-
-
-<body style="">
 
 <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
 <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -17,15 +13,14 @@
             <a href="${pageContext.request.contextPath}/Admin/admin_main.html"
                style="width: 100%; display: inline-block; text-align: center; font-family: 华文行楷; font-size: 250%; color: white; ">图书管理系统</a>
         </div>
-        <%--        <div class="collapse navbar-collapse" id="example-navbar-collapse">--%>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a style="color: white"><span
-                    class="glyphicon glyphicon-user"></span>${sessionScope.admin.adminName} 已登录</a>
-            </li>
-            <li></li>
-            <li><a href="${pageContext.request.contextPath}/Admin/logout.html" style="color: white"><span
-                    class="glyphicon glyphicon-off"></span>退出</a></li>
-        </ul>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" style="color: white"><span
+                        class="glyphicon glyphicon-user"></span>${sessionScope.admin.adminName} 已登录</a></li>
+                <li><a href="${pageContext.request.contextPath}/Admin/logout.html" style="color: white"><span
+                        class="glyphicon glyphicon-off"></span>退出</a></li>
+            </ul>
+        </div>
     </div>
 </nav>
 <div class="sidebar">
@@ -62,13 +57,16 @@
         <li><a href="#" style="color: rgb(85, 85, 85);"><i class="fa fa-dashboard push"></i>借还管理<i
                 class="fa fa-angle-right"></i></a><span class="hover" style="width: 0%; opacity: 0;"></span>
             <ul class="sub-menu">
-                <li><a href="${pageContext.request.contextPath}/Borrow/findRequest" style="color: rgb(85, 85, 85);">还书申请<i class="fa fa-angle-right"></i></a><span
+                <li><a href="${pageContext.request.contextPath}/Borrow/findRequest" style="color: rgb(85, 85, 85);">还书申请<i
+                        class="fa fa-angle-right"></i></a><span
                         class="hover" style="width: 0%; opacity: 0;"></span>
                 </li>
-                <li><a href="${pageContext.request.contextPath}/Borrow/findReparation" style="color: rgb(85, 85, 85);">损坏赔偿<i class="fa fa-angle-right"></i></a><span
+                <li><a href="${pageContext.request.contextPath}/Borrow/findReparation" style="color: rgb(85, 85, 85);">损坏赔偿<i
+                        class="fa fa-angle-right"></i></a><span
                         class="hover" style="width: 0%; opacity: 0;"></span>
                 </li>
-                <li><a href="${pageContext.request.contextPath}/Borrow/allBorrow" style="color: rgb(85, 85, 85);">借还日志<i class="fa fa-angle-right"></i></a><span
+                <li><a href="${pageContext.request.contextPath}/Borrow/allBorrow" style="color: rgb(85, 85, 85);">借还日志<i
+                        class="fa fa-angle-right"></i></a><span
                         class="hover" style="width: 0%; opacity: 0;"></span>
                 </li>
 
@@ -102,4 +100,4 @@
         }
     );
 </script>
-</body>
+

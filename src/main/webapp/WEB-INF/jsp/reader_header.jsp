@@ -26,7 +26,6 @@
 <div class="sidebar">
     <h1><i class="fa fa-bars push"></i>Library <span class="color">Menu</span></h1>
     <ul>
-
         <li><a href="${pageContext.request.contextPath}/book/reader_allBook" style="color: rgb(85, 85, 85);"><i
                 class="fa fa-user push"></i>图书查询<i
                 class="fa fa-angle-right"></i></a><span class="hover" style="width: 0%; opacity: 0;"></span>
@@ -49,7 +48,8 @@
                 class="fa fa-cog push"></i>密码修改<i
                 class="fa fa-angle-right"></i></a><span class="hover" style="width: 0%; opacity: 0;"></span>
         </li>
-        <li><a href="${pageContext.request.contextPath}/Borrow/readerBorrow?id=${sessionScope.reader.readerId}" style="color: rgb(85, 85, 85);"><i
+        <li><a href="${pageContext.request.contextPath}/Borrow/readerBorrow?id=${sessionScope.reader.readerId}"
+               style="color: rgb(85, 85, 85);"><i
                 class="fa fa-dashboard push"></i>我的借阅<i
                 class="fa fa-angle-right"></i></a><span class="hover" style="width: 0%; opacity: 0;"></span>
         </li>
@@ -83,6 +83,5 @@
 </script>
 
 
-</body>
 
 

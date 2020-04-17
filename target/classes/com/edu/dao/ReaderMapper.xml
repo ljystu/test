@@ -60,7 +60,4 @@
     <select id="findReaderInfoByReaderName" resultType="Reader" parameterType="String">
         select * from ssmbuild.readers where readerName=#{readerName}
     </select>
-
-
-    
 </mapper>
