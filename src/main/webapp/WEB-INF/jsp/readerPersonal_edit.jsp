@@ -80,7 +80,7 @@ background-attachment: fixed;" onload="checkLength()">
                     <br>
                     <p>剩余字数：<span id="checkRest"></span></p>
                     <br/>
-                    <button type="button" value="确定" class="btn btn-success btn-sm "
+                    <button type="button" value="确定"  onclick="return warning()" class="btn btn-success btn-sm "
                             id="editButton">确定
                     </button>
                     <a href="${pageContext.request.contextPath}/Reader/reader_info.html">
@@ -95,6 +95,9 @@ background-attachment: fixed;" onload="checkLength()">
                                 $("#edit").submit();
                             }
                         })
+                        function warning() {
+                            return confirm("确认提交信息吗？") == true;
+                        }
                     </script>
                 </form>
             </div>

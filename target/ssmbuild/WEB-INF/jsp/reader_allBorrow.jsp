@@ -1,4 +1,5 @@
-<!DOCTYPE html><%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -9,7 +10,7 @@
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.js"></script>
-    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js" ></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <script>
         $(function () {
             $('#header').load('reader_header.html');
@@ -64,7 +65,7 @@
                         <td>
                             <a class="btn btn-info btn-xs"
                                href="${pageContext.request.contextPath}/Borrow/request?id=${borrow.getbookBorrowId()}">
-                               <span class="glyphicon glyphicon-pencil"></span>申请归还</a> |
+                                <span class="glyphicon glyphicon-pencil"></span>申请归还</a> |
                             <a class="btn btn-success btn-xs"
                                href="${pageContext.request.contextPath}/Borrow/renewBorrow?id=${borrow.getbookBorrowId()}">
                                 <span class="glyphicon glyphicon-time"></span>续借</a> |

@@ -13,7 +13,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 引入 Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <%--    <link rel="stylesheet" href="css/bootstrap.min.css">--%>
     <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.js"></script>
     <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <script>
@@ -79,9 +78,9 @@ background-attachment: fixed;" onload="checkLength()">
                         <p style="text-align: right;color: red;position: absolute"></p>
                     </div>
                     <br>
-                    <p>剩余字数：<span id="checkRest">200</span></p>
+                    <p>剩余字数：<span id="checkRest"></span></p>
                     <br/>
-                    <button type="button" value="确定" class="btn btn-success btn-sm "
+                    <button type="button" value="确定"  onclick="return warning()" class="btn btn-success btn-sm "
                             id="editButton">确定
                     </button>
                     <a href="${pageContext.request.contextPath}/Reader/reader_info.html">
@@ -96,8 +95,9 @@ background-attachment: fixed;" onload="checkLength()">
                                 $("#edit").submit();
                             }
                         })
-
-
+                        function warning() {
+                            return confirm("确认要更改密码吗？") == true;
+                        }
                     </script>
                 </form>
             </div>

@@ -107,7 +107,8 @@
                                href="${pageContext.request.contextPath}/book/toUpdateBook?id=${book.getBookID()}">
                                 <span class="glyphicon glyphicon-pencil"></span>更改</a>
                             <a class="btn btn-danger btn-xs"
-                               href="${pageContext.request.contextPath}/book/del/${book.getBookID()}">
+                               href="${pageContext.request.contextPath}/book/del/${book.getBookID()}"
+                               onclick="return warning()">
                                 <span class="glyphicon glyphicon-trash"></span>删除</a>
                         </td>
                     </tr>
@@ -117,5 +118,10 @@
         </div>
     </div>
 </div>
+<script>
+    function warning() {
+        return confirm("确认要删除吗？") == true;
+    }
+</script>
 </body>
 </html>

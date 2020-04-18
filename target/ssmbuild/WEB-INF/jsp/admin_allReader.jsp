@@ -92,7 +92,7 @@
                                href="${pageContext.request.contextPath}/Reader/toUpdateReader?id=${reader.getReaderId()}">
                                 <span class="glyphicon glyphicon-pencil"></span>更改</a>
                             <a class="btn btn-danger btn-xs"
-                               href="${pageContext.request.contextPath}/Reader/del/${reader.getReaderId()}">
+                               href="${pageContext.request.contextPath}/Reader/del/${reader.getReaderId()}" onclick="return warning()">
                                 <span class="glyphicon glyphicon-trash"></span>删除</a>
                         </td>
                     </tr>
@@ -102,5 +102,10 @@
         </div>
     </div>
 </div>
+<script>
+    function warning() {
+        return confirm("确认要删除吗？") == true;
+    }
+</script>
 </body>
 </html>

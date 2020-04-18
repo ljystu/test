@@ -15,19 +15,19 @@
         </div>
         <div class="collapse navbar-collapse" id="example-navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="${pageContext.request.contextPath}/Reader/reader_info.html" style="color: white"><span
-                        class="glyphicon glyphicon-user"></span>${sessionScope.reader.readerName} 已登录</a></li>
-                <li><a href="${pageContext.request.contextPath}/Reader/logout.html" style="color: white"><span
-                        class="glyphicon glyphicon-off"></span>退出</a></li>
+                <li><a href="${pageContext.request.contextPath}/Reader/reader_info.html" style="color: white"
+                       class="glyphicon glyphicon-user">${sessionScope.reader.readerName}读者已登录</a></li>
+                <li><a href="${pageContext.request.contextPath}/Reader/logout.html" style="color: white"
+                       class="glyphicon glyphicon-off">退出</a></li>
             </ul>
         </div>
     </div>
 </nav>
 <div class="sidebar">
-    <h1><i class="fa fa-bars push"></i>Library <span class="color">Menu</span></h1>
+    <h1><i class="fa fa-bars push" ></i>Library <span class="color">Menu</span></h1>
     <ul>
         <li><a href="${pageContext.request.contextPath}/book/reader_allBook" style="color: rgb(85, 85, 85);"><i
-                class="fa fa-user push"></i>图书查询<i
+                class="fa fa-book push"></i>图书查询<i
                 class="fa fa-angle-right"></i></a><span class="hover" style="width: 0%; opacity: 0;"></span>
 
         </li>

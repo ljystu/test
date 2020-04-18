@@ -15,10 +15,8 @@
         </div>
         <div class="collapse navbar-collapse" id="example-navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" style="color: white"><span
-                        class="glyphicon glyphicon-user"></span>${sessionScope.admin.adminName} 已登录</a></li>
-                <li><a href="${pageContext.request.contextPath}/Admin/logout.html" style="color: white"><span
-                        class="glyphicon glyphicon-off"></span>退出</a></li>
+                <li><a href="#" style="color: white" class="glyphicon glyphicon-user">${sessionScope.admin.adminName}管理员已登录</a></li>
+                <li><a href="${pageContext.request.contextPath}/Admin/logout.html" style="color: white"  class="glyphicon glyphicon-off">退出</a></li>
             </ul>
         </div>
     </div>
@@ -38,7 +36,7 @@
                         class="hover" style="width: 0%; opacity: 0;"></span></li>
             </ul>
         </li>
-        <li><a href="#" style="color: rgb(85, 85, 85);"><i class="fa fa-file push"></i>书籍管理<i
+        <li><a href="#" style="color: rgb(85, 85, 85);"><i class="fa fa-book push"></i>书籍管理<i
                 class="fa fa-angle-right"></i></a><span class="hover" style="width: 0%; opacity: 0;"></span>
             <ul class="sub-menu">
                 <li><a href="${pageContext.request.contextPath}/book/allBook" style="color: rgb(85, 85, 85);">管理所有书籍<i
