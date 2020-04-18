@@ -24,7 +24,9 @@
         })
     </script>
 </head>
+
 <body>
+
 <div  id="header"></div>
 <br/>
 <div class="container" style="margin-left: 250px">
@@ -99,9 +101,9 @@
                         <td class="product-buyer-name">${book.getBookKeyword()}</td>
                         <td class="product-buyer-name">${book.getDetail()}</td>
                         <td>
-                            <a class="btn btn-primary"
+                            <a class="btn btn-info btn-xs"
                                href="${pageContext.request.contextPath}/Borrow/addBorrow?bookId=${book.getBookID()}">
-                                借阅</a>
+                               <span class="glyphicon glyphicon-book"></span>借阅</a>
                         </td>
                     </tr>
                 </c:forEach>

@@ -12,7 +12,6 @@ public class Reader implements Serializable {
     private  String readerNote;
     private String readerPwd;
 
-
     public int getReaderId() {
         return readerId;
     }

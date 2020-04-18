@@ -62,7 +62,7 @@ background-attachment: fixed;">
                     <br/>
                     <button type="button" class="btn btn-success btn-sm " id="addReaderButton">添加</button>
                     <a href="${pageContext.request.contextPath}/Reader/allReader">
-                        <button type="button" class="btn btn-default btn-sm " value="取消" id="returnButton">取消
+                        <button type="button" class="btn btn-default btn-sm " onclick="return warning()" value="取消" id="returnButton">取消
                         </button>
                     </a>
                     <script>
@@ -87,6 +87,9 @@ background-attachment: fixed;">
                                 $("#addReaderForm").submit();
                             }
                         })
+                        function warning() {
+                            return confirm("确认要取消添加吗？") == true;
+                        }
                     </script>
                 </form>
             </div>

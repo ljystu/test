@@ -66,7 +66,7 @@ background-attachment: fixed;" onload="checkLength()">
                 <button type="button" class="btn btn-success btn-sm " value="提交" id="updateReaderButton">提交
                 </button>
                 <a href="${pageContext.request.contextPath}/Reader/allReader">
-                    <button type="button" class="btn btn-default btn-sm " value="取消" id="returnButton">取消</button>
+                    <button type="button" class="btn btn-default btn-sm " onclick="return warning()" value="取消" id="returnButton">取消</button>
                 </a>
 
 
@@ -89,7 +89,9 @@ background-attachment: fixed;" onload="checkLength()">
                         $("#updateReaderForm").submit();
                     }
                 })
-
+                function warning() {
+                    return confirm("确认要放弃更改吗？") == true;
+                }
                 function checkLength() {
                     var maxChars = 200;
                     var x=document.getElementById("readerNote");

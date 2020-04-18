@@ -91,7 +91,12 @@ background-attachment: fixed;">
                         return flag;
                     }
                     $("#readerRegister").submit(function () {
-                        if($("#readerPwd").val()==''||$("#readerName").val()==''||$("#readerSex").val()==''||$("#readerType").val()==''){
+                        var readerName = $("#readerName").val();
+                        var readerSex = $("#readerSex").val();
+                        var readerType = $("#readerType").val();
+                        var readerPwd = $("#readerPwd").val();
+
+                        if($(readerPwd).val()==''||$(readerName).val()==''||$(readerSex).val()==''||$(readerType).val()==''){
                             alert("请填入完整读者信息！");
                             return mySubmit(false);
                         }

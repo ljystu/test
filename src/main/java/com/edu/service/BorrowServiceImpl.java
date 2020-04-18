@@ -26,7 +26,6 @@ public class BorrowServiceImpl implements BorrowService{
     @Autowired
     private ReaderMapper readerMapper;
 
-
     @Override
     public boolean addBorrow(Borrow borrow) { return borrowMapper.addBorrow(borrow); }
 

@@ -25,7 +25,6 @@ public class ReaderController {
     @Qualifier("ReaderService")
     private ReaderService readerService;
 
-
     private Reader getReaderInfo(int readerId, String name, String type, String sex, String note) {
         Reader reader = new Reader();
         reader.setReaderName(name);
@@ -59,7 +58,7 @@ public class ReaderController {
 
         if (ad != null) {
             model.addAttribute("reader", reader);
-            return "redirect:/book/reader_allBook";
+            return "reader_main";
         } else {
             return "login_error";
         }
@@ -132,7 +131,6 @@ public class ReaderController {
         return "redirect:/Reader/allReader";
     }
 
-
     @RequestMapping("/reader_info.html")
     public String toReaderInfo(HttpServletRequest request, Model model) {
         Reader reader = (Reader) request.getSession().getAttribute("reader");
@@ -164,12 +162,10 @@ public class ReaderController {
         return "reader_info";
     }
 
-
     @RequestMapping("/reader_repasswd.html")
     public ModelAndView reader_repasswd() {
         return new ModelAndView("reader_repasswd");
     }
-
 
     @RequestMapping("/reader_repasswd_do")
     public String readerRepasswdDo(HttpServletRequest request, String oldPasswd, String newPasswd, String reNewPasswd, RedirectAttributes redirectAttributes) {

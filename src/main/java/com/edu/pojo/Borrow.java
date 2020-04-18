@@ -8,15 +8,13 @@ public class Borrow implements Serializable {
     private int bookBorrowId;
     private int bookId;
     private int readerId;
-
     private String borrowDate;
     private String returnDate;
     private String bookName;
-
     private Books books;
     private Reader reader;
-
     private String sta;
+
     @Override
     public String toString() {
         return "Borrow{" +
@@ -29,6 +27,7 @@ public class Borrow implements Serializable {
                 ", sta='" + sta + '\'' +
                 '}';
     }
+
     public Borrow() {
     }
 
@@ -41,7 +40,6 @@ public class Borrow implements Serializable {
         this.returnDate = returnDate;
         this.sta = sta;
     }
-
 
     public int getbookBorrowId() {
         return bookBorrowId;
@@ -106,5 +104,4 @@ public class Borrow implements Serializable {
     }
 
     public void setReader(Reader reader) { this.reader = reader; }
-
 }

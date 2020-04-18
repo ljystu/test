@@ -1,4 +1,5 @@
-<!DOCTYPE html><%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -9,7 +10,7 @@
 
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     <script src="${pageContext.request.contextPath}/js/jquery-3.2.1.js"></script>
-    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js" ></script>
+    <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
     <script>
         $(function () {
             $('#header').load('admin_header.html');
@@ -24,8 +25,8 @@
     <div class="row clearfix">
         <div class="col-md-12 column">
             <div class="page-header">
-                <h4 >
-                   还书申请
+                <h4>
+                    还书申请
                 </h4>
             </div>
         </div>
@@ -66,7 +67,9 @@
                         <td>${borrow.getReturnDate()}</td>
                         <td>${borrow.getSta()}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/Borrow/confirmRequest?id=${borrow.getbookBorrowId()}">确认归还</a>
+                            <a class="btn btn-success btn-xs"
+                               href="${pageContext.request.contextPath}/Borrow/confirmRequest?id=${borrow.getbookBorrowId()}">
+                                <span class="glyphicon glyphicon-ok-circle"></span>确认归还</a>
                         </td>
                     </tr>
                 </c:forEach>

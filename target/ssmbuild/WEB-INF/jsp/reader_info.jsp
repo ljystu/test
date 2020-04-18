@@ -76,8 +76,6 @@ background-attachment: fixed;">
                         <td class="product-buyer-name">${readerInfo.readerNote}</td>
                     </tr>
                 </table>
-
-
                 <a href="${pageContext.request.contextPath}/Reader/readerPersonal_edit.html">
                     <button type="button" value="确定" class="btn btn-success btn-sm " id="editButton">修改</button>
                 </a>

@@ -29,7 +29,7 @@ public class AdminController {
         Admin ad=adminService.loginAdmin(admin);
         if(ad!=null){
             model.addAttribute("admin",admin);
-            return "redirect:/book/allBook";
+            return "admin_main";
         }else{
             return "login_error";
         }
@@ -91,17 +91,5 @@ public class AdminController {
     public String logout() {
         return "redirect:../";
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

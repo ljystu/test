@@ -73,7 +73,6 @@ public class ReaderServiceImpl implements ReaderService {
         return readerMapper.updateReader(readerInfo);
     }
 
-
     public ReaderMapper getReaderMapper() {
         return readerMapper;
     }

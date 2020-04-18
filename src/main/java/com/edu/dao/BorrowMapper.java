@@ -33,7 +33,6 @@ public interface BorrowMapper {
 
     List<Borrow> findAllBorrow();
 
-
     //寻找状态外待确认的借阅记录
     List<Borrow> findRequest(@Param("sta") String sta);
 

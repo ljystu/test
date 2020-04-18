@@ -68,9 +68,7 @@
                   bookID like '%${detail}%' or bookName like '%${detail}%' or bookType like '%${detail}%' or bookKeyword like '%${detail}%'
                   or detail like '%${detail}%'
               </if>
-
           </where>
-
     </select>
 
 </mapper>

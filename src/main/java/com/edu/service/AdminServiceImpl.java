@@ -31,6 +31,4 @@ public class AdminServiceImpl implements AdminService{
     public int findIdByName(String name) {
         return adminMapper.findIdByName(name);
     }
-
-
 }
