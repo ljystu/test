@@ -87,7 +87,7 @@ public class BookController {
         String searchType=request.getParameter("searchType");
         System.out.println(keyword+" "+searchType);
 
-        if(keyword==""){
+        if(keyword.equals("")){
             List<Books> list = bookService.queryAllBook();
             model.addAttribute("list", list);
             return "admin_allBook";
