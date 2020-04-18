@@ -33,10 +33,7 @@
 
     <div class="row">
         <div class="col-md-4 column">
-
         </div>
-
-
     </div>
 
     <div class="row clearfix">
