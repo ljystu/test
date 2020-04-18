@@ -51,6 +51,11 @@ public class BorrowServiceImpl implements BorrowService{
     }
 
     @Override
+    public List<Borrow> findBorrowByReaderAndBookAndSta(int readerId, int bookId, String sta) {
+        return borrowMapper.findBorrowByReaderAndBookAndSta(readerId, bookId,sta);
+    }
+
+    @Override
     public Books queryBookById(int id) { return bookMapper.queryBookById(id); }
 
     @Override
@@ -58,6 +63,9 @@ public class BorrowServiceImpl implements BorrowService{
 
     @Override
     public String findReturnDateById(int id) { return borrowMapper.findReturnDateById(id); }
+
+    @Override
+    public String findBorrowDateById(int id) { return borrowMapper.findBorrowDateById(id); }
 
     @Override
     public List<Borrow> findBorrowByBook(int bookId) {
@@ -71,6 +79,11 @@ public class BorrowServiceImpl implements BorrowService{
 
     @Override
     public List<Borrow> findRequest(String sta) { return borrowMapper.findRequest(sta); }
+
+    @Override
+    public List<Borrow> findBorrowByStaAndReader(String sta, int readerId) {
+        return borrowMapper.findBorrowByStaAndReader(sta,readerId);
+    }
 
     public BorrowMapper getBorrowMapper() {
         return borrowMapper;

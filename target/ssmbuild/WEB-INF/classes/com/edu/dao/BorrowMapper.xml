@@ -55,9 +55,11 @@
         where bookId = #{bookId}
     </select>
 
-    <select id="findReaderIdByName" resultType="int" parameterType="String">
-        select readerId from ssmbuild.readers where readerName = #{readerName}
+    <select id="findBorrowByReaderAndBookAndSta" resultType="Borrow">
+        select * from ssmbuild.bookborrow
+        where bookId = #{bookId} and readerId = #{readerId} and sta = #{sta}
     </select>
+
 
     <select id="findRequest" resultType="Borrow">
         select * from ssmbuild.bookborrow where sta = #{sta}
@@ -67,4 +69,12 @@
         select returnDate from ssmbuild.bookborrow where bookBorrowId = #{bookBorrowId};
     </select>
 
+    <select id="findBorrowDateById" resultType="String">
+        select borrowDate from ssmbuild.bookborrow where bookBorrowId = #{bookBorrowId};
+    </select>
+
+    <select id="findBorrowByStaAndReader" resultType="Borrow">
+        select * from ssmbuild.bookborrow
+        where readerId = #{readerId} and sta = #{sta}
+    </select>
 </mapper>
