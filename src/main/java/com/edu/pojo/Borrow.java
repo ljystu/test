@@ -1,7 +1,6 @@
 package com.edu.pojo;
 
 import java.io.Serializable;
-import java.util.Date;
 
 public class Borrow implements Serializable {
 

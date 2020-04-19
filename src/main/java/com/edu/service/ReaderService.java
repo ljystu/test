@@ -1,8 +1,5 @@
 package com.edu.service;
-
 import com.edu.pojo.Reader;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
 
 public interface ReaderService {

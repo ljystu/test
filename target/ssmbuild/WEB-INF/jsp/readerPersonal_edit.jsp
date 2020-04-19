@@ -96,7 +96,7 @@ background-attachment: fixed;" onload="checkLength()">
                             }
                         })
                         function warning() {
-                            return confirm("确认要更改密码吗？") == true;
+                            return confirm("确认提交信息吗？") == true;
                         }
                     </script>
                 </form>

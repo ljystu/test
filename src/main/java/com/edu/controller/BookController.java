@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
+import java.util.logging.Logger;
 
 @Controller
 @RequestMapping("/book")
@@ -75,7 +76,6 @@ public class BookController {
 
     @RequestMapping("/QueryBookByName")
     public String QueryBookByName(Model model, @RequestParam(name="bookName") String name) {
-        System.out.println(name);
         List<Books> list = bookService.queryBookByNanme(name);
         System.out.println(list.toString());
         model.addAttribute("list", list);
@@ -113,7 +113,7 @@ public class BookController {
         String searchType=request.getParameter("searchType");
         System.out.println(keyword+" "+searchType);
 
-        if(keyword==""){
+        if(keyword.equals("")){
             List<Books> list = bookService.queryAllBook();
             model.addAttribute("list", list);
             return "reader_allBook";

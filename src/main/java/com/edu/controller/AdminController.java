@@ -1,7 +1,7 @@
 package com.edu.controller;
 
 import com.edu.pojo.Admin;
-import com.edu.pojo.Reader;
+
 import com.edu.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

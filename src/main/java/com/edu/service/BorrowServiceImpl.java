@@ -4,11 +4,8 @@ package com.edu.service;
 import com.edu.dao.BorrowMapper;
 import com.edu.dao.BookMapper;
 import com.edu.dao.ReaderMapper;
-
 import com.edu.pojo.Borrow;
 import com.edu.pojo.Books;
-
-import com.edu.pojo.Reader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -94,5 +91,5 @@ public class BorrowServiceImpl implements BorrowService{
     }
 
     @Override
-    public int findReaderIdByName(String name){ return readerMapper.findIdByName(name); };
+    public int findReaderIdByName(String name){ return readerMapper.findIdByName(name); }
 }
