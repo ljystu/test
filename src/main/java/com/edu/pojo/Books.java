@@ -5,7 +5,7 @@ import java.io.Serializable;
 
 public class Books implements Serializable {
 
-    private int bookID;
+    private int bookId;
     private String bookName;
     private int bookCounts;
     private String detail;
@@ -15,7 +15,7 @@ public class Books implements Serializable {
     @Override
     public String toString() {
         return "Books{" +
-                "bookID=" + bookID +
+                "bookId=" + bookId +
                 ", bookName='" + bookName + '\'' +
                 ", bookCounts=" + bookCounts +
                 ", detail='" + detail + '\'' +
@@ -25,19 +25,19 @@ public class Books implements Serializable {
     public Books() {
     }
 
-    public Books(int bookID, String bookName, int bookCounts, String detail) {
-        this.bookID = bookID;
+    public Books(int bookId, String bookName, int bookCounts, String detail) {
+        this.bookId = bookId;
         this.bookName = bookName;
         this.bookCounts = bookCounts;
         this.detail = detail;
     }
 
     public int getBookID() {
-        return bookID;
+        return bookId;
     }
 
-    public void setBookID(int bookID) {
-        this.bookID = bookID;
+    public void setBookID(int bookId) {
+        this.bookId = bookId;
     }
 
     public String getBookName() {

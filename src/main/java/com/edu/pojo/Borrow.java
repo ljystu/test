@@ -30,9 +30,9 @@ public class Borrow implements Serializable {
     public Borrow() {
     }
 
-    public Borrow(int bookBorrowId, int bookID, String bookName, int readerId, String borrowDate, String returnDate, String sta) {
+    public Borrow(int bookBorrowId, int bookId, String bookName, int readerId, String borrowDate, String returnDate, String sta) {
         this.bookBorrowId = bookBorrowId;
-        this.bookId = bookID;
+        this.bookId = bookId;
         this.bookName = bookName;
         this.readerId = readerId;
         this.borrowDate = borrowDate;

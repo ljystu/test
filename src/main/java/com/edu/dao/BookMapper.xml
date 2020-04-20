@@ -13,27 +13,27 @@
 
     <!--根据id删除一个Book-->
     <delete id="deleteBookById" parameterType="int">
-        delete from ssmbuild.books where bookID=#{bookId}
+        delete from ssmbuild.books where bookId=#{bookId}
     </delete>
 
     <!--更新Book-->
     <update id="updateBook" parameterType="Books">
         update ssmbuild.books
         set bookName = #{bookName},bookCounts = #{bookCounts},bookType=#{bookType},bookKeyword=#{bookKeyword},detail = #{detail}
-        where bookID = #{bookID}
+        where bookId = #{bookId}
     </update>
 
     <!--更新BookCounts-->
     <update id="updateBookCounts" parameterType="int">
         update ssmbuild.books
         set bookCounts = #{bookCounts}
-        where bookID = #{bookId}
+        where bookId = #{bookId}
     </update>
 
     <!--根据id查询,返回一个Book-->
     <select id="queryBookById" resultType="Books">
         select * from ssmbuild.books
-        where bookID = #{bookId}
+        where bookId = #{bookId}
     </select>
 
     <!--查询全部Book-->
@@ -49,8 +49,8 @@
     <select id="queryBook" resultType="Books">
           SELECT * FROM ssmbuild.books
           <where>
-              <if test='bookID!="all" and bookID!=""'>
-                bookID like '%${bookID}%'
+              <if test='bookId!="all" and bookId!=""'>
+                bookId like '%${bookId}%'
               </if>
               <if test='bookName!=""'>
                   bookName like '%${bookName}%'
@@ -61,11 +61,11 @@
               <if test='bookKeyword!=""'>
                   bookKeyword like '%${bookKeyword}%'
               </if>
-              <if test='detail!="" and bookID==""'>
+              <if test='detail!="" and bookId==""'>
                   detail like '%${detail}%'
               </if>
-              <if test='bookID=="all" and bookName=="" and bookType=="" and bookKeyword=="" and detail!=""'>
-                  bookID like '%${detail}%' or bookName like '%${detail}%' or bookType like '%${detail}%' or bookKeyword like '%${detail}%'
+              <if test='bookId=="all" and bookName=="" and bookType=="" and bookKeyword=="" and detail!=""'>
+                  bookId like '%${detail}%' or bookName like '%${detail}%' or bookType like '%${detail}%' or bookKeyword like '%${detail}%'
                   or detail like '%${detail}%'
               </if>
           </where>

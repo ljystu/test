@@ -40,20 +40,21 @@ background-attachment: fixed;" onload="checkLength()">
                            value="${reader.getReaderName()}"/>
                     <p style="text-align: right;color: red;position: absolute" id="readerNameCheck"></p>
                 </div>
-                <div class="error-msg"></div>
+                <br/>
                 <div class="input-group">
                     <span class="input-group-addon">读者类型</span>
                     <input type="text" name="readerType" class="form-control" maxlength="20"
                            value="${reader.getReaderType()}"/>
                 </div>
-                <div class="error-msg"></div>
+                <br/>
                 <div class="input-group">
                     <span class="input-group-addon">读者性别</span>
                     <input type="text" name="readerSex" class="form-control" maxlength="1" id="readerSex"
                            value="${reader.getReaderSex() }"/>
-                    <p style="text-align: right;color: red;position: absolute" id="SexCheck"></p>
+
                 </div>
-                <div class="error-msg"></div>
+                <p style="text-align: right;color: red;position: absolute" id="SexCheck"></p>
+                <br/>
                 <div class="input-group">
                     <span class="input-group-addon">读者备注</span>
                     <textarea type="text" class="form-control" name="readerNote" id="readerNote" maxlength="200"
@@ -68,8 +69,6 @@ background-attachment: fixed;" onload="checkLength()">
                 <a href="${pageContext.request.contextPath}/Reader/allReader">
                     <button type="button" class="btn btn-default btn-sm " onclick="return warning()" value="取消" id="returnButton">取消</button>
                 </a>
-
-
             </form>
             <script>
                 $("#updateReaderButton").click(function () {
@@ -84,7 +83,6 @@ background-attachment: fixed;" onload="checkLength()">
                             $("#SexCheck").text("提示：请输入正确的性别！");
                         else
                             $("#SexCheck").text("");
-
                     } else {
                         $("#updateReaderForm").submit();
                     }
