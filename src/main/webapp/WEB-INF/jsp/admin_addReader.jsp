@@ -36,7 +36,7 @@ background-attachment: fixed;">
                       id="addReaderForm">
                     <div class="input-group">
                         <span class="input-group-addon">读者账号</span>
-                        <input type="text" class="form-control" name="readerNames" id="readerName" maxlength="20">
+                        <input type="text" class="form-control" name="readerName" id="readerName" maxlength="20">
 
                     </div>
                     <p style="text-align: right;color: red;position: absolute" id="readerNameCheck"></p>
@@ -55,7 +55,7 @@ background-attachment: fixed;">
                     <br/>
                     <div class="input-group">
                         <span class="input-group-addon">读者密码</span>
-                        <input type="text" class="form-control" name="readerPwds" id="readerPwd" maxlength="20"
+                        <input type="text" class="form-control" name="readerPwd" id="readerPwd" maxlength="20"
                                placeholder="密码最长为20位">
                     </div>
                     <p style="text-align: right;color: red;position: absolute" id="PwdCheck"></p>
@@ -67,8 +67,8 @@ background-attachment: fixed;">
                     </a>
                     <script>
                         $("#addReaderButton").click(function () {
-                            var readerName = $("#readerPwd").val();
-                            var readerPwd = $("#readerName").val();
+                            var readerName = $("#readerName").val();
+                            var readerPwd = $("#readerPwd").val();
                             var readerSex = $("#readerSex").val();
                             if (readerName == '' || readerPwd == '' || (readerSex != '男' && readerSex != '女')) {
                                 if (readerName == '')

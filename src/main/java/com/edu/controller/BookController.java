@@ -14,7 +14,6 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
-import java.util.logging.Logger;
 
 @Controller
 @RequestMapping("/book")
@@ -93,18 +92,10 @@ public class BookController {
             return "admin_allBook";
         }
 
-        if(searchType.equals("全部")&&keyword.equals("")){
-           List<Books> list=bookService.queryBook(keyword,"");
-            System.out.println(list.toString());
-            model.addAttribute("list", list);
-            return "admin_allBook";
-        }
-        else{
-            List<Books> list=bookService.queryBook(keyword,searchType);
-            System.out.println(list.toString());
-            model.addAttribute("list", list);
-            return "admin_allBook";
-        }
+        List<Books> list=bookService.queryBook(keyword,searchType);
+        System.out.println(list.toString());
+        model.addAttribute("list", list);
+        return "admin_allBook";
     }
 
     @RequestMapping("readerQueryBook")
@@ -119,18 +110,10 @@ public class BookController {
             return "reader_allBook";
         }
 
-        if(searchType.equals("全部")&&keyword.equals("")){
-            List<Books> list=bookService.queryBook(keyword,"");
-            System.out.println(list.toString());
-            model.addAttribute("list", list);
-            return "reader_allBook";
-        }
-        else{
-            List<Books> list=bookService.queryBook(keyword,searchType);
-            System.out.println(list.toString());
-            model.addAttribute("list", list);
-            return "reader_allBook";
-        }
+        List<Books> list=bookService.queryBook(keyword,searchType);
+        System.out.println(list.toString());
+        model.addAttribute("list", list);
+        return "reader_allBook";
     }
 
 
