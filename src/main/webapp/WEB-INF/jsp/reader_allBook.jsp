@@ -7,11 +7,13 @@
         max-width: 200px;
         overflow: hidden;
         text-overflow: ellipsis;
-        white-space: nowrap;}
+        white-space: nowrap;
+    }
 </style>
 <head>
     <title>书籍列表</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=2.0, user-scalable=yes"/>
     <!-- 引入 Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 
@@ -27,7 +29,7 @@
 
 <body>
 
-<div  id="header"></div>
+<div id="header"></div>
 <br/>
 <div class="container" style="margin-left: 250px">
 
@@ -44,40 +46,41 @@
     <div class="row">
         <div class="col-md-7 column pull-right">
 
-        <form class="form-inline" id="searchForm" action="${pageContext.request.contextPath}/book/readerQueryBook"
-              method="post">
-            <input type="hidden" name="currentPage" id="currentPage" >
-            <input type="hidden" name="pageSize" id="pageSize" >
-            <div class="input-group">
-                <span class="input-group-addon">关键字</span>
-            <label for="keyword"></label>
-            <input type="text" class="form-control" id="keyword" maxlength="20" name="keyword" placeholder="请输入书籍关键字">
-            </div>
-            <div class="input-group">
-                <span class="input-group-addon">查询条件</span>
-            <label for="searchType"></label>
+            <form class="form-inline" id="searchForm" action="${pageContext.request.contextPath}/book/readerQueryBook"
+                  method="post">
+                <input type="hidden" name="currentPage" id="currentPage">
+                <input type="hidden" name="pageSize" id="pageSize">
+                <div class="input-group">
+                    <span class="input-group-addon">关键字</span>
+                    <label for="keyword"></label>
+                    <input type="text" class="form-control" id="keyword" maxlength="20" name="keyword"
+                           placeholder="请输入书籍关键字">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">查询条件</span>
+                    <label for="searchType"></label>
 
-            <select class="form-control" id="searchType" name="searchType">
-                <option>全部</option>
-                <option>书籍编号</option>
-                <option>书籍名称</option>
-                <option>书籍类型</option>
-                <option>书籍关键字</option>
-                <option>书籍详情</option>
-            </select>
-            </div>
-            <input type="submit" id="query" class="btn btn-primary" value="查询"/>
+                    <select class="form-control" id="searchType" name="searchType">
+                        <option>全部</option>
+                        <option>书籍编号</option>
+                        <option>书籍名称</option>
+                        <option>书籍类型</option>
+                        <option>书籍关键字</option>
+                        <option>书籍详情</option>
+                    </select>
+                </div>
+                <input type="submit" id="query" class="btn btn-primary" value="查询"/>
 
-            <button id="cancel" class="btn btn-success"
-                    href="${pageContext.request.contextPath}/book/reader_allBook">重置
-            </button>
-        </form>
+                <button id="cancel" class="btn btn-success"
+                        href="${pageContext.request.contextPath}/book/reader_allBook">重置
+                </button>
+            </form>
         </div>
     </div>
 
 
     <div class="row clearfix">
-        <div class="col-md-12 column" >
+        <div class="col-md-12 column">
             <table class="table table-hover table-striped">
                 <thead>
                 <tr>
@@ -103,7 +106,7 @@
                         <td>
                             <a class="btn btn-info btn-xs"
                                href="${pageContext.request.contextPath}/Borrow/addBorrow?bookId=${book.getBookID()}">
-                               <span class="glyphicon glyphicon-book"></span>借阅</a>
+                                <span class="glyphicon glyphicon-book"></span>借阅</a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -111,13 +114,23 @@
             </table>
         </div>
     </div>
-    <div>
-        借书规则：<br>
-        (1) 同一读者最多同时借阅5本不同的书。<br>
-        (2) 同一读者不能借阅2本相同的书。<br>
-        (3) 有逾期、损坏未赔偿情况的读者不能借书。需要先归还逾期图书/赔偿书籍损坏后方可借书。<br>
-        (4) 图书在归还前10天可以申请续借，续借将还书日期延后30天。每本图书的借阅只能续借一次。具体可在左侧菜单“我的借阅”中查看<br>
+    <div class="col-xs-12 " style="padding-top:20px;position: relative">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">读者须知</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    借书规则：<br>
+                    (1) 同一读者最多同时借阅5本不同的书。<br>
+                    (2) 同一读者不能借阅2本相同的书。<br>
+                    (3) 有逾期、损坏未赔偿情况的读者不能借书。需要先归还逾期图书/赔偿书籍损坏后方可借书。<br>
+                    (4) 图书在归还前10天可以申请续借，续借将还书日期延后30天。每本图书的借阅只能续借一次。具体可在左侧菜单“我的借阅”中查看<br>
+                </div>
+            </div>
+        </div>
     </div>
+
 </div>
 </body>
 <%--<script>--%>

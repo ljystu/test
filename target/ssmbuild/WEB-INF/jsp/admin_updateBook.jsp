@@ -37,7 +37,7 @@ background-attachment: fixed;" onload="checkLength()">
 
                 <form action="${pageContext.request.contextPath}/book/updateBook" method="post"
                       id="updateBookForm">
-                    <input type="hidden" name="bookID" value="${book.getBookID()}">
+                    <input type="hidden" name="bookId" value="${book.getBookID()}">
                     <div class="input-group">
                         <span class="input-group-addon">书籍名称</span>
                         <label for="updateBook"></label>
