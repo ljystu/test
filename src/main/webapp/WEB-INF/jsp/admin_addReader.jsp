@@ -70,9 +70,11 @@ background-attachment: fixed;">
                             var readerName = $("#readerName").val();
                             var readerPwd = $("#readerPwd").val();
                             var readerSex = $("#readerSex").val();
-                            if (readerName == '' || readerPwd == '' || (readerSex != '男' && readerSex != '女')) {
+                            if (readerName == '' ||!/^\d+$/.test(readerName)|| readerPwd == '' || (readerSex != '男' && readerSex != '女')) {
                                 if (readerName == '')
                                     $("#readerNameCheck").text("提示:读者账号不能为空！");
+                                else if (!/^\d+$/.test(readerName))
+                                    $("#readerNameCheck").text("提示:请输入正确的学号！");
                                 else
                                     $("#readerNameCheck").text("");
                                 if (readerPwd == '')
