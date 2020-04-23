@@ -3,6 +3,7 @@ package com.edu.pojo;
 import java.io.Serializable;
 
 public class Reader implements Serializable {
+
     private int readerId;
     private String readerName;
     private String readerType;

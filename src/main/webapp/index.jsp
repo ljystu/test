@@ -63,11 +63,6 @@ background-attachment: fixed;">
                     <input type="checkbox" id="remember">记住密码
                 </label>
             </div>
-
-<%--            <div class="text-right">--%>
-<%--                <a href="#" class="r_float">忘记密码？</a>--%>
-<%--            </div>--%>
-
             <p style="text-align: right;color: red;position: absolute" id="info"></p><br/>
             <button id="loginButton" type="button" class="btn btn-primary  btn-block">登录</button>
             <a class="btn btn-primary btn-block" href="${pageContext.request.contextPath}/Reader/register">注册</a>
@@ -118,7 +113,7 @@ background-attachment: fixed;">
     $("#loginButton").click(function () {
         var id = $("#username").val();
         var passwd = $("#password").val();
-        var remember=$("#remember").prop('checked');
+        var remember = $("#remember").prop('checked');
         if (id == '') {
             $("#info").text("提示:账号不能为空");
         } else if (passwd == '') {
@@ -127,9 +122,9 @@ background-attachment: fixed;">
             $("#info").text("提示:账号必须为数字");
         } else {
             $("#loginForm").submit();
-            if(remember){
-                rememberLogin(id,passwd,remember);
-            }else {
+            if (remember) {
+                rememberLogin(id, passwd, remember);
+            } else {
                 Cookies.remove('readerloginStatus');
             }
             $("#info").text("提示:提交成功，验证中...");
@@ -140,11 +135,6 @@ background-attachment: fixed;">
             window.open("reader_register.html")
         }
     )
-
-
-
 </script>
-</div>
-
 </body>
 </html>

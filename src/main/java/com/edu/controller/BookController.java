@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -80,6 +79,7 @@ public class BookController {
         model.addAttribute("list", list);
         return "admin_allBook";
     }
+
     @RequestMapping("adminQueryBook")
     public String QueryBook(HttpServletRequest request, HttpSession session,Model model){
         String keyword=request.getParameter("keyword");
@@ -116,7 +116,6 @@ public class BookController {
         return "reader_allBook";
     }
 
-
     @RequestMapping("/admin_header.html")
     public ModelAndView admin_header() { return new ModelAndView("admin_header");  }
 
@@ -124,5 +123,4 @@ public class BookController {
     public ModelAndView reader_header() {
         return new ModelAndView("reader_header");
     }
-
 }

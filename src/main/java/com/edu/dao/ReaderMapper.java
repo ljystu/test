@@ -2,9 +2,7 @@ package com.edu.dao;
 
 
 import com.edu.pojo.Reader;
-import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

@@ -1,7 +1,6 @@
 package com.edu.dao;
 
 import com.edu.pojo.Admin;
-
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 

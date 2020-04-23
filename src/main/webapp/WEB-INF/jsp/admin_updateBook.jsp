@@ -76,7 +76,9 @@ background-attachment: fixed;" onload="checkLength()">
                     <p>剩余字数：<span id="checkRest"></span></p>
                     <button type="button" class="btn btn-success btn-sm " value="提交" id="updateBookButton">提交</button>
                     <a href="${pageContext.request.contextPath}/book/allBook">
-                        <button type="button" class="btn btn-default btn-sm " onclick="return warning()" value="取消" id="returnButton">取消</button>
+                        <button type="button" class="btn btn-default btn-sm " onclick="return warning()" value="取消"
+                                id="returnButton">取消
+                        </button>
                     </a>
                 </form>
                 <script>
@@ -107,12 +109,11 @@ background-attachment: fixed;" onload="checkLength()">
                         var curr = maxChars - x.value.length;
                         document.getElementById("checkRest").innerHTML = curr.toString();
                     }
+
                     function warning() {
                         return confirm("确认要放弃更改吗？") == true;
                     }
                 </script>
-                </table>
-
             </div>
         </div>
     </div>

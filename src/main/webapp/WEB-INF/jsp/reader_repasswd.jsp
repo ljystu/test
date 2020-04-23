@@ -75,7 +75,8 @@
                         <em id="tishi" style="color: red"></em>
                         <br>
                         <span>
-                            <input type="submit" value="确认修改" onclick="return warning()" class="btn btn-success btn-sm"/>
+                            <input type="submit" value="确认修改" onclick="return warning()"
+                                   class="btn btn-success btn-sm"/>
                                <a href="${pageContext.request.contextPath}/book/reader_allBook">
                         <button type="button" class="btn btn-default btn-sm " value="取消" id="returnButton">取消</button>
                          </a>
@@ -103,6 +104,7 @@
                 return false;
             }
         })
+
         function warning() {
             return confirm("确认要更改密码吗？") == true;
         }

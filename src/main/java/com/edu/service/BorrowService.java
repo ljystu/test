@@ -3,7 +3,6 @@ package com.edu.service;
 import com.edu.pojo.Borrow;
 import com.edu.pojo.Reader;
 import com.edu.pojo.Books;
-
 import java.util.List;
 
 public interface BorrowService {
@@ -49,6 +48,4 @@ public interface BorrowService {
 
    //寻找指定状态和用户的借书记录
    List<Borrow> findBorrowByStaAndReader(String sta, int readerId);
-
-
 }

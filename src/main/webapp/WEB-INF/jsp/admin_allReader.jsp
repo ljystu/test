@@ -49,7 +49,8 @@
                 <div class="input-group">
                     <span class="input-group-addon">关键字</span>
                     <label for="readerName"></label>
-                    <input type="text"  id="readerName"class="form-control" maxlength="20" name="readerName" placeholder="请输入读者关键字">
+                    <input type="text" id="readerName" class="form-control" maxlength="20" name="readerName"
+                           placeholder="请输入读者关键字">
                 </div>
 
                 <input type="submit" id="query" class="btn btn-primary" value="查询"/>
@@ -70,7 +71,6 @@
                     <th>读者账号</th>
                     <th>读者性别</th>
                     <th>借书数量</th>
-                    <th>还书日期</th>
                     <th>读者类型</th>
                     <th>个人简介</th>
                     <th>操作</th>
@@ -84,7 +84,6 @@
                         <td>${reader.getReaderName()}</td>
                         <td>${reader.getReaderSex()}</td>
                         <td>${reader.getReaderBooks()}</td>
-                        <td >${reader.getRentDate()}</td>
                         <td class="product-buyer-name">${reader.getReaderType()}</td>
                         <td class="product-buyer-name">${reader.getReaderNote()}</td>
                         <td>
@@ -92,7 +91,8 @@
                                href="${pageContext.request.contextPath}/Reader/toUpdateReader?id=${reader.getReaderId()}">
                                 <span class="glyphicon glyphicon-pencil"></span>更改</a>
                             <a class="btn btn-danger btn-xs"
-                               href="${pageContext.request.contextPath}/Reader/del/${reader.getReaderId()}" onclick="return warning()">
+                               href="${pageContext.request.contextPath}/Reader/del/${reader.getReaderId()}"
+                               onclick="return warning()">
                                 <span class="glyphicon glyphicon-trash"></span>删除</a>
                         </td>
                     </tr>

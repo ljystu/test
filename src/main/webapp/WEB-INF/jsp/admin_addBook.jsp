@@ -70,7 +70,8 @@ background-attachment: fixed;">
                     <button type="button" class="btn btn-success btn-sm " value="提交" id="addBookButton">提交
                     </button>
                     <a href="${pageContext.request.contextPath}/book/allBook">
-                        <button type="button" class="btn btn-default btn-sm " onclick="return warning()" value="取消" id="returnButton">取消
+                        <button type="button" class="btn btn-default btn-sm " onclick="return warning()" value="取消"
+                                id="returnButton">取消
                         </button>
                     </a>
                     <script>
@@ -100,6 +101,7 @@ background-attachment: fixed;">
                             var curr = maxChars - which.value.length;
                             document.getElementById("checkRest").innerHTML = curr.toString();
                         }
+
                         function warning() {
                             return confirm("确认要取消添加吗？") == true;
                         }

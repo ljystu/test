@@ -15,8 +15,10 @@
         </div>
         <div class="collapse navbar-collapse" id="example-navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#" style="color: white" class="glyphicon glyphicon-user">${sessionScope.admin.adminName}管理员已登录</a></li>
-                <li><a href="${pageContext.request.contextPath}/Admin/logout.html" style="color: white"  class="glyphicon glyphicon-off">退出</a></li>
+                <li><a href="#" style="color: white" class="glyphicon glyphicon-user">${sessionScope.admin.adminName}管理员已登录</a>
+                </li>
+                <li><a href="${pageContext.request.contextPath}/Admin/logout.html" style="color: white"
+                       class="glyphicon glyphicon-off">退出</a></li>
             </ul>
         </div>
     </div>
