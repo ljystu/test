@@ -22,7 +22,7 @@
 
     <update id="updateReader" parameterType="Reader">
         update ssmbuild.readers
-        set readerName=#{readerName},readerType=#{readerType},readerSex=#{readerSex},readerBooks=#{readerBooks},rentDate=#{rentDate},readerNote=#{readerNote}
+        set readerName=#{readerName},readerType=#{readerType},readerSex=#{readerSex},readerBooks=#{readerBooks},readerNote=#{readerNote}
         where readerId=#{readerId}
     </update>
 
