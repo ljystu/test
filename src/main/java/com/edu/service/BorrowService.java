@@ -20,7 +20,11 @@ public interface BorrowService {
 
    int returnById(String sta, int id);
 
+   int addReaderBooks(int id, int books);
+
    Books queryBookById(int id);
+
+   Reader findReaderById(int id);
 
    String findReturnDateById (int id);
 
@@ -34,7 +38,11 @@ public interface BorrowService {
 
    List<Borrow> findBorrowByBook(int bookId);
 
+   //寻找所有的借阅记录
    List<Borrow> findAllBorrow();
+
+   //按条件查询借阅记录
+   List<Borrow> findBorrow(String name,String Type);
 
    //寻找所有状态为“待确认”的借阅记录
    List<Borrow> findRequest(String sta);

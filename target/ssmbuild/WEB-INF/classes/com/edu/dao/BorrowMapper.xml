@@ -77,4 +77,21 @@
         select * from ssmbuild.bookborrow
         where readerId = #{readerId} and sta = #{sta}
     </select>
+
+
+    <select id="findBorrow" resultType="Borrow">
+        SELECT * FROM ssmbuild.bookborrow
+        <where>
+            <if test='bookId!="all" and bookId!=""'>
+                bookId like '%${bookId}%'
+            </if>
+            <if test='readerId!="all" and readerId!=""'>
+                readerId like '%${readerId}%'
+            </if>
+            <if test='sta!=""'>
+                sta = #{sta}
+            </if>
+        </where>
+        order by sta desc;
+    </select>
 </mapper>

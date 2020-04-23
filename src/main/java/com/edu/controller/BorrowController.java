@@ -10,10 +10,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
@@ -39,7 +39,7 @@ public class BorrowController {
         borrowService.updateBorrow(overtime,now);
         List<Borrow> list = borrowService.findAllBorrow();
         model.addAttribute("list", list);
-        return "admin_borrow";
+        return "admin_allBorrow";
     }
 
     @RequestMapping("/findRequest")
@@ -152,6 +152,7 @@ public class BorrowController {
         String readerName = reader.getReaderName();
         //这里的readerId一定要通过readerName来查询。getReaderId会返回0
         int readerId = borrowService.findReaderIdByName(readerName);
+        reader = borrowService.findReaderById(readerId);
         Books book = borrowService.queryBookById(bookId);
         String bookName = book.getBookName();
         //如果图书数量小于1则报错
@@ -205,6 +206,7 @@ public class BorrowController {
             borrow.setReturnDate(returnDateString);
             borrow.setSta("未归还");
             System.out.println(borrow);
+            borrowService.addReaderBooks(readerId, reader.getReaderBooks()+1);
             borrowService.addBorrow(borrow);
             out.print("<script language=\"javascript\">alert('借书成功！点击确认跳转 我的借阅');" +
                     "location.href='readerBorrow'</script>");
@@ -225,18 +227,20 @@ public class BorrowController {
     @RequestMapping("/request")
     public void request(int id, HttpServletResponse response) throws IOException {
         String sta= "待确认";
+        response.setContentType("text/html;charset=gb2312");
+        PrintWriter out = response.getWriter();
         Borrow borrow = borrowService.findBorrowById(id);
         if(borrow.getSta().equals("未归还")||borrow.getSta().equals("逾期")) {
             borrowService.returnById(sta, id);
+            out.print("<script language=\"javascript\">alert('请等待管理员确认');" +
+                    "location.href='readerBorrow'</script>");
         }
         else{
-            response.setContentType("text/html;charset=gb2312");
-            PrintWriter out = response.getWriter();
             out.print("<script language=\"javascript\">alert('无效操作');" +
                     "location.href='readerBorrow'</script>");
-            out.flush();
-            out.close();
         }
+        out.flush();
+        out.close();
     }
 
     @RequestMapping("/reparation")
@@ -263,6 +267,24 @@ public class BorrowController {
         //System.out.println(id);
         borrowService.returnById(sta, id);
         return "redirect:allBorrow";
+    }
+
+    @RequestMapping("adminQueryBorrow")
+    public String QueryBook(HttpServletRequest request, HttpSession session, Model model){
+        String keyword=request.getParameter("keyword");
+        String searchType=request.getParameter("searchType");
+        System.out.println(keyword+" "+searchType);
+        //输入空白内容
+        if(keyword.equals("")){
+            List<Borrow> list = borrowService.findAllBorrow();
+            model.addAttribute("list", list);
+            return "admin_allBorrow";
+        }
+
+        List<Borrow> list=borrowService.findBorrow(keyword,searchType);
+        System.out.println(list.toString());
+        model.addAttribute("list", list);
+        return "admin_allBorrow";
     }
 
 

@@ -53,6 +53,11 @@
         where readerId = #{readerId}
     </update>
 
+    <update id="addReaderBooks">
+        update ssmbuild.readers set readerBooks = #{readerBooks}
+        where readerId = #{readerId}
+    </update>
+
     <select id="findIdByName" resultType="int" parameterType="String">
         select readerId from ssmbuild.readers where readerName = #{readerName}
     </select>

@@ -2,7 +2,6 @@ package com.edu.dao;
 
 
 import com.edu.pojo.Borrow;
-import com.edu.pojo.Reader;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -32,6 +31,9 @@ public interface BorrowMapper {
     List<Borrow> findBorrowByBook(@Param("bookId") int bookId);
 
     List<Borrow> findAllBorrow();
+
+    List<Borrow> findBorrow(@Param("bookId") String bookId, @Param("readerId") String readerId,
+                          @Param("sta") String sta);
 
     //寻找状态外待确认的借阅记录
     List<Borrow> findRequest(@Param("sta") String sta);

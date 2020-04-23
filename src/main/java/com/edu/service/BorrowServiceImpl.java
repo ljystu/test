@@ -6,6 +6,7 @@ import com.edu.dao.BookMapper;
 import com.edu.dao.ReaderMapper;
 import com.edu.pojo.Borrow;
 import com.edu.pojo.Books;
+import com.edu.pojo.Reader;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,6 +36,11 @@ public class BorrowServiceImpl implements BorrowService{
     }
 
     @Override
+    public int addReaderBooks(int id, int books) {
+        return readerMapper.addReaderBooks(id, books);
+    }
+
+    @Override
     public int returnById(String sta, int id) { return borrowMapper.returnById(sta, id); }
 
     @Override
@@ -54,6 +60,9 @@ public class BorrowServiceImpl implements BorrowService{
 
     @Override
     public Books queryBookById(int id) { return bookMapper.queryBookById(id); }
+
+    @Override
+    public Reader findReaderById(int id) { return readerMapper.findReaderById(id); }
 
     @Override
     public boolean updateBookCounts(int id, int counts) { return bookMapper.updateBookCounts(id,counts); }
@@ -80,6 +89,20 @@ public class BorrowServiceImpl implements BorrowService{
     @Override
     public List<Borrow> findBorrowByStaAndReader(String sta, int readerId) {
         return borrowMapper.findBorrowByStaAndReader(sta,readerId);
+    }
+
+    @Override
+    public List<Borrow> findBorrow(String name,String Type) {
+        switch (Type) {
+            case "图书编号":
+                return borrowMapper.findBorrow(name, "", "");
+            case "读者编号":
+                return borrowMapper.findBorrow("", name, "");
+            case "借阅状态":
+                return borrowMapper.findBorrow("", "", name);
+            default:
+                return borrowMapper.findBorrow("", "", "");
+        }
     }
 
     public BorrowMapper getBorrowMapper() {
