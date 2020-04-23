@@ -120,7 +120,7 @@
 </div>
 <script>
     function warning() {
-        return confirm("确认要删除吗？") == true;
+        return confirm("确认要删除吗？") === true;
     }
 </script>
 </body>

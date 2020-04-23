@@ -33,7 +33,32 @@
     </div>
 
     <div class="row">
-        <div class="col-md-4 column">
+        <div class="col-md-7 column pull-right">
+            <form class="form-inline" id="searchForm" action="${pageContext.request.contextPath}/Borrow/adminQueryBorrow"
+                  method="post">
+
+                <div class="input-group">
+                    <span class="input-group-addon">关键字</span>
+                    <label for="keyword"></label>
+                    <input type="text" class="form-control" maxlength="20" id="keyword" name="keyword" placeholder="请输入关键字">
+                </div>
+                <div class="input-group">
+                    <span class="input-group-addon">查询条件</span>
+                    <label for="searchType"></label>
+
+                    <select class="form-control" id="searchType" name="searchType">
+                        <option>读者编号</option>
+                        <option>图书编号</option>
+                        <option>借阅状态</option>
+                    </select>
+                </div>
+                <input type="submit" id="query" class="btn btn-primary" value="查询"/>
+
+                <button id="cancel" class="btn btn-success"
+                        href="${pageContext.request.contextPath}/borrow/allBorrow">重置
+                </button>
+
+            </form>
         </div>
     </div>
 

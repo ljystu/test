@@ -12,6 +12,8 @@ import java.util.List;
 @Repository
 public interface ReaderMapper {
 
+    int addReaderBooks(@Param("readerId") int id, @Param("readerBooks") int books);
+
     int addReader(Reader reader);
 
     int updateReader(Reader reader);
