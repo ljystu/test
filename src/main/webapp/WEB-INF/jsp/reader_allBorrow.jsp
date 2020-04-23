@@ -16,7 +16,6 @@
             $('#header').load('reader_header.html');
 
         })
-
     </script>
 </head>
 <body>
@@ -33,15 +32,10 @@
             </div>
         </div>
     </div>
-
     <div class="row">
         <div class="col-md-4 column">
-
         </div>
-
-
     </div>
-
     <div class="row clearfix">
         <div class="col-md-12 column">
             <table class="table table-hover table-striped">
@@ -55,7 +49,6 @@
                     <th>操作</th>
                 </tr>
                 </thead>
-
                 <tbody>
                 <c:forEach var="borrow" items="${requestScope.get('list')}">
                     <tr>

@@ -141,7 +141,6 @@ public class BorrowController {
         return "reader_allBorrow";
     }
 
-
     @RequestMapping("/addBorrow")
     public void addBorrow(Borrow borrow, int bookId,
                             HttpServletRequest request,
@@ -215,6 +214,7 @@ public class BorrowController {
         }
         //return "reader_main";
     }
+
     public static Date getNewDate(Date date, int i) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);
@@ -222,7 +222,6 @@ public class BorrowController {
         date = calendar.getTime();
         return date;
     }
-
 
     @RequestMapping("/request")
     public void request(int id, HttpServletResponse response) throws IOException {
@@ -258,7 +257,6 @@ public class BorrowController {
             out.flush();
             out.close();
         }
-        //return "redirect:readerBorrow";
     }
 
     @RequestMapping("/return")
@@ -287,8 +285,6 @@ public class BorrowController {
         return "admin_allBorrow";
     }
 
-
-
     @RequestMapping("/admin_header.html")
     public ModelAndView admin_header() { return new ModelAndView("admin_header");  }
 
@@ -296,5 +292,4 @@ public class BorrowController {
     public ModelAndView reader_header() {
         return new ModelAndView("reader_header");
     }
-
 }

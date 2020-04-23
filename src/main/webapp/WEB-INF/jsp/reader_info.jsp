@@ -2,7 +2,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- 引入 Bootstrap -->
     <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -54,7 +53,6 @@ background-attachment: fixed;">
             </div>
             <div class="panel-body">
                 <table class="table table-hover table-striped">
-
                     <tr>
                         <th width="20%">读者编号</th>
                         <td>${readerInfo.readerId}</td>
@@ -83,7 +81,5 @@ background-attachment: fixed;">
         </div>
     </div>
 </div>
-
-
 </body>
 </html>

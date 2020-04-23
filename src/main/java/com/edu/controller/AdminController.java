@@ -1,7 +1,6 @@
 package com.edu.controller;
 
 import com.edu.pojo.Admin;
-
 import com.edu.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
@@ -63,7 +61,6 @@ public class AdminController {
         return new ModelAndView("admin_repasswd");
     }
 
-
     @RequestMapping("/admin_repasswd_do")
     public String adminRepasswdDo(HttpServletRequest request, String oldPasswd, String newPasswd, String reNewPasswd, RedirectAttributes redirectAttributes) {
         Admin admin=(Admin) request.getSession().getAttribute("admin");
@@ -91,5 +88,4 @@ public class AdminController {
     public String logout() {
         return "redirect:../";
     }
-
 }

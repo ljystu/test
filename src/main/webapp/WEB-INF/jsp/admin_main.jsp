@@ -55,7 +55,8 @@ background-attachment: fixed;">
                 (2) 对于读者<span style="color: red; ">损坏丢失</span>的书籍，管理员需要及时进行处理。<br>
                 (3) 在书籍借还管理中可以通过接环日志对借还情况进行查看，被<span style="color: red; ">删除</span>的书籍的借还记录将不再显示。<br>
                 (4) 管理员添加或管理书籍时必须填写正确的书籍<span style="color: red; ">名称</span>和<span style="color: red; ">数量</span>，其余选项为非选填项<br>
-                (5) 管理员添加或管理读者时必须填写正确的读者<span style="color: red; ">名称</span>、<span style="color: red; ">性别</span>和<span style="color: red; ">密码</span>，其余选项为非选填项<br>
+                (5) 管理员添加或管理读者时必须填写正确的读者<span style="color: red; ">名称</span>、<span style="color: red; ">性别</span>和<span
+                    style="color: red; ">密码</span>，其余选项为非选填项<br>
                 <h4>系统提示：</h4>
                 (1) 图书借阅的状态共有6种，即“未归还”，“申请归还”，“已归还”，“逾期”，“损坏赔偿”，“已损坏赔偿”。
                 (2) 图书归还需要在该网页上点击“申请归还”，管理员会在1个工作日内确认信息。<br>

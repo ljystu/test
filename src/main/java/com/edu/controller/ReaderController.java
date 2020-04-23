@@ -145,20 +145,20 @@ public class ReaderController {
         Reader reader = (Reader) request.getSession().getAttribute("reader");
         Reader readerInfo = readerService.getReaderInfo(reader.getReaderName());
         model.addAttribute("readerInfo", readerInfo);
-        request.setAttribute("readerInfo",readerInfo);
+        request.setAttribute("readerInfo", readerInfo);
         return "readerPersonal_edit";
     }
 
     @RequestMapping("readerPersonal_edit_do.html")
-    public String readerInfoEditDo(HttpServletRequest request, String name, String type,String sex, String detail, RedirectAttributes redirectAttributes) {
-        int readerId =  Integer.parseInt(request.getParameter("readerId"));
-        Reader readerInfo = getReaderInfo(readerId, name,type,sex,detail);
-        if (readerService.editReaderInfo(readerInfo)>0) {
+    public String readerInfoEditDo(HttpServletRequest request, String name, String type, String sex, String detail, RedirectAttributes redirectAttributes) {
+        int readerId = Integer.parseInt(request.getParameter("readerId"));
+        Reader readerInfo = getReaderInfo(readerId, name, type, sex, detail);
+        if (readerService.editReaderInfo(readerInfo) > 0) {
             redirectAttributes.addFlashAttribute("succ", "读者信息修改成功！");
         } else {
             redirectAttributes.addFlashAttribute("error", "读者信息修改失败！");
         }
-        request.setAttribute("readerInfo",readerInfo);
+        request.setAttribute("readerInfo", readerInfo);
         return "reader_info";
     }
 

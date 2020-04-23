@@ -2,7 +2,6 @@ package com.edu.pojo;
 
 import java.io.Serializable;
 
-
 public class Books implements Serializable {
 
     private int bookId;
@@ -79,5 +78,4 @@ public class Books implements Serializable {
     public void setBookKeyword(String bookKeyword) {
         this.bookKeyword = bookKeyword;
     }
-
 }
