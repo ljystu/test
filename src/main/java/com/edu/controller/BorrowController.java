@@ -246,18 +246,20 @@ public class BorrowController {
     @RequestMapping("/reparation")
     public void reparation (int id, HttpServletResponse response) throws IOException {
         String sta= "损坏赔偿";
+        response.setContentType("text/html;charset=gb2312");
+        PrintWriter out = response.getWriter();
         Borrow borrow = borrowService.findBorrowById(id);
         if(borrow.getSta().equals("未归还")) {
             borrowService.returnById(sta, id);
+            out.print("<script language=\"javascript\">alert('已成功申请损坏赔偿，管理员会在5个工作日内联系您');" +
+                    "location.href='readerBorrow'</script>");
         }
         else{
-            response.setContentType("text/html;charset=gb2312");
-            PrintWriter out = response.getWriter();
             out.print("<script language=\"javascript\">alert('无效操作');" +
                     "location.href='readerBorrow'</script>");
-            out.flush();
-            out.close();
         }
+        out.flush();
+        out.close();
         //return "redirect:readerBorrow";
     }
 
