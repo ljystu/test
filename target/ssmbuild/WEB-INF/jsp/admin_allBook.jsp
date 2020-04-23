@@ -52,7 +52,8 @@
                 <div class="input-group">
                     <span class="input-group-addon">关键字</span>
                     <label for="keyword"></label>
-                    <input type="text" class="form-control" maxlength="20" id="keyword" name="keyword" placeholder="请输入书籍关键字">
+                    <input type="text" class="form-control" maxlength="20" id="keyword" name="keyword"
+                           placeholder="请输入书籍关键字">
                 </div>
                 <div class="input-group">
                     <span class="input-group-addon">查询条件</span>
@@ -92,7 +93,6 @@
                     <th>操作</th>
                 </tr>
                 </thead>
-
                 <tbody>
                 <c:forEach var="book" items="${requestScope.get('list')}">
                     <tr>
